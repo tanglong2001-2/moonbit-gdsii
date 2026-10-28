@@ -4,11 +4,12 @@ Native GDSII binary records, REAL8 numerics, hierarchy expansion and rectangle p
 Module: `tanglong2001/gdsii` (not published to Mooncakes).
 Source repository: [tanglong2001-2/moonbit-gdsii](https://github.com/tanglong2001-2/moonbit-gdsii).
 
-The library has no external MoonBit/runtime dependencies and runs on JS and Wasm-GC.
-The optional file consumer uses Node.js. Validated toolchain: moonc 0.10.12,
+The library has no external MoonBit dependencies. CI covers JS and Wasm-GC plus
+Linux x86-64 native core consumers on Ubuntu 24.04. The optional file consumer uses
+Node.js and remains JS-only. Validated toolchain: moonc 0.10.12,
 moon 0.1.20260904. Public signatures are in `pkg.generated.mbti`.
 
-GitHub Actions checks and builds both targets, runs the full test suite and portable
+GitHub Actions checks and builds both portable targets, runs the full test suite and portable
 example, and verifies the authored GDS bytes through the real Node file consumers.
 The SDK, core archives and Actions are pinned by version and SHA-256/commit in
 `.ci/toolchain.json` and `.github/workflows/ci.yml`; Node.js is fixed at 24.11.0.
@@ -96,6 +97,29 @@ After `moon build --target js`, `node .ci/record_rewrite.mjs` checks a complete
 property rewrite on JS and Wasm-GC against independently constructed GDS bytes.
 It materializes and reads back both files, and passes a rejected rewrite to the
 existing file materializer to verify that no output directory is created.
+
+## Linux native core consumers
+
+With the pinned SDK/core configured in `MOON_HOME`, run:
+
+```sh
+moon test --target native
+python3 .ci/native_core.py --expect-platform linux
+```
+
+The native gate builds `cmd/author`, `tests/record_rewrite` and `tests/native_core`,
+verifies their ELF64 x86-64 executable headers, and directly runs the binaries
+with an empty runtime PATH. Python checks the resulting GDS streams and property
+rewrite against independently declared bytes, and REAL8 values against exact
+rational expectations. DBU half-neighbors, overflow and malformed inputs are
+included. The applications use the MoonBit core API and no Node host.
+
+`_build/ci/native/` retains build logs, generated-C/executable hashes, the actual
+SDK identity, three binaries, and expected/read-back original GDS files. Use a
+fresh `--output DIRECTORY` for another local attempt to preserve previous evidence.
+The Linux claim is limited to the CI's Ubuntu 24.04 x86-64 environment and pinned
+SDK; downloaded-binary portability is not certified. The Node file wrapper keeps
+its existing JS-only contract.
 
 ## Author an original rectangle pair
 

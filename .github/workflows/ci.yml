@@ -69,3 +69,31 @@ jobs:
           path: _build/ci/
           if-no-files-found: error
           retention-days: 14
+
+  linux-native-consumers:
+    name: Linux native public API consumers
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Record exact source identity
+        run: python3 .ci/source_identity.py
+      - name: Install verified native SDK and core
+        run: bash .ci/install-moonbit.sh native
+      - name: Check native core and consumers
+        run: moon check --target native
+      - name: Test native core
+        run: moon test --target native > _build/ci/native-tests.txt
+      - name: Build and directly verify native applications
+        run: python3 .ci/native_core.py --expect-platform linux
+      - name: Retain native compiler and executable evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: gdsii-native-${{ github.sha }}
+          path: _build/ci/
+          if-no-files-found: error
+          retention-days: 14
