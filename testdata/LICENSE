@@ -1,0 +1,8 @@
+CC0 1.0 Universal dedication
+
+The original synthetic layouts and associated project-authored expected values
+in testdata/, examples/*.gds, embedded fixture tests and cmd/author's original
+demonstration output are dedicated to the
+public domain under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+These are original generated geometry, not third-party foundry/Calma sample data.
+Generator/tool software and external documents retain their respective licenses.

@@ -1,0 +1,627 @@
+# GDSII for MoonBit
+
+Native GDSII binary records, REAL8 numerics, hierarchy expansion and rectangle preflight.
+Module: `tanglong2001/gdsii` (not published to Mooncakes).
+Source repository: [tanglong2001-2/moonbit-gdsii](https://github.com/tanglong2001-2/moonbit-gdsii).
+
+The library has no external MoonBit/runtime dependencies and runs on JS and Wasm-GC.
+The optional file consumer uses Node.js. Validated toolchain: moonc 0.10.12,
+moon 0.1.20260904. Public signatures are in `pkg.generated.mbti`.
+
+GitHub Actions checks and builds both targets, runs the full test suite and portable
+example, and verifies the authored GDS bytes through the real Node file consumers.
+The SDK, core archives and Actions are pinned by version and SHA-256/commit in
+`.ci/toolchain.json` and `.github/workflows/ci.yml`; Node.js is fixed at 24.11.0.
+Each run retains its commit, source hashes, tool versions and consumer evidence
+as the `gdsii-ci-<commit>` artifact.
+
+## Run
+
+```sh
+moon check --target js
+moon build --target js
+moon test --target js
+moon test --target wasm-gc
+moon run cmd/example --target js
+moon run cmd/example --target wasm-gc
+moon run cmd/author --target js
+moon run cmd/author --target wasm-gc
+node tools/inspect.mjs --catalog examples/demo.gds
+node tools/inspect.mjs --hierarchy examples/demo.gds top
+node tools/inspect.mjs examples/demo.gds top 7 2 3 5
+node tools/inspect.mjs --preflight examples/demo.gds top 7 2 3 5
+node tools/inspect.mjs --compare examples/revision-before.gds examples/revision-after.gds top 7 2 3 3
+node tools/inspect.mjs --preflight-tops examples/multi-top-before.gds 7 2 3 3
+node tools/inspect.mjs --compare-tops examples/multi-top-before.gds examples/multi-top-after.gds 7 2 3 3
+```
+
+Selected-cell modes take cell, layer, datatype, minimum width and minimum spacing;
+the top-candidate modes omit cell. All geometry/rule values are in input database
+units (DBU). The Node wrapper streams the binary file as hex
+over stdin to the compiled MoonBit consumer. Positional mode returns all flattened
+shapes, per-instance source paths, selected rectangles, skipped-geometry findings,
+violations and actual sweep/index work counters. Exit 2 means a parse/request/
+hierarchy error. Geometry warnings must be considered before making a layout-level
+decision; zero rectangle violations does not certify unchecked geometry.
+
+Expansion commands accept an optional final positive INT32 `budget` after
+spacing. Supply all preceding selectors/thresholds when setting it:
+
+```sh
+node tools/inspect.mjs --preflight layout.gds top 7 2 3 5 200000
+node tools/inspect.mjs --compare-tops before.gds after.gds 7 2 3 5 200000
+```
+
+This applies to positional inspection, `--preflight`, `--compare`,
+`--preflight-tops` and `--compare-tops`. Omission keeps 100000. The budget counts
+visited cell instances and emitted shapes before layer selection; it ranges from
+1 to 2147483647. Each candidate and each comparison revision receives a fresh
+budget. Exceeding it returns `ExpansionLimit` with the chosen limit, preserving
+candidate/side errors and later batch results. It does not return truncated
+geometry. The existing hierarchy depth, coordinate and output limits still apply.
+Catalogue/hierarchy inventory does not expand geometry or consume this budget.
+
+For an unfamiliar file, start with `--catalog`: it needs no cell name or layer
+selectors. Its JSON lists each cell's element definitions, references and
+per-kind layer/type counts, top-cell candidates, missing targets and DBU units.
+Choose a cell, then use `--hierarchy file.gds cell` to see its reachable layers
+and reference problems before choosing a layer/type for the preflight command.
+Use `--preflight` for the source-located summary and a result-specific exit code;
+the positional command remains available for the full geometry/low-level output.
+
+## Library
+
+```moonbit nocheck
+let library = @gdsii.GdsLibrary::parse(bytes).unwrap()
+let catalog = library.catalog() // inspect definitions without expanding arrays
+let target = library.hierarchy("top").unwrap() // reachable layers and graph findings
+let original_bytes = library.to_bytes() // raw records and zero padding preserved
+let flat = library.flatten_cell("top", budget=100000).unwrap()
+let selection = flat.rectangles(7, 2) // explicit layer AND datatype
+let findings = @gdsii.check_manhattan_drc(selection.rects, 3, 5).unwrap()
+let report = library.preflight_cell("top", 7, 2, 3, 5).unwrap()
+```
+
+`GdsLibrary::from_records` is the checked record-based creation/rewrite entry.
+`cells()` returns a newly parsed semantic view, so caller array edits cannot alter
+the original library. `records()` exposes immutable payloads in a copied array.
+Errors carry record offsets, missing cell names, cycle paths or numerical failures.
+
+## Author an original rectangle pair
+
+`cmd/author` is a runnable example of the existing `from_records` creation API.
+Edit the two tuple arrays in `cmd/author/main.mbt` to supply rectangle corners in
+DBU. Private sample helpers create record payloads, then `from_records` checks
+the records and `to_bytes` serializes them. Library/cell names, layer7/type2,
+unit values and original timestamps are fixed for a deterministic demonstration;
+the sample helpers are not a new general writer API.
+
+The example prints one `gdsii-author-v1` JSON object. `before` and `after` each
+contain a byte-integer array and the existing preflight report; `comparison` is
+their existing finding delta. JS and Wasm-GC produce the same object and GDS bytes.
+The default before drawing has two width4 boxes with a gap6. The after drawing
+narrows the second to width2: width3/spacing5 finds exactly one new width issue,
+measured2 and shortfall1, while spacing remains clear.
+
+```sh
+moon build --target js
+moon run cmd/author --target js | node tools/save_author.mjs authored-pair
+node tools/inspect.mjs --preflight authored-pair/after.gds top 7 2 3 5
+node tools/inspect.mjs --compare-tops authored-pair/before.gds authored-pair/after.gds 7 2 3 5
+```
+
+`save_author.mjs` consumes that JSON on stdin and writes `before.gds`/`after.gds`
+inside the specified **new** directory; its parent must exist. It validates both
+byte arrays before creating output, refuses an existing directory, returns the
+saved paths as JSON and reports request/input/filesystem errors with exit2.
+It materializes the sample's bytes; it does not certify report provenance or
+perform geometry edits. The two review commands intentionally exit3 for the new
+width issue. Use a fresh directory for another authored pair.
+
+The helper also accepts a UTF-8 staged JSON file with one leading BOM. It removes
+that initial marker before the same JSON/schema/byte validation; malformed JSON
+still fails before output creation. This supports explicit Windows text-file
+staging without changing the GDS bytes or adding automatic UTF-16 decoding.
+For example, in PowerShell7, choose unused file/directory names:
+
+```powershell
+moon run cmd/author --target js | Set-Content -LiteralPath authored.json -Encoding utf8BOM
+cmd /d /c "node tools\save_author.mjs authored-staged < authored.json"
+```
+
+Modern PowerShell normally uses UTF-8 without a BOM; `utf8BOM` is an explicit
+choice here. [Microsoft's encoding reference](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding?view=powershell-7.5)
+describes that distinction. Direct author-to-helper piping remains available.
+
+Source remains MIT; the original demonstration data is dedicated under
+`testdata/LICENSE`. The demonstration uses DBU units of1, not a process recipe.
+The existing selected-scope, raw-rectangle, comparison and no-signoff contracts
+apply to caller-authored files exactly as they do to input files.
+
+## Discovery and review library APIs
+
+`catalog()` returns fresh typed `GdsCatalog` / `CatalogCell` / `LayerUsage` /
+`CatalogReference` values. Counts describe definitions: an AREF is one reference,
+with `instances = columns * rows`, and repeated references do not multiply layer
+counts. Layer entries distinguish BOUNDARY/PATH/BOX/NODE/TEXT even when their
+layer/type numbers coincide. Cells follow file order and layer entries follow
+first occurrence. Missing references include the cell and zero-based element
+index. `top_cells` means known cells without incoming references; cycles can
+produce an empty list. Inventory does not validate cycles or run geometry rules.
+It performs no hierarchy expansion or transforms, so large arrays and cyclic or
+numerically unflattenable hierarchies can still be inspected. Parse errors fail.
+The existing portable example prints this catalogue, a selected-root hierarchy
+report, then its preflight result.
+
+`hierarchy(cell)` returns a `HierarchyReport` for the chosen cell. Its
+`reachable_cells` includes that cell and all known descendants in file order.
+`layers` merges per-kind/layer/type definition counts over those unique cells:
+a shared leaf is counted once, independently of reference/AREF multiplicity.
+`references` preserves each reachable reference's original cell and element index;
+`missing_references` excludes problems in disconnected cells. `cycle` is one
+closed witness, chosen by the first DFS back edge in reference order, or `[]`.
+The walk continues after finding a cycle so other reachable content remains visible.
+A missing selected cell returns `MissingCell`; missing descendants and cycles
+remain inventory findings. Returned arrays are fresh.
+
+This iterative graph inspection does not apply transforms, expand arrays or use
+the flatten depth limit. Its cost depends on file definitions/references/layer
+entries, not on expanded instance geometry. The report helps choose selectors;
+empty graph findings do not certify numerical flattening or DRC validity.
+
+`preflight_cell(cell, layer, datatype, min_width, min_spacing, budget=100000)`
+combines the existing flatten/selection/rectangle checks. Its `PreflightReport`
+records cell, selectors, thresholds, DBU meters, selected/checked counts, skipped
+geometry and sweep work. Each `PreflightIssue` includes the width/spacing rule,
+required threshold, one/two world rectangle bounds and full instance source paths,
+plus approximate measured and positive shortfall values in DBU. Graph, numeric
+and expansion errors propagate. Negative selectors/thresholds are request errors.
+The portable example now prints catalogue, hierarchy and this complete report.
+
+| Status | Meaning in the selected raw-rectangle rule profile | `--preflight` exit |
+| --- | --- | --- |
+| RectanglesClear | At least one checked rectangle, no selected skips or violations | 0 |
+| ViolationsFound | Checked violations exist; any skips are also retained | 3 |
+| IncompleteGeometry | No checked violations, but selected geometry was skipped | 4 |
+| EmptySelection | No known geometry on this layer/type in the selected cell | 4 |
+
+Request/parse/graph/numeric errors exit 2. Old modes keep their existing exit
+behavior. Work counters retain the core Int64 decimal-string JSON encoding.
+File-read/build/engine failures also return one JSON `error` and exit 2.
+Wrapper errors carry `stage` (`request`, `input`, `build`, `engine`), `code`, `message` and
+relevant path/process context. Input errors preserve the OS code; an unavailable
+compiled consumer gives `BUILD_UNAVAILABLE` and the build command. Existing
+MoonBit parse/graph/numeric error JSON keeps its original structure. Failed or
+invalid child output is not printed as a partial report. Results use natural
+process exit with `exitCode` so pending output can drain.
+
+Numeric arguments in positional, preflight and compare modes, including top-candidate
+batches, must contain an explicit value.
+Empty or whitespace-only selector/threshold tokens return
+`request/EMPTY_NUMERIC_ARGUMENT` with the argument name and exit 2. Use an explicit
+`0` for an intentional zero threshold. Existing nonempty numeric forms and omitted
+defaults are retained; catalogue/hierarchy do not validate numeric arguments they
+do not consume.
+
+Shortfall is a rule deficit, not an edit instruction: overlapping boxes may need
+more movement before a positive gap appears, and resizing shared child geometry
+can affect multiple instances. Use the source/bounds to review a change and
+recheck afterward. This API performs no geometry edits or process signoff.
+
+A strict spacing violation can have a displayed Double distance that rounds to
+the threshold. Shortfall uses the positive exact squared deficit divided by
+`threshold + distance`, avoiding cancellation in that case. Classification remains
+the existing exact integer predicate; displayed numerical values are approximate.
+
+## Revision finding comparison
+
+Run the two-file `--compare` command above after a change, or call the additive
+`PreflightReport::diff(after)` on two library reports. The selected cell, layer/
+type, rule thresholds and reported binary64 DBU-meter metadata must match;
+incompatible profiles return `InvalidGeometry`. The CLI requires two paths and
+uses one shared cell/rule selection. Shipped original CC0 revision files show a
+width/spacing correction: two reported findings disappear and the after report
+is RectanglesClear.
+
+```moonbit nocheck
+let before = before_library.preflight_cell("top", 7, 2, 3, 3).unwrap()
+let after = after_library.preflight_cell("top", 7, 2, 3, 3).unwrap()
+let changes = before.diff(after).unwrap()
+```
+
+Finding identity is rule plus exact world rectangle bounds, as a **multiset**.
+Spacing pairs are unordered. Positional source paths and rounded diagnostic
+values do not affect matching, so element reorder or hierarchy refactor does not
+invent changes. Duplicate occurrences remain counted. `introduced` issues carry
+after-side context; `removed` carries before-side context; `retained` is a count.
+Arrays are fresh. Moving/reshaping an issue removes one geometry key and adds
+another; there is no persistent object tracking or inference of a safe repair.
+NoNewIssues can retain old violations, and different layouts can produce the same
+findings. This compares supplied report findings, not complete geometry or report
+provenance; malformed issue arity/threshold consistency is checked.
+
+| Comparison status | Meaning | `--compare` exit |
+| --- | --- | --- |
+| NoNewIssues | Complete checked scope, no introduced findings; retained issues may remain | 0 |
+| NewIssuesFound | Complete checked scope with introduced findings | 3 |
+| IncompleteComparison | Either report skipped geometry or checked no rectangles; subset deltas remain visible | 4 |
+
+Errors exit 2. A failure associated with one revision carries `error.side` as
+before/after; profile failures use comparison. Engine-side errors retain the
+original error under `error.detail`; wrapper input errors retain their stage/code/
+path. Before/after statuses, checked counts and skipped findings are included so
+disappearance under unchecked geometry cannot be mistaken for a repair result.
+Original consumer modes and public signatures remain compatible.
+
+## One-request top-candidate batches
+
+Use `--preflight-tops file.gds layer datatype width spacing` to check every
+catalogue top candidate in one invocation. Use `--compare-tops before.gds
+after.gds layer datatype width spacing` for a per-candidate revision review.
+There is no cell argument; omitted numeric values keep the 7/2/3/5 defaults.
+Each file is parsed once. These are private consumer orchestration operations
+over the existing public library methods; they add no library dependency or
+public MoonBit API.
+
+The JSON `batch` contains mode, aggregate status, candidate lists, `results` and
+`counts`. Each result identifies its cell and carries the existing `preflight`,
+`comparison` or `error` JSON. A candidate's graph, numeric, budget or comparison
+error is retained and processing continues with later candidates. Global input/
+parse/request failures remain top-level errors and exit 2.
+
+Preflight follows catalogue file order. Comparison checks the union of before
+top candidates followed by after-only candidates, matching the same cell name
+in both files. `before_top` / `after_top` and both candidate lists expose root
+membership changes. A cell that became a child can still be compared; a name
+absent from either file returns its side-tagged `MissingCell` error, rather than
+being treated as a repaired or empty selection. Other errors preserve the
+existing before/after/comparison side context.
+
+| Aggregate status | Meaning | Exit |
+| --- | --- | --- |
+| ErrorsFound | At least one candidate errored; other results remain visible | 2 |
+| Incomplete | An IncompleteGeometry/EmptySelection/IncompleteComparison result, or no candidates; no errors | 4 |
+| IssuesFound | A ViolationsFound/NewIssuesFound result; no status-level incomplete result or error | 3 |
+| Passed | Nonempty scope with every result RectanglesClear/NoNewIssues | 0 |
+
+Precedence is errors, incomplete, issues, then passed. Counts describe root
+results: `passed`, `failed` (violations/new findings), `incomplete`, `errors`;
+they do not count individual findings. A passed comparison can still retain old
+issues under its existing NoNewIssues contract.
+
+`coverage.complete` independently describes selected raw-rectangle coverage. It
+is true when there is at least one candidate and every candidate has checked
+rectangles, no selected skips and no error; comparison requires this on both
+sides. `coverage.unchecked_cells` lists each root with an error, zero checked
+rectangles or selected skips once, in result order. With no candidates, complete
+is false and the list is empty. Global input/request/parse failures keep their
+top-level error response because candidate scope could not be established.
+
+Status/count categories are preserved: a preflight candidate with both a width
+violation and a skipped PATH remains ViolationsFound/failed, so the aggregate may
+be IssuesFound (exit 3) while coverage.complete is false. `counts.incomplete` is
+a status category, not the count of every partially checked candidate. Conversely,
+coverage.complete=true can coexist with violations or retained baseline issues;
+it is not an all-clear or physical-signoff flag.
+
+```sh
+node tools/inspect.mjs --preflight-tops examples/multi-top-partial.gds 7 2 3 3
+```
+
+This original CC0 example has one width issue plus a skipped PATH in `mixed`, and
+a clear `healthy` candidate. It exits 3 with passed=1, failed=1, incomplete=errors=0
+and `coverage: {"complete": false, "unchecked_cells": ["mixed"]}`. Batch JSON
+adds this coverage object; existing fields, per-root payloads and exits remain.
+Consumers that compare entire JSON strings need to account for the additive field.
+
+The shipped CC0 multi-top example has `repair`, `regression`, `stable` candidates.
+The compare command above reports one removed width issue, one new spacing issue
+and an unchanged clear candidate: passed=2, failed=1, incomplete=errors=0, exit 3.
+It demonstrates that a repair in one object does not hide a regression in another.
+
+Each candidate is checked independently with the default expansion budget 100000
+or the explicit final budget. Top cells are not overlaid and no cross-top spacing
+is checked. Candidate
+discovery is not whole-library coverage: isolated cyclic components may have no
+top candidate. An empty candidate list produces Incomplete, not vacuous success;
+use selected-cell/hierarchy modes to inspect other definitions. Existing raw
+rectangle, output-buffer, numerical and no-signoff limits apply.
+
+## Format and hierarchy profile
+
+The format reference is Calma **Stream Format Manual, Release 6.0 (February 1987)**.
+This is a documented reference profile, not a claim of every historical tape feature.
+
+| Records | Behavior |
+| --- | --- |
+| HEADER/BGNLIB/LIBNAME/UNITS/ENDLIB, BGNSTR/STRNAME/ENDSTR | Typed framing, mandatory-field, scope and duplicate-name checks |
+| BOUNDARY/BOX | Closed coordinate rings retained; only verified simple boxes enter DRC |
+| SREF/AREF, STRANS/MAG/ANGLE/COLROW/XY | Nested expansion; reflection, uniform positive magnification, arbitrary angle, absolute magnitude/angle, skew array vectors, singleton arrays |
+| PATH/WIDTH/PATHTYPE/BGNEXTN/ENDEXTN | Centerline, width and end-extension data retained/transformed; negative WIDTH is absolute; arbitrary path stroking is not performed |
+| TEXT/PRESENTATION/STRING, NODE/NODETYPE | Location and available metadata retained; not treated as filled rectangles |
+| ELFLAGS/PLEX/PROPATTR/PROPVALUE | Raw records retained; property pairing checked |
+| Legacy library metadata and unknown records | Raw preservation; no implied semantic evaluation of unknown extensions |
+| Zero padding after ENDLIB | Preserved; nonzero trailing data rejected |
+
+Malformed lengths, data types/alignment, required fields, attribute scope/order,
+ring closure and element counts return structured errors. Dates and every legacy
+metadata value are not exhaustively semantically validated. Unknown records do not
+turn this reader into an evaluator for unknown geometry extensions.
+
+AREF step vectors are `(P1-P0)/columns` and `(P2-P0)/rows` in the parent cell's
+coordinates. They are not transformed twice. Absolute magnitude overrides inherited
+scale; absolute angle is interpreted in world axes; reflection parity composes XOR.
+GDS MAG is uniform, so no anisotropic scaling API is invented.
+
+Coordinates remain binary64 until the final output DBU conversion: nearest integer,
+half cases away from zero; values outside signed INT32 after rounding fail. Reference
+cycles and dangling cells fail explicitly. The budget counts visited instances and
+emitted shapes; a depth cap of 256 also bounds recursion.
+
+Inherited MAG stores a binary64 significand and a separate integer exponent.
+An intermediate scale outside binary64's exponent range can recover through a
+later relative or absolute MAG; it is not prematurely replaced by zero/infinity.
+Coordinates/translations and final numeric metadata remain binary64, with normal
+IEEE subnormal rounding. This does not provide arbitrary-precision coordinate
+cancellation or remove the INT32 output bound.
+
+## REAL8
+
+`Real8Raw::from_bytes` / `to_bytes` preserve every eight-byte word, including
+noncanonical and zero encodings. `to_f64` converts the base-16 exponent/56-bit
+fraction to nearest-even binary64; a nonzero value's conversion relative error is
+below 2^-52. `from_f64` exactly encodes finite binary64 values within the normalized
+REAL8 range, canonicalizes zero, and rejects NaN/Inf and out-of-range magnitudes.
+
+These APIs deliberately have different contracts: raw `4180000000000004` rounds
+to Double 8 and re-encodes as `4180000000000000` (four source fraction LSBs lost).
+The largest REAL8 rounds up to a Double outside the REAL8 encoding range. Preserve
+the raw word for byte-exact rewrites; do not route it through Double. Relative error
+is not a meaningful contract for zero or for a failing encoding operation.
+
+## Rectangle rules
+
+Inputs are **raw unmerged** positive-size boxes on one selected layer/datatype.
+Duplicate instances remain distinct. Width is `min(max_x-min_x, max_y-min_y)`.
+Spacing is Euclidean set distance: with nonnegative x/y gaps, `sqrt(dx²+dy²)`.
+Touch/overlap has distance zero. A violation uses strict `< threshold`; equality
+passes. Thresholds must be nonnegative INT32. Geometry arithmetic widens before
+subtracting; the strict squared-distance predicate avoids Int64 addition overflow.
+
+The sweep uses an augmented AVL y-interval index and x expiration events.
+For N boxes, C square-halo candidate pairs, V index-node visits and K reported
+violations, the implemented bound is **O(N log N + V + C + K)** and space O(N+K).
+Counters expose C and V. This is not an unproved output-optimal O(N log N+K)
+claim: Euclidean corner rejection can make C larger than K.
+
+Collinear monotone redundant vertices are allowed on otherwise simple boxes.
+Concave, diagonal, degenerate, retraced and self-crossing shapes, PATH/TEXT/NODE
+and other selected non-box geometry produce individual skip findings. General
+polygon/holes/union, path stroking, cross-layer rules and foundry signoff are outside
+this first release.
+
+## Independent validation and sources
+
+Black-box tests embed actual original gdstk-written GDS inputs, exact INT32 output
+from its flatten/write path, hand-derived integral absolute-transform fixtures,
+and independent exhaustive Python unbounded-integer DRC expectations. Numerical
+tests cover the four-LSB counterexample, canonical constants, zero/range failures,
+negative half cases and DBU bounds. Error tests cover malformed streams,
+missing/cyclic references, expansion limits, retention and skip behavior.
+
+For an independently installed **gdstk 1.0.2**:
+
+```sh
+python -m pip install gdstk==1.0.2
+moon build --target js
+python tools/verify_reference.py
+```
+
+That script runs the real Node file consumer against gdstk and an exhaustive
+distance oracle, including a mixed file with boxes, triangle, PATH and label.
+gdstk 1.0.2 and KLayout 0.30.12 both report unsupported absolute STRANS flags;
+their output is not used as the truth for those flags. Floating-point behavior at
+half-grid boundaries is checked against actual serialized gdstk output, not ideal
+cardinal-angle arithmetic. A finite corpus proves the listed cases, not universal
+bit-identical behavior across every floating-point transform/platform.
+
+See `THIRD-PARTY.md` and `testdata/LICENSE` for source and fixture rights.
+
+### DBU half-neighbor repair (2026-10-28)
+
+DBU rounding compares the fractional remainder with 0.5 before incrementing the
+integer part. Adding 0.5 first is incorrect for binary64 `0x3fdfffffffffffff`
+(`0.5 - 2^-54`): that addition rounds to 1.0. Both signs now correctly round to
+integer zero, including coordinates reached through `flatten_cell`.
+
+This repair was checked with 34 new focused tests on each of JS and Wasm-GC,
+10 affected prior regressions on each target, and 6 targeted native tests.
+Exact Fraction/integer expectations cover adjacent half-grid and REAL8 encoding
+boundaries, nested STRANS/AREF combinations and rectangle spacing extrema.
+Two original GDS files through the actual Node consumer also match gdstk 1.0.2's
+serialized INT32 coordinates. These counts describe this repair's selected checks;
+unchanged historical suites were not rerun in full.
+
+### Parser state repair (deep06, 2026-10-28)
+
+Libraries with zero cells need only the five mandatory library records and now
+parse without a dummy metadata record. Known header records inside elements and
+known element attributes outside elements return structural errors at the exact
+record offset. Unknown extension records, including repeated kinds, retain their
+original ordering and bytes; known-field uniqueness and property pairing still
+apply. Six new state-focused tests pass on JS, Wasm-GC and native, with four
+selected prior parser/hierarchy controls on each portable target. Six actual file
+consumer cases cover empty/valid attributed inputs, misplaced records and unknown
+extensions. Prior numerical/DRC suites are reused rather than claimed as rerun.
+
+### Rotation and metadata repair (deep07, 2026-10-28)
+
+Flattening reduces an ANGLE's exact raw REAL8 value modulo 360 before converting
+its remainder to Double, and composes bounded world orientations in `(-180,180]`.
+This avoids losing a large angle's fractional bits or a relative child's rotation.
+Raw records and the original numeric `Placement.angle` in `cells()` are retained;
+`FlatShape.angle` describes the resulting canonical world orientation.
+
+Transformed width, end extensions and magnification must be finite binary64
+values. Unrepresentable output metadata returns `InvalidNumber` with its field
+and instance source, rather than a successful result containing infinity.
+Representable large values, absolute PATH width and absolute TEXT magnitude
+remain supported. This is an output representation error, not a raw-reader limit.
+
+The repair passes 16 focused tests on each of JS, Wasm-GC and native, 25 affected
+prior transform controls on each portable target, and 7 actual file-consumer
+cases. Angle truth uses exact Fraction remainders and high-precision algebraic
+matrix calculations; unsupported external large-angle outputs are not used as
+an oracle. Earlier unchanged parser/DRC suites were not rerun.
+
+### MAG range repair and catalogue extension (deep08, 2026-10-28)
+
+Five relative factors of 2^-250 followed by five of 2^250 now recover the identity;
+the reverse order also works. Zero origins and zero metadata stay zero under a
+wide inherited scale. Absolute reference/TEXT magnitudes can replace that scale.
+Final finite/subnormal metadata is rounded only when emitted; actual output
+overflow still reports the existing numerical errors. Raw data is preserved.
+
+The 16 new scale tests and 7 catalogue tests pass on each of JS, Wasm-GC and
+native. Each portable target also passes 42 related prior controls. Consumer
+checks cover 16 scale files, 9 catalogue cases (including gdstk info/root comparison
+on the original demo), and 9 unchanged preflight JSON requests. Both portable
+examples run. Older unchanged parser/DRC collections were not rerun in full.
+
+Catalogue follows an established CAD inspection workflow, also available through
+[gdstk gds_info](https://heitzmann.github.io/gdstk/library/gdstk.gds_info.html).
+The contribution here is portable native MoonBit integration, explicit per-cell
+and per-kind definition counts and unresolved-reference locations in the same
+byte-preserving/preflight library. It adds no external runtime dependency.
+
+### Selected-root hierarchy discovery (deep09, 2026-10-28)
+
+The catalogue's direct top-cell layer table can be empty when all geometry is
+in referenced cells. The new hierarchy report closes that discovery step without
+changing the catalogue's definition-count contract. Disconnected missing targets
+and cycles are excluded; shared descendants are deduplicated, while separate
+reference definitions remain visible. A 288-cell chain and a 32767x32767 AREF
+are inspected without requiring successful flattening.
+
+Thirteen new graph/API tests pass on each of JS, Wasm-GC and native. Actual
+consumer checks cover 15 scenarios, three independent gdstk dependency comparisons,
+and the complete catalogue -> root -> reachable layer -> preflight path. Nine old
+preflight requests and two old catalogue cases retain their sealed prior JSON
+responses. Both portable examples run. Parser, numeric, transform and rectangle
+implementations are unchanged and their earlier passing evidence is reused.
+
+Recursive dependency discovery is also available in established tools such as
+[gdstk Cell.dependencies](https://heitzmann.github.io/gdstk/library/gdstk.Cell.html).
+This API combines it with root-local definition layers, missing-reference
+locations and a cycle witness in the portable MoonBit reader/preflight workflow.
+
+### Source-located preflight (deep10, 2026-10-28)
+
+Twenty-three new API cases pass on each of JS, Wasm-GC and native. Independent
+unbounded-integer and 100-digit Decimal expectations cover strict equality,
+overlap/touch/diagonal spacing, a one-squared-unit spacing deficit near INT32_MAX,
+coverage states, nested instance locations, non-unit DBU, range/error paths and
+raw/report ownership. Twenty-four actual consumer scenarios check the four
+statuses and CLI exit codes; the full discovery-to-selected-preflight workflow
+finds two instances of one child definition. Seventeen old-mode responses remain
+compatible. Both portable examples run. Existing core rule/format/transform/graph
+implementations and their previously passing suites are reused unchanged.
+
+### CLI failure responses (deep11, 2026-10-28)
+
+Missing input, directory input and a fresh source checkout without inspect.js
+previously yielded empty stdout, exit 1 and an uncaught Node/module stack. They
+now return structured failure JSON and exit 2, with a build hint when appropriate.
+Nine valid/status/known-error controls, including Chinese/spaced paths and all
+four modes, retain exact stdout/stderr/exit results. Five isolated child-protocol
+fault checks cover partial nonzero output, invalid JSON/shape/status and the
+existing 64 MiB buffer limit. These injections verify the wrapper boundary, not
+alleged layout defects. Node syntax and 17 actual consumer checks pass on Windows
+Node v24.11.0. MoonBit source, public interface and compiled artifacts are unchanged;
+their already passing JS/Wasm-GC/native evidence is reused without rebuilding.
+
+### Blank script arguments (deep12, 2026-10-28)
+
+The CLI previously converted an empty/whitespace numeric token to zero: six
+focused requests silently succeeded and four became empty selections. The new
+request check rejects those ten cases, including a nonbreaking space, before
+file/build work. Twenty legitimate/default/unused-argument/prior controls retain
+exact stdout/stderr/status, including explicit zero and prior numeric forms.
+Node syntax and all 30 actual CLI checks pass. The numerical/rule implementation,
+public API and compiled artifacts are unchanged; earlier core suites are reused.
+
+### Revision comparison (deep14, 2026-10-28)
+
+Twenty-six new API tests pass on JS, Wasm-GC and native. Independent integer/
+100-digit Decimal finding models and tuple Counters cover sixteen paired revision
+cases, plus profile errors, malformed issues, diagnostic rounding and ownership.
+Thirty actual two-file CLI/error/example scenarios, one raw request-protocol check
+and 33 old-mode compatibility cases validate the review workflow. The earlier
+round13 transport scenarios are not rerun.
+
+General diff tools already exist, including
+[moonbit-community/diff](https://github.com/moonbit-community/diff),
+[bobzhang/difflib](https://mooncakes.io/docs/bobzhang/difflib) and
+[KLayout LayoutDiff](https://www.klayout.de/doc/code/class_LayoutDiff.html).
+This feature is the narrower native MoonBit preflight finding multiset/profile
+operation; it adds no external runtime dependency or general layout XOR engine.
+
+### Multi-top consumer workflow (deep16, 2026-10-28)
+
+Thirty-eight new actual CLI scenarios and four request/engine-protocol checks
+cover mixed per-candidate outcomes, continuation after errors, empty/rootless
+scope, root union/membership changes, comparison profiles and aggregate exits.
+Known integer geometry and authored reference graphs supply the expectations;
+four valid root sets also match gdstk. Nine representative existing-mode controls
+retain exact stdout/stderr/exit results. JS strict check/build, Node syntax,
+formatting and public-interface identity are checked. Existing core source and
+public exports are unchanged; prior portable/native suites and round14/15 pairs
+are reused without rerunning them.
+
+Root enumeration and scripted batch DRC are established workflows in
+[gdstk Library.top_level](https://heitzmann.github.io/gdstk/library/gdstk.Library.html)
+and [KLayout DRC runsets](https://www.klayout.de/doc/manual/drc_runsets.html).
+This consumer integrates the project's existing rectangle/report contracts in
+one request; it is not a replacement for KLayout's general DRC engine.
+
+### Independent batch coverage (deep17, 2026-10-28)
+
+Four new baseline consumer combinations confirmed normal budget continuation and
+cycle-to-top membership semantics, and exposed incorrect complete-scope wording
+for same-candidate violations plus skips. The wording is corrected; the existing
+status/count classification is preserved. The additive coverage summary reports
+the selected-scope distinction directly without changing the public library API.
+
+Nine focused consumer scenarios pass, with independent integer geometry/authored
+graphs and five exact prior-output controls after removing only the coverage
+object. They cover mixed skips/issues, shared-leaf budget failure, cyclic before
+definitions, complete coverage with findings, empty/zero-checked scopes and ordered
+unchecked names. JS strict check/build, format and generated interface identity
+pass. The full round16 suite and prior portable/native suites are not rerun;
+one sealed comparison is used specifically to verify the new coverage field.
+
+### Editable native authoring workflow (deep19, 2026-10-28)
+
+The new example runs on JS and Wasm-GC with identical output. Independent Python
+struct encoding checks each complete original GDS stream; four materialized files
+are read back and two unique layouts also match gdstk geometry/layer/type/units.
+Nine consumer cases cover materializing both backend outputs, three existing file
+review commands and four necessary error/no-overwrite boundaries. Strict checks,
+JS build, Node syntax, formatting and public-interface identity pass. Core/public
+APIs and all existing commands are unchanged; old passing suites are reused.
+
+Rectangle creation/export is already demonstrated by
+[gdstk Getting Started](https://heitzmann.github.io/gdstk/gettingstarted.html).
+This is a native MoonBit developer example connecting the existing record-creation
+and review APIs, with no added package dependency or new writer-engine claim.
+
+### Staged author JSON compatibility (deep20, 2026-10-28)
+
+PowerShell7.6.5 utf8BOM staging reproduced an additional interoperability gap:
+the original JSON worked without its BOM, while the staged file failed at input.
+The materializer now accepts a single initial UTF-8 BOM. Three focused consumers
+and Node syntax pass; four saved files match the exact sealed original bytes.
+Malformed JSON after a BOM still creates no output directory. All MoonBit source,
+public interfaces and compiled identities remain unchanged, and round19's passing
+dual-target/independent-structure/gdstk/nine-case evidence is reused, not rerun.
+The new-directory/no-overwrite and nontransactional late-I/O boundary remain.

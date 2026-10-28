@@ -1,0 +1,270 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "tanglong2001/gdsii"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn check_manhattan_drc(Array[Rect], Int, Int) -> Result[DrcReport, GdsError]
+
+pub fn quantize_dbu(Double) -> Result[Int, GdsError]
+
+// Errors
+pub(all) suberror GdsError {
+  InvalidRecord(Int, String)
+  InvalidStructure(Int, String)
+  InvalidNumber(String)
+  MissingCell(String)
+  CyclicReference(Array[String])
+  ExpansionLimit(Int)
+  CoordinateOverflow(Double)
+  InvalidGeometry(String)
+} derive(ToJson, @debug.Debug)
+
+// Types and methods
+pub(all) struct CatalogCell {
+  name : String
+  elements : Int
+  layers : Array[LayerUsage]
+  references : Array[CatalogReference]
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct CatalogReference {
+  cell : String
+  element_index : Int
+  kind : ElementKind
+  target : String
+  columns : Int
+  rows : Int
+  instances : Int
+  resolved : Bool
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct Cell {
+  name : String
+  elements : Array[Element]
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct DrcReport {
+  violations : Array[DrcViolation]
+  candidates : Int64
+  index_visits : Int64
+  rectangles_checked : Int
+} derive(ToJson, @debug.Debug)
+
+pub(all) enum DrcViolation {
+  MinimumWidth(Int, Int64)
+  MinimumSpacing(Int, Int, Double)
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct Element {
+  kind : ElementKind
+  layer : Int
+  datatype : Int
+  points : Array[Point]
+  target : String
+  placement : Placement
+  columns : Int
+  rows : Int
+  width : Int
+  path_type : Int
+  begin_extension : Int
+  end_extension : Int
+  text : String
+  records : Array[GdsRecord]
+} derive(ToJson, @debug.Debug)
+
+pub(all) enum ElementKind {
+  Boundary
+  Path
+  Box
+  Node
+  Text
+  Sref
+  Aref
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct FlatShape {
+  kind : ElementKind
+  layer : Int
+  datatype : Int
+  points : Array[Point]
+  source : String
+  width : Double
+  path_type : Int
+  begin_extension : Double
+  end_extension : Double
+  text : String
+  magnification : Double
+  angle : Double
+  reflection : Bool
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct FlattenedCell {
+  name : String
+  shapes : Array[FlatShape]
+} derive(ToJson, @debug.Debug)
+pub fn FlattenedCell::rectangles(Self, Int, Int) -> Rectangles
+
+pub(all) struct GdsCatalog {
+  name : String
+  version : Int
+  dbu_in_user_units : Double
+  dbu_in_meters : Double
+  cells : Array[CatalogCell]
+  top_cells : Array[String]
+  missing_references : Array[CatalogReference]
+} derive(ToJson, @debug.Debug)
+
+pub struct GdsLibrary {
+  name : String
+  version : Int
+  units_user : Real8Raw
+  units_meters : Real8Raw
+  records : Array[GdsRecord]
+  cells : Array[Cell]
+  padding : Bytes
+} derive(@debug.Debug)
+pub fn GdsLibrary::catalog(Self) -> GdsCatalog
+pub fn GdsLibrary::cells(Self) -> Array[Cell]
+pub fn GdsLibrary::flatten_cell(Self, String, budget? : Int) -> Result[FlattenedCell, GdsError]
+pub fn GdsLibrary::from_records(Array[GdsRecord]) -> Result[Self, GdsError]
+pub fn GdsLibrary::hierarchy(Self, String) -> Result[HierarchyReport, GdsError]
+pub fn GdsLibrary::name(Self) -> String
+pub fn GdsLibrary::parse(Bytes) -> Result[Self, GdsError]
+pub fn GdsLibrary::preflight_cell(Self, String, Int, Int, Int, Int, budget? : Int) -> Result[PreflightReport, GdsError]
+pub fn GdsLibrary::records(Self) -> Array[GdsRecord]
+pub fn GdsLibrary::to_bytes(Self) -> Bytes
+pub fn GdsLibrary::units(Self) -> (Real8Raw, Real8Raw)
+pub fn GdsLibrary::version(Self) -> Int
+
+pub(all) struct GdsRecord {
+  offset : Int
+  kind : Int
+  data_type : Int
+  data : Bytes
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct GeometryWarning {
+  source : String
+  reason : String
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct HierarchyReport {
+  cell : String
+  reachable_cells : Array[String]
+  layers : Array[LayerUsage]
+  references : Array[CatalogReference]
+  missing_references : Array[CatalogReference]
+  cycle : Array[String]
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct LayerUsage {
+  kind : ElementKind
+  layer : Int
+  datatype : Int
+  elements : Int
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct Placement {
+  reflection : Bool
+  magnification : Double
+  angle : Double
+  absolute_magnification : Bool
+  absolute_angle : Bool
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct Point {
+  x : Int
+  y : Int
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct PreflightDiff {
+  cell : String
+  layer : Int
+  datatype : Int
+  min_width : Int
+  min_spacing : Int
+  dbu_in_meters : Double
+  status : PreflightDiffStatus
+  before_status : PreflightStatus
+  after_status : PreflightStatus
+  before_checked_rectangles : Int
+  after_checked_rectangles : Int
+  before_skipped : Array[GeometryWarning]
+  after_skipped : Array[GeometryWarning]
+  introduced : Array[PreflightIssue]
+  removed : Array[PreflightIssue]
+  retained : Int
+} derive(ToJson, @debug.Debug)
+
+pub(all) enum PreflightDiffStatus {
+  NoNewIssues
+  NewIssuesFound
+  IncompleteComparison
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct PreflightIssue {
+  rule : PreflightRule
+  rectangles : Array[Rect]
+  required : Int
+  measured : Double
+  shortfall : Double
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct PreflightReport {
+  cell : String
+  layer : Int
+  datatype : Int
+  min_width : Int
+  min_spacing : Int
+  dbu_in_meters : Double
+  status : PreflightStatus
+  selected_shapes : Int
+  checked_rectangles : Int
+  skipped : Array[GeometryWarning]
+  issues : Array[PreflightIssue]
+  candidates : Int64
+  index_visits : Int64
+} derive(ToJson, @debug.Debug)
+pub fn PreflightReport::diff(Self, Self) -> Result[PreflightDiff, GdsError]
+
+pub(all) enum PreflightRule {
+  Width
+  Spacing
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum PreflightStatus {
+  RectanglesClear
+  ViolationsFound
+  IncompleteGeometry
+  EmptySelection
+} derive(Eq, ToJson, @debug.Debug)
+
+pub struct Real8Raw {
+  bits : UInt64
+} derive(Eq, ToJson, @debug.Debug)
+pub fn Real8Raw::from_bytes(Bytes) -> Result[Self, GdsError]
+pub fn Real8Raw::from_f64(Double) -> Result[Self, GdsError]
+pub fn Real8Raw::to_bytes(Self) -> Bytes
+pub fn Real8Raw::to_f64(Self) -> Double
+
+pub(all) struct Rect {
+  min_x : Int
+  min_y : Int
+  max_x : Int
+  max_y : Int
+  source : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Rectangles {
+  rects : Array[Rect]
+  warnings : Array[GeometryWarning]
+  layer : Int
+  datatype : Int
+} derive(ToJson, @debug.Debug)
+
+// Type aliases
+
+// Traits

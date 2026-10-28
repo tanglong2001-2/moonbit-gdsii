@@ -1,0 +1,68 @@
+name: MoonBit CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portable-and-consumers:
+    name: JS, Wasm-GC and file consumers
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24.11.0'
+      - name: Record exact source identity
+        run: python3 .ci/source_identity.py
+      - name: Install verified MoonBit SDK and core
+        run: bash .ci/install-moonbit.sh
+      - name: Record toolchain versions
+        run: |
+          moon version --all | tee _build/ci/moon-version.txt
+          node --version | tee _build/ci/node-version.txt
+      - name: Check supported targets
+        run: |
+          moon check --target js
+          moon check --target wasm-gc
+      - name: Build supported targets
+        run: |
+          moon build --target js
+          moon build --target wasm-gc
+      - name: Test supported targets
+        run: |
+          moon test --target js
+          moon test --target wasm-gc
+      - name: Check formatting and public interfaces
+        run: |
+          moon fmt --check
+          moon info
+          git diff --exit-code -- '*.mbti'
+      - name: Run portable example
+        run: |
+          moon run cmd/example --target js > _build/ci/example-js.txt
+          moon run cmd/example --target wasm-gc > _build/ci/example-wasm.txt
+      - name: Check Node source syntax
+        run: |
+          node --check tools/inspect.mjs
+          node --check tools/save_author.mjs
+          node --check .ci/smoke.mjs
+      - name: Verify authored bytes and real file consumers
+        run: node .ci/smoke.mjs
+      - name: Retain CI evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: gdsii-ci-${{ github.sha }}
+          path: _build/ci/
+          if-no-files-found: error
+          retention-days: 14

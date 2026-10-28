@@ -1,0 +1,9 @@
+import {
+  "tanglong2001/gdsii",
+  "moonbitlang/core/json",
+  "moonbitlang/core/buffer",
+}
+
+pkgtype(kind: "executable")
+
+supported_targets = "js"
