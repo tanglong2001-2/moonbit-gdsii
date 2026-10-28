@@ -92,6 +92,12 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("review-plan"), .. } {
+    guard request is { "hex": String(hex), "plan": plan, .. } else {
+      return { "error": "review-plan requires hex and plan" }
+    }
+    return run_review_plan(hex, plan)
+  }
   if request is { "mode": String("preflight-tops"), .. } {
     return run_top_batch(request, false)
   }

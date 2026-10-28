@@ -1,0 +1,10 @@
+{
+  "schema": "gdsii-rectangle-review-plan-v1",
+  "cell": "top",
+  "profiles": [
+    { "id": "metal7", "layer": 7, "datatype": 2, "min_width": 3, "min_spacing": 5 },
+    { "id": "metal8", "layer": 8, "datatype": 0, "min_width": 3, "min_spacing": 5 },
+    { "id": "path-layer", "layer": 9, "datatype": 1, "min_width": 0, "min_spacing": 0 },
+    { "id": "unmapped", "layer": 10, "datatype": 0, "min_width": 3, "min_spacing": 5 }
+  ]
+}

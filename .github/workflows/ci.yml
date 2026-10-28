@@ -58,12 +58,15 @@ jobs:
           node --check .ci/smoke.mjs
           node --check .ci/record_rewrite.mjs
           node --check .ci/wrapper_failures.mjs
+          node --check .ci/review_plan.mjs
       - name: Verify authored bytes and real file consumers
         run: node .ci/smoke.mjs
       - name: Verify checked record rewrite fidelity
         run: node .ci/record_rewrite.mjs
       - name: Verify two-file comparison process failures
         run: node .ci/wrapper_failures.mjs
+      - name: Verify source-bound multi-profile review plans
+        run: node .ci/review_plan.mjs
       - name: Retain CI evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

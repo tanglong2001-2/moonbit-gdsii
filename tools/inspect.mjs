@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
@@ -12,10 +13,14 @@ function consumerError(stage, code, message, context = {}) {
 
 function main() {
   const args = process.argv.slice(2);
-  const mode = args[0] === '--preflight-tops' ? 'preflight-tops' : args[0] === '--compare-tops' ? 'compare-tops' : args[0] === '--catalog' ? 'catalog' : args[0] === '--hierarchy' ? 'hierarchy' : args[0] === '--preflight' ? 'preflight' : args[0] === '--compare' ? 'compare' : null;
+  const mode = args[0] === '--review-plan' ? 'review-plan' : args[0] === '--preflight-tops' ? 'preflight-tops' : args[0] === '--compare-tops' ? 'compare-tops' : args[0] === '--catalog' ? 'catalog' : args[0] === '--hierarchy' ? 'hierarchy' : args[0] === '--preflight' ? 'preflight' : args[0] === '--compare' ? 'compare' : null;
+  const reviewPlan = mode === 'review-plan';
   const compare = mode === 'compare' || mode === 'compare-tops';
   const topBatch = mode === 'preflight-tops' || mode === 'compare-tops';
   const parameters = mode ? args.slice(1) : args;
+  if (reviewPlan && parameters.length !== 2) {
+    return consumerError('request', 'REVIEW_INPUTS_REQUIRED', '--review-plan requires exactly a source GDS path and a plan JSON path.');
+  }
   if (compare && parameters.length < 2) {
     return consumerError('request', 'COMPARE_INPUTS_REQUIRED', `--${mode} requires before and after GDS paths.`);
   }
@@ -30,9 +35,28 @@ function main() {
       }
     }
   }
+  const fingerprint = (path, bytes) => ({ path: resolve(path), bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
+  let plan, planSnapshot, sourceSnapshot;
+  if (reviewPlan) {
+    let bytes;
+    try {
+      bytes = readFileSync(parameters[1]);
+    } catch (error) {
+      return consumerError('plan', error.code ?? 'PLAN_READ_FAILED', error.message, { path: resolve(parameters[1]) });
+    }
+    planSnapshot = fingerprint(parameters[1], bytes);
+    try {
+      // TextDecoder strips one leading UTF-8 BOM; a second remains invalid JSON.
+      plan = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
+    } catch (error) {
+      return consumerError('plan', 'INVALID_REVIEW_PLAN', error.message, { path: resolve(parameters[1]) });
+    }
+  }
   let hex;
   try {
-    hex = readFileSync(file).toString('hex');
+    const bytes = readFileSync(file);
+    hex = bytes.toString('hex');
+    if (reviewPlan) sourceSnapshot = fingerprint(file, bytes);
   } catch (error) {
     return consumerError('input', error.code ?? 'INPUT_READ_FAILED', error.message, { path: resolve(file), ...(compare ? { side: 'before' } : {}) });
   }
@@ -48,7 +72,7 @@ function main() {
   if (!existsSync(engine)) {
     return consumerError('build', 'BUILD_UNAVAILABLE', 'File consumer is unavailable; run moon build --target js from the project directory.', { path: engine });
   }
-  const request = topBatch ? { mode, hex, layer: Number(layer), datatype: Number(datatype), width: Number(width), spacing: Number(spacing) } : mode === 'catalog' ? { mode, hex } : mode === 'hierarchy' ? { mode, hex, cell } : { hex, cell,
+  const request = reviewPlan ? { mode, hex, plan } : topBatch ? { mode, hex, layer: Number(layer), datatype: Number(datatype), width: Number(width), spacing: Number(spacing) } : mode === 'catalog' ? { mode, hex } : mode === 'hierarchy' ? { mode, hex, cell } : { hex, cell,
     layer: Number(layer), datatype: Number(datatype), width: Number(width), spacing: Number(spacing) };
   if (mode === 'preflight' || mode === 'compare') request.mode = mode;
   if (compare) request.after_hex = afterHex;
@@ -71,6 +95,20 @@ function main() {
     return consumerError('engine', 'ENGINE_RESPONSE_INVALID', 'File consumer did not return a JSON object.');
   }
   let exitCode = response.error ? 2 : 0;
+  if (!response.error && reviewPlan) {
+    const review = response.review;
+    const statusCodes = { ErrorsFound: 2, Incomplete: 4, IssuesFound: 3, Passed: 0 };
+    const keys = ['id', 'layer', 'datatype', 'min_width', 'min_spacing'];
+    if (!review || !Object.hasOwn(statusCodes, review.status) || review.cell !== plan.cell ||
+        review.budget !== (plan.budget ?? 100000) || !Array.isArray(review.profiles) ||
+        !Array.isArray(review.results) || review.profiles.length !== plan.profiles.length ||
+        review.results.length !== plan.profiles.length ||
+        !plan.profiles.every((profile, i) => keys.every(key => review.profiles[i]?.[key] === profile[key]) &&
+          review.results[i]?.id === profile.id && Boolean(review.results[i].preflight) !== Boolean(review.results[i].error))) {
+      return consumerError('engine', 'ENGINE_RESPONSE_INVALID', 'File consumer did not account for every requested review profile.');
+    }
+    exitCode = statusCodes[review.status];
+  }
   if (!response.error && topBatch) {
     const status = response.batch?.status;
     if (status === 'ErrorsFound') exitCode = 2;
@@ -96,7 +134,7 @@ function main() {
       return consumerError('engine', 'ENGINE_RESPONSE_INVALID', 'File consumer returned an unknown comparison status.');
     }
   }
-  process.stdout.write(result.stdout ?? '');
+  process.stdout.write(reviewPlan ? JSON.stringify({ ...response, schema: 'gdsii-rectangle-review-result-v1', source: sourceSnapshot, plan: planSnapshot }) + '\n' : result.stdout ?? '');
   process.stderr.write(result.stderr ?? '');
   process.exitCode = exitCode;
 }

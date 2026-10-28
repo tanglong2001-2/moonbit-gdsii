@@ -34,6 +34,7 @@ node tools/inspect.mjs --preflight examples/demo.gds top 7 2 3 5
 node tools/inspect.mjs --compare examples/revision-before.gds examples/revision-after.gds top 7 2 3 3
 node tools/inspect.mjs --preflight-tops examples/multi-top-before.gds 7 2 3 3
 node tools/inspect.mjs --compare-tops examples/multi-top-before.gds examples/multi-top-after.gds 7 2 3 3
+node tools/inspect.mjs --review-plan examples/review-plan.gds examples/review-plan.json
 ```
 
 Selected-cell modes take cell, layer, datatype, minimum width and minimum spacing;
@@ -372,6 +373,64 @@ discovery is not whole-library coverage: isolated cyclic components may have no
 top candidate. An empty candidate list produces Incomplete, not vacuous success;
 use selected-cell/hierarchy modes to inspect other definitions. Existing raw
 rectangle, output-buffer, numerical and no-signoff limits apply.
+
+## Saved multi-profile review plans
+
+Use `--review-plan SOURCE.gds PLAN.json` to hand over several named checks of one
+cell in one result. The UTF-8 JSON plan accepts one initial BOM and has this shape:
+
+```json
+{
+  "schema": "gdsii-rectangle-review-plan-v1",
+  "cell": "top",
+  "budget": 100000,
+  "profiles": [
+    { "id": "metal7", "layer": 7, "datatype": 2, "min_width": 3, "min_spacing": 5 }
+  ]
+}
+```
+
+Cell and IDs are nonempty strings; IDs must be unique. Profiles are ordered and
+nonempty, with all four explicit nonnegative INT32 selectors/rules in input DBU.
+Unknown fields and malformed profiles reject the whole plan before source parsing
+or geometry evaluation. The optional positive INT32 budget defaults to 100000 and
+resets for each profile, counting all visited instances/emitted shapes before
+selection. No geometry is truncated on exhaustion.
+
+The frontend reads each file once, then passes both snapshots to one engine
+request. The engine validates the entire plan, parses the GDS once and reuses the
+library for existing `preflight_cell` calls. Flattening is still repeated per
+profile. The result schema is `gdsii-rectangle-review-result-v1`: `source` and
+`plan` contain absolute paths, raw byte lengths and SHA-256 fingerprints (including
+any plan BOM/whitespace). `review` echoes the cell, resolved budget and profiles,
+and returns one ordered `results` entry per ID, containing `preflight` or `error`.
+Global plan/parse failures return one top-level error without partial results.
+
+| Review status | Exit | Meaning |
+| --- | --- | --- |
+| ErrorsFound | 2 | At least one profile failed; later profiles still have results |
+| Incomplete | 4 | No profile errors, but some profile has zero checked rectangles or skipped geometry |
+| IssuesFound | 3 | All requested coverage checked; rectangle violations found |
+| Passed | 0 | All requested coverage checked and clear |
+
+This precedence is specific to review plans: even `ViolationsFound` plus skipped
+geometry yields aggregate `Incomplete`. Counts retain existing per-profile status
+classification, so `counts.failed` can be positive while `counts.incomplete` is
+zero and `coverage.complete` is false. `coverage.unchecked_profiles` lists every
+unchecked/error ID in order. Existing commands retain their status/exit contracts.
+
+The runnable example checks four profiles over four rectangles and one PATH. It
+exits4 with passed=1, failed=1, incomplete=2, errors=0; `path-layer` and `unmapped`
+are unchecked. The narrow metal7 rectangle has width2 against threshold3.
+After building JS, `node .ci/review_plan.mjs` verifies independent Stream bytes,
+known geometry and snapshot handoff, including an external disk replacement that
+forwards the original request to the real engine. Use a fresh optional output
+directory to retain another attempt.
+
+Fingerprints identify the bytes actually reviewed, not a simultaneous filesystem
+transaction, authorship signature or current disk contents after completion.
+Coverage applies only to requested profiles and supported raw rectangles; it
+does not certify unrequested layers, stroked paths, merged polygons or signoff.
 
 ## Format and hierarchy profile
 
