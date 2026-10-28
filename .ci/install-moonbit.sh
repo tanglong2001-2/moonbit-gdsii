@@ -15,6 +15,8 @@ mkdir -p "$MOON_HOME/downloads" "$MOON_HOME/lib"
 curl --fail --location --retry 3 --max-time 240 "${config[0]}" -o "$MOON_HOME/downloads/sdk.tar.gz"
 printf '%s  %s\n' "${config[1]}" "$MOON_HOME/downloads/sdk.tar.gz" | sha256sum --check --strict
 tar -xzf "$MOON_HOME/downloads/sdk.tar.gz" -C "$MOON_HOME"
+# Official SDK archives ship the binaries without execute bits (mode 0664).
+chmod +x "$MOON_HOME"/bin/* "$MOON_HOME/bin/internal/tcc"
 curl --fail --location --retry 3 --max-time 120 "${config[2]}" -o "$MOON_HOME/downloads/core.tar.gz"
 printf '%s  %s\n' "${config[3]}" "$MOON_HOME/downloads/core.tar.gz" | sha256sum --check --strict
 tar -xzf "$MOON_HOME/downloads/core.tar.gz" -C "$MOON_HOME/lib"
