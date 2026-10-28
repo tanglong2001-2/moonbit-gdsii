@@ -10,6 +10,7 @@ import shutil
 import struct
 import subprocess
 import sys
+import traceback
 
 root = Path(__file__).resolve().parent.parent
 parser = argparse.ArgumentParser(description=__doc__)
@@ -26,6 +27,28 @@ moon_home = Path(os.environ['MOON_HOME'])
 moon = moon_home / 'bin' / ('moon.exe' if sys.platform == 'win32' else 'moon')
 moonc = moon_home / 'bin' / ('moonc.exe' if sys.platform == 'win32' else 'moonc')
 cases = []
+
+
+def report_failure(error_type, error, frames):
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+        detail = {'errorType': error_type.__name__, 'message': str(error),
+                  'traceback': ''.join(traceback.format_exception(error_type, error, frames)), 'packageFiles': {}}
+        for package in ('cmd/author', 'tests/record_rewrite', 'tests/native_core'):
+            directory = root / '_build/native/debug/build' / package
+            detail['packageFiles'][package] = [{'name': p.name, 'size': p.stat().st_size,
+                'headerHex': p.read_bytes()[:20].hex()} for p in sorted(directory.glob('*')) if p.is_file()]
+        build_record = output / 'native-build.json'
+        if build_record.exists():
+            build = json.loads(build_record.read_text(encoding='utf-8'))
+            detail['build'] = {'exitCode': build['exitCode'], 'stdoutTail': build['stdout'][-3000:],
+                               'stderrTail': build['stderr'][-3000:]}
+        (output / 'failure-diagnostic.json').write_text(json.dumps(detail, indent=2), encoding='utf-8')
+        message = json.dumps(detail, separators=(',', ':')).replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+        print('::error title=Native consumer diagnostic::' + message, file=sys.stderr)
+    sys.__excepthook__(error_type, error, frames)
+
+
+sys.excepthook = report_failure
 
 
 def sha256(path):
