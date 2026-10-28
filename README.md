@@ -87,6 +87,16 @@ let report = library.preflight_cell("top", 7, 2, 3, 5).unwrap()
 the original library. `records()` exposes immutable payloads in a copied array.
 Errors carry record offsets, missing cell names, cycle paths or numerical failures.
 
+For a rewrite, replace records in that copied array, pass the complete array to
+`from_records`, and serialize the returned `Ok` library. Record offsets are
+recomputed; physical zero padding from the parsed input is not inherited. Keep
+unrelated payloads, including REAL8 words, as their original bytes.
+
+After `moon build --target js`, `node .ci/record_rewrite.mjs` checks a complete
+property rewrite on JS and Wasm-GC against independently constructed GDS bytes.
+It materializes and reads back both files, and passes a rejected rewrite to the
+existing file materializer to verify that no output directory is created.
+
 ## Author an original rectangle pair
 
 `cmd/author` is a runnable example of the existing `from_records` creation API.
