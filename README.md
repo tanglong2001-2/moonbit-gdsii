@@ -114,8 +114,9 @@ rewrite against independently declared bytes, and REAL8 values against exact
 rational expectations. DBU half-neighbors, overflow and malformed inputs are
 included. The applications use the MoonBit core API and no Node host.
 
-`_build/ci/native/` retains build logs, generated-C/executable hashes, the actual
-SDK identity, three binaries, and expected/read-back original GDS files. Use a
+`_build/ci/native/` retains build logs, compiler `.core`/executable hashes (plus
+generated-C hashes when retained by the SDK), the actual SDK identity, three
+binaries, and expected/read-back original GDS files. Use a
 fresh `--output DIRECTORY` for another local attempt to preserve previous evidence.
 The Linux claim is limited to the CI's Ubuntu 24.04 x86-64 environment and pinned
 SDK; downloaded-binary portability is not certified. The Node file wrapper keeps

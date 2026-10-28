@@ -104,9 +104,11 @@ for package in packages:
     shutil.copy2(binary, exported)
     assert sha256(exported) == sha256(binary)
     generated_c = directory / (name + '.c')
+    compiler_core = directory / (name + '.core')
     binaries[package] = {'sourcePath': binary.relative_to(root).as_posix(), 'format': kind,
                          'size': binary.stat().st_size, 'sha256': sha256(binary),
-                         'evidenceBinary': str(exported), 'generatedCSha256': sha256(generated_c)}
+                         'evidenceBinary': str(exported), 'compilerCoreSha256': sha256(compiler_core),
+                         'generatedCSha256': sha256(generated_c) if generated_c.exists() else None}
     result = run('run-' + name, [exported], environment=runtime_env, cwd=empty_path, timeout=30)
     assert result.stderr == '', name
     responses[package] = json.loads(result.stdout)
@@ -213,7 +215,7 @@ identity = {'platform': sys.platform, 'expectedPlatform': args.expect_platform, 
             'moonExecutableSha256': sha256(moon), 'mooncExecutableSha256': sha256(moonc),
             'toolchainLock': json.loads((root / '.ci/toolchain.json').read_text(encoding='utf-8')),
             'binaries': binaries, 'runtimePATH': str(empty_path), 'nodeOnRuntimePATH': False,
-            'compilerEvidence': 'native-build.json and generated C hashes; moon-version.json records the actual SDK'}
+            'compilerEvidence': 'native-build.json and required compiler .core hashes, plus C hashes when retained; moon-version.json records the actual SDK'}
 (output / 'compile-identity.json').write_text(json.dumps(identity, indent=2), encoding='utf-8')
 summary = {'status': 'PASS', 'platform': sys.platform, 'directNativeExecutables': 3, 'nodeOnRuntimePATH': False,
            'gdsFilesByteExactReadBack': 4, 'independentReal8Vectors': 3, 'independentDbuCases': 6,
@@ -231,7 +233,7 @@ if os.environ.get('GITHUB_ACTIONS') == 'true':
               'platform': sys.platform, 'nodeOnRuntimePATH': False,
               'moonExecutableSha256': identity['moonExecutableSha256'],
               'mooncExecutableSha256': identity['mooncExecutableSha256'],
-              'binaries': {name: {key: binary[key] for key in ('format', 'size', 'sha256', 'generatedCSha256')}
+              'binaries': {name: {key: binary[key] for key in ('format', 'size', 'sha256', 'compilerCoreSha256', 'generatedCSha256')}
                            for name, binary in binaries.items()},
               'gdsExpectedSha256': summary['gdsExpectedSha256'], 'status': 'PASS'}
     message = json.dumps(notice, separators=(',', ':')).replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
