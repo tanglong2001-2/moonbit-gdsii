@@ -45,6 +45,17 @@ violations and actual sweep/index work counters. Exit 2 means a parse/request/
 hierarchy error. Geometry warnings must be considered before making a layout-level
 decision; zero rectangle violations does not certify unchecked geometry.
 
+For a child with a nonzero completion status, the wrapper returns one structured
+`ENGINE_EXIT` response and exit2, including its status/diagnostic, even if it
+already emitted a plausible comparison result. A child that completes with zero
+status but emits truncated JSON returns `ENGINE_RESPONSE_INVALID` and exit2.
+After `moon build --target js`, run `node .ci/wrapper_failures.mjs` to check
+this two-file review boundary with a real compiled control and two isolated
+external child faults. The gate checks complete original input bytes, exact
+requests, stdout/stderr, exit codes and unchanged files. Choose a fresh output
+directory as its optional argument to retain another local attempt. Controlled
+fault payloads test transport; the legitimate control uses the actual GDS core.
+
 Expansion commands accept an optional final positive INT32 `budget` after
 spacing. Supply all preceding selectors/thresholds when setting it:
 
