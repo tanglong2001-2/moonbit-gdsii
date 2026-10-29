@@ -136,6 +136,7 @@ pub fn GdsLibrary::name(Self) -> String
 pub fn GdsLibrary::parse(Bytes) -> Result[Self, GdsError]
 pub fn GdsLibrary::preflight_cell(Self, String, Int, Int, Int, Int, budget? : Int) -> Result[PreflightReport, GdsError]
 pub fn GdsLibrary::records(Self) -> Array[GdsRecord]
+pub fn GdsLibrary::rename_cell(Self, String, String) -> Result[Self, GdsError]
 pub fn GdsLibrary::to_bytes(Self) -> Bytes
 pub fn GdsLibrary::units(Self) -> (Real8Raw, Real8Raw)
 pub fn GdsLibrary::version(Self) -> Int

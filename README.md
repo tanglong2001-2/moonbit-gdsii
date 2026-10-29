@@ -36,6 +36,7 @@ node tools/inspect.mjs --preflight-tops examples/multi-top-before.gds 7 2 3 3
 node tools/inspect.mjs --compare-tops examples/multi-top-before.gds examples/multi-top-after.gds 7 2 3 3
 node tools/inspect.mjs --review-plan examples/review-plan.gds examples/review-plan.json
 node tools/extract_cell.mjs examples/cell-extract-source.gds top exported-top.gds
+node tools/rename_cell.mjs examples/cell-rename-source.gds gate coreA renamed.gds
 ```
 
 Selected-cell modes take cell, layer, datatype, minimum width and minimum spacing;
@@ -165,6 +166,63 @@ Closure is defined only by the currently supported reference records. Opaque
 extensions are retained without interpreting their dependencies; external
 libraries, merge/rename, layer mapping, new formats and geometry/signoff
 certification are outside this operation.
+
+## Rename a cell and its supported references
+
+`GdsLibrary::rename_cell(old_name, new_name)` returns a new checked library with
+the selected STRNAME and every exact old-target SNAME changed together. Other
+records remain in source order and keep their raw payloads: library name, TEXT
+STRING, properties, opaque records, coordinates, placements and both raw UNITS
+words are not textual search-and-replace targets. No cells are merged or removed.
+
+```moonbit nocheck
+let named = library.rename_cell("gate", "coreA").unwrap()
+let bytes_for_receiver = named.to_bytes()
+```
+
+A missing old definition returns `MissingCell`. A real rename refuses an existing
+destination definition and a name already used by unresolved known references;
+otherwise those previously missing references could unexpectedly bind to the
+renamed cell. For example, an unresolved reference to `future` prevents renaming
+`gate` to `future`. Unrelated missing targets stay missing, and self/cyclic
+references are renamed without flattening or repairing them. These query rules do
+not tighten original source parsing.
+
+New names use the existing checked ASCII/record profile, including its NUL and
+size errors, with no additional historical32-character restriction. A real edit
+uses `from_records`: offsets are recomputed and physical tail padding is omitted.
+An existing old==new is instead a byte-identical no-op, including padding; an
+absent name does not become valid by requesting a no-op. The source stays intact.
+
+After building JS, `node tools/rename_cell.mjs SOURCE.gds OLD NEW OUTPUT.gds`
+reads the source once, completes validation, then exclusively creates a new file
+and reads it back. Success exits0 with `gdsii-cell-rename-v1`, old/new names,
+`changed`, `updated_references`, ordered cell names, and source/output absolute
+paths, byte lengths and SHA-256 hashes. Errors exit2; deterministic parse/query
+failure creates no file and source/existing-target overwrite is refused. Late
+write/close/readback failures may leave a partial or complete new target: this is
+reported as an error, not a transaction or automatic rollback.
+
+The new original sample renames `gate` to `coreA` in one definition and three
+SREF/AREF uses, 454 ->438 bytes. LIBNAME, TEXT STRING, property value and two opaque
+payloads still contain `gate`. Existing file receivers read the materialized GDS:
+
+```sh
+node tools/inspect.mjs --catalog renamed.gds
+node tools/inspect.mjs --hierarchy renamed.gds die
+node tools/inspect.mjs --preflight renamed.gds die 12 4 4 3
+```
+
+The last result is RectanglesClear for three selected boxes. Full hand-declared
+streams and world rectangles, plus collision/capture/no-op/name-profile and
+physical file outcomes, are checked by `node .ci/cell_rename.mjs` after the JS
+build (optional fresh output directory). The unchanged parent finding comparison
+is additional finding-level evidence, not a whole-geometry equivalence proof.
+
+Only the existing definition/SREF/AREF naming semantics are interpreted. Names
+embedded in unknown vendor extensions are preserved without inference. Batch
+namespaces, merge, layer remapping, new formats and external adoption/signoff are
+outside this operation.
 
 ## Linux native core consumers
 

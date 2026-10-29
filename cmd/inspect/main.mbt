@@ -92,6 +92,18 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("rename-cell"), .. } {
+    guard request
+      is {
+        "hex": String(hex),
+        "old_name": String(old_name),
+        "new_name": String(new_name),
+        ..
+      } else {
+      return { "error": "rename-cell requires hex, old_name and new_name" }
+    }
+    return rename_hex(hex, old_name, new_name)
+  }
   if request is { "mode": String("extract-cell"), .. } {
     guard request is { "hex": String(hex), "cell": String(cell), .. } else {
       return { "error": "extract-cell requires hex and cell" }
