@@ -1,8 +1,16 @@
 # GDSII for MoonBit
 
 Native GDSII binary records, REAL8 numerics, hierarchy expansion and rectangle preflight.
-Module: `tanglong2001/gdsii` (not published to Mooncakes).
+Module: `tanglong2001-2/gdsii`.
+Current maintainer and submission account: `tanglong2001-2`.
 Source repository: [tanglong2001-2/moonbit-gdsii](https://github.com/tanglong2001-2/moonbit-gdsii).
+
+Original source attribution remains `tanglong2001`; copyright notices and Git
+authorship history are preserved. Repository ownership does not change authorship.
+
+Public consumer packages import `tanglong2001-2/gdsii` (the default alias is
+`@gdsii`). Existing consumers must update their own import namespace; exported
+symbols and behavior are preserved. Build and run from this source checkout.
 
 The library has no external MoonBit dependencies. CI covers JS and Wasm-GC plus
 Linux x86-64 native core consumers on Ubuntu 24.04. The optional file consumer uses
@@ -41,7 +49,68 @@ node tools/review_dependents.mjs examples/reference-impact.gds mid 18 0 5 0 mid-
 node examples/read_dependent_review.mjs mid-review.json
 node tools/compare_plan.mjs examples/comparison-plan-before.gds examples/comparison-plan-after.gds examples/comparison-plan.json comparison-review.json
 node examples/read_comparison_plan.mjs comparison-review.json
+node tools/definition_diff.mjs examples/definition-diff-before.gds examples/definition-diff-after.gds definition-review.json
+node examples/read_definition_diff.mjs definition-review.json
 ```
+
+## Raw definition change inventory
+
+`before.definition_diff(after)` compares complete cell record blocks by exact
+name without expanding hierarchy or geometry. It helps locate revised definitions
+when an earlier edit shifts every later file offset, or when properties, dates,
+unsupported shapes or opaque bytes change outside selected rectangle findings.
+Existing `records()` and ordinary byte comparison are composable primitives;
+this API packages the name-aware inventory and usable raw ranges. Existing finding
+comparisons keep their stated meaning and are not treated as defective.
+
+The result gives fresh `before_cells`/`after_cells` source-order names. Its `cells`
+union follows before order, then after-only names. Each entry has an exact `name`,
+`DefinitionAdded`, `DefinitionRemoved`, `DefinitionChanged` or
+`DefinitionUnchanged`, and optional `before`/`after` `CellRecordSpan` values.
+Spans contain zero-based `first_record`, `record_count`, `byte_offset` and
+`byte_length`, including the complete BGNSTR..ENDSTR block in `to_bytes()` output.
+STRNAME need not immediately follow BGNSTR. Identity compares record kind, datatype
+and full payload sequence, including dates/unknown records; offsets are ignored.
+There is no rename inference. Missing and cyclic references remain unexpanded data.
+
+`library_records_equal` compares the sequence of records outside cells, ignoring
+their placement among cells. `cell_order_equal` compares name order and
+`padding_equal` compares exact physical trailing zeros. Independently,
+`bytes_equal` compares the full physical byte streams and `first_difference` is
+the first same-index mismatch (or shorter length for a strict prefix). A moved
+library record can leave all three component flags true while physical bytes
+differ: **do not combine those flags to infer whole-file equality**. These are raw
+comparison views, not a minimal record edit script or semantic/CAD equivalence.
+
+```sh
+node tools/definition_diff.mjs BEFORE.gds AFTER.gds OUTPUT.json
+node examples/read_definition_diff.mjs OUTPUT.json
+```
+
+The producer reads each operand once, parses both and exclusively creates a
+complete `gdsii-definition-diff-v1` JSON report bound to both raw paths, lengths and
+SHA-256 snapshots. Wire ranges and first offset are nullable objects/numbers;
+native API fields are Options. Output is physically read back and its actual
+length/SHA-256 returned. Identical physical bytes exit0, changed bytes exit3,
+global parse/input/I/O errors exit2 without a valid report. The supplied example
+exits3: alpha grows by16bytes, while beta/gamma remain unchanged at shifted offsets.
+Existing inputs/output are refused; late I/O may leave a partial new file.
+
+The separate recipient reads the physical report and current source snapshots,
+decodes record headers to extract each declared complete cell block, checks its
+STRNAME/boundaries and prints actual block lengths/ranges/SHA-256 plus the first
+physical byte mismatch. It does not need the geometry engine. A stale source is
+rejected at receipt time; this is not author authentication or future file
+stability. Project receivers are not external adoption. No hidden/vendor reference
+semantics, geometry equivalence or finding/causal conclusions are inferred.
+
+After a JS build, `node .ci/definition_diff.mjs` verifies eleven independently
+frozen complete inventories and actual span bytes, global/refusal/stale errors and
+new public blackbox tests cover JS/Wasm-GC. Original CC0 streams, record tables and
+cell bytes are in `testdata/definition-diff-vectors.json`. A fresh gate output
+directory is optional. [gdstk.read_rawcells](https://heitzmann.github.io/gdstk/library/gdstk.read_rawcells.html)
+is a primary example of raw cells indexed by name; no gdstk code/runtime or previous
+scientific reference generator is used by this workflow.
 
 ## Saved plans for two-revision regression review
 

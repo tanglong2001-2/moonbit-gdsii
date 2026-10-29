@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "tanglong2001/gdsii"
+package "tanglong2001-2/gdsii"
 
 import {
   "moonbitlang/core/debug",
@@ -45,6 +45,40 @@ pub(all) struct Cell {
   name : String
   elements : Array[Element]
 } derive(ToJson, @debug.Debug)
+
+pub(all) struct CellDefinitionChange {
+  name : String
+  status : DefinitionStatus
+  before : CellRecordSpan?
+  after : CellRecordSpan?
+} derive(@debug.Debug)
+pub impl ToJson for CellDefinitionChange
+
+pub(all) struct CellRecordSpan {
+  first_record : Int
+  record_count : Int
+  byte_offset : Int
+  byte_length : Int
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct DefinitionDiff {
+  before_cells : Array[String]
+  after_cells : Array[String]
+  cells : Array[CellDefinitionChange]
+  library_records_equal : Bool
+  cell_order_equal : Bool
+  padding_equal : Bool
+  bytes_equal : Bool
+  first_difference : Int?
+} derive(@debug.Debug)
+pub impl ToJson for DefinitionDiff
+
+pub(all) enum DefinitionStatus {
+  DefinitionAdded
+  DefinitionRemoved
+  DefinitionChanged
+  DefinitionUnchanged
+} derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct DrcReport {
   violations : Array[DrcViolation]
@@ -128,6 +162,7 @@ pub struct GdsLibrary {
 } derive(@debug.Debug)
 pub fn GdsLibrary::catalog(Self) -> GdsCatalog
 pub fn GdsLibrary::cells(Self) -> Array[Cell]
+pub fn GdsLibrary::definition_diff(Self, Self) -> DefinitionDiff
 pub fn GdsLibrary::extract_cell(Self, String) -> Result[Self, GdsError]
 pub fn GdsLibrary::flatten_cell(Self, String, budget? : Int) -> Result[FlattenedCell, GdsError]
 pub fn GdsLibrary::from_records(Array[GdsRecord]) -> Result[Self, GdsError]

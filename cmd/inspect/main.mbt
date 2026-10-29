@@ -92,6 +92,12 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("definition-diff"), .. } {
+    guard request is { "hex": String(before), "after_hex": String(after), .. } else {
+      return { "error": "definition-diff requires hex and after_hex" }
+    }
+    return definition_diff_hex(before, after)
+  }
   if request is { "mode": String("compare-plan"), .. } {
     guard request
       is { "hex": String(before), "after_hex": String(after), "plan": plan, .. } else {

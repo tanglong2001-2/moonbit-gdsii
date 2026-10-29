@@ -1,0 +1,775 @@
+{
+  "schema": "gdsii-definition-diff-vectors-v1",
+  "origin": "New original CC0 GDS record lists, explicit per-name states and construction-derived complete raw spans/blocks, frozen before implementation/execution. No product or external reference generator used.",
+  "sources": {
+    "base": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700000404000000000000000000",
+    "grow": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c70686100001074066675747572652d64617461000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700000404000000000000000000",
+    "property": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7632000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700000404000000000000000000",
+    "dates": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700001c050207ea000a001d000e0000000007ea000a001d000e0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700000404000000000000000000",
+    "membership": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060664656c7461000004080000060d02002600060e020005002c1003fffffffefffffffd00000003fffffffd0000000300000004fffffffe00000004fffffffefffffffd0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700000404000000000000000000",
+    "library": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d6175646974000014030541100000000000004110000000000000000e7306666f726d61742d763200001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700000404000000000000000000",
+    "padding": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c10030000000000000000000411000004070000040400000000000000000000000000",
+    "placement": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700000e7306666f726d61742d763100001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700000404000000000000000000",
+    "empty": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000000e02067261772d7265766965770014030541100000000000004110000000000000000e7306666f726d61742d763100000404000000000000000000"
+  },
+  "cell_blocks": {
+    "base": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "grow": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c70686100001074066675747572652d64617461000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "property": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7632000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "dates": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000e0000000007ea000a001d000e0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "membership": {
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "delta": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060664656c7461000004080000060d02002600060e020005002c1003fffffffefffffffd00000003fffffffd0000000300000004fffffffe00000004fffffffefffffffd0004110000040700",
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700"
+    },
+    "library": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "padding": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "placement": {
+      "alpha": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a7206726177746167000a0606616c706861000004150000060d02002400062a020004000c1003000000030000000700062b020009000c2c066e6f74652d7631000004110000040a00000e1206756e7265736f6c766564000c100300000000000000000004110000040700",
+      "beta": "001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606626574610004080000060d02002500060e020002002c10030000000a000000140000000e000000140000000e000000190000000a000000190000000a000000140004110000040700",
+      "gamma": "001c050207ea000a001d000d0000000007ea000a001d000d00000000000a060667616d6d610000040a00000a120667616d6d6100000c100300000000000000000004110000040700"
+    },
+    "empty": {}
+  },
+  "cases": [
+    {
+      "id": "identical",
+      "before": "base",
+      "after": "base",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": true,
+        "first_difference": null
+      },
+      "exit": 0
+    },
+    {
+      "id": "shifted-offsets",
+      "before": "base",
+      "after": "grow",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionChanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 16,
+              "byte_offset": 82,
+              "byte_length": 152
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 21,
+              "record_count": 8,
+              "byte_offset": 234,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 29,
+              "record_count": 7,
+              "byte_offset": 338,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 131
+      },
+      "exit": 3
+    },
+    {
+      "id": "property-bytes",
+      "before": "base",
+      "after": "property",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionChanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 174
+      },
+      "exit": 3
+    },
+    {
+      "id": "date-bytes",
+      "before": "base",
+      "after": "dates",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionChanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 229
+      },
+      "exit": 3
+    },
+    {
+      "id": "membership-order",
+      "before": "base",
+      "after": "membership",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "beta",
+          "delta",
+          "alpha"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 21,
+              "record_count": 15,
+              "byte_offset": 292,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 8,
+              "byte_offset": 82,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionRemoved",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": null
+          },
+          {
+            "name": "delta",
+            "status": "DefinitionAdded",
+            "before": null,
+            "after": {
+              "first_record": 13,
+              "record_count": 8,
+              "byte_offset": 186,
+              "byte_length": 106
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": false,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 111
+      },
+      "exit": 3
+    },
+    {
+      "id": "library-records",
+      "before": "base",
+      "after": "library",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": false,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 42
+      },
+      "exit": 3
+    },
+    {
+      "id": "padding-only",
+      "before": "base",
+      "after": "padding",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": false,
+        "bytes_equal": false,
+        "first_difference": 406
+      },
+      "exit": 3
+    },
+    {
+      "id": "library-record-placement",
+      "before": "base",
+      "after": "placement",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": {
+              "first_record": 4,
+              "record_count": 15,
+              "byte_offset": 68,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionUnchanged",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 69
+      },
+      "exit": 3
+    },
+    {
+      "id": "empty-before",
+      "before": "empty",
+      "after": "base",
+      "expected": {
+        "before_cells": [],
+        "after_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionAdded",
+            "before": null,
+            "after": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            }
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionAdded",
+            "before": null,
+            "after": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            }
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionAdded",
+            "before": null,
+            "after": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            }
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": false,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 83
+      },
+      "exit": 3
+    },
+    {
+      "id": "empty-after",
+      "before": "base",
+      "after": "empty",
+      "expected": {
+        "before_cells": [
+          "alpha",
+          "beta",
+          "gamma"
+        ],
+        "after_cells": [],
+        "cells": [
+          {
+            "name": "alpha",
+            "status": "DefinitionRemoved",
+            "before": {
+              "first_record": 5,
+              "record_count": 15,
+              "byte_offset": 82,
+              "byte_length": 136
+            },
+            "after": null
+          },
+          {
+            "name": "beta",
+            "status": "DefinitionRemoved",
+            "before": {
+              "first_record": 20,
+              "record_count": 8,
+              "byte_offset": 218,
+              "byte_length": 104
+            },
+            "after": null
+          },
+          {
+            "name": "gamma",
+            "status": "DefinitionRemoved",
+            "before": {
+              "first_record": 28,
+              "record_count": 7,
+              "byte_offset": 322,
+              "byte_length": 72
+            },
+            "after": null
+          }
+        ],
+        "library_records_equal": true,
+        "cell_order_equal": false,
+        "padding_equal": true,
+        "bytes_equal": false,
+        "first_difference": 83
+      },
+      "exit": 3
+    },
+    {
+      "id": "both-empty",
+      "before": "empty",
+      "after": "empty",
+      "expected": {
+        "before_cells": [],
+        "after_cells": [],
+        "cells": [],
+        "library_records_equal": true,
+        "cell_order_equal": true,
+        "padding_equal": true,
+        "bytes_equal": true,
+        "first_difference": null
+      },
+      "exit": 0
+    }
+  ],
+  "malformedSourceHex": "00030000"
+}

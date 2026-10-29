@@ -1,5 +1,61 @@
 # CI acceptance
 
+The current module is `tanglong2001-2/gdsii`, maintained in
+`tanglong2001-2/moonbit-gdsii`. Public consumer packages use this exact import;
+generated interfaces come from the pinned SDK. Source provenance, licenses and
+Git authorship remain intact. Verification binds actual fresh namespace builds,
+public consumers and file inputs/outputs, rather than a string-replacement test.
+
+## Raw definition inventory and physical spans
+
+The new consumer question is which exact named cell record blocks changed when
+receiving two GDS revisions. A growing earlier cell changes later offsets without
+changing those later definitions. Dates/properties/opaque records are outside the
+finding-only comparison purpose. That existing boundary is not a bug. A standalone
+first-byte utility alone has insufficient value; the selected workflow provides
+name-aware states, full spans, complete report and an actual block recipient.
+
+Compare full kind/datatype/payload sequences including dates, ignoring offsets;
+before order plus after-only names, no rename inference or graph expansion. Outside
+record sequence/order/padding views do not establish full physical equality.
+Independently compare physical bytes and first mismatch. The moved-library-record
+case deliberately leaves all component flags true while bytes differ.
+
+- Freeze nine original GDS streams, complete record tables/cell blocks and eleven
+  full inventories before implementation/execution. Include shifted offsets,
+  properties, dates, membership/order, library fields, physical padding, moved
+  outside records and empty sides/both empty. Distribution and embedded/doc-example
+  streams must match their frozen originals; no product-derived expectations.
+- Six new public blackbox groups on JS/Wasm-GC plus relevant JS build/check,
+  formatting and generated API review. The public addition is metadata only.
+  Use explicit nullable JSON for the new types, without changing default Option
+  serialization or any old API. Use the public Json::null factory for null values
+  and explicitly qualified trait serialization calls.
+  Compiler diagnostics and unchanged frozen expected values are part of the clean
+  verification pass.
+- `node .ci/definition_diff.mjs` executes actual file producers/recipients, compares
+  all complete reports and independently frozen block bytes/SHA, global parse and
+  filesystem failures, refusal and stale operands. Prefix every process log to
+  keep it distinct from input artifacts; persist full process results before
+  assertions. Assert complete Checks notices below3900bytes, retain full artifacts.
+- Keep every old necessary job/gate and add **Verify raw definition inventory and
+  physical cell spans** in **JS, Wasm-GC and file consumers**. Full native tests
+  exercise the portable public addition; current native CI remains separate from
+  old retained local native/cache outputs. Do not rerun unchanged local targets,
+  accepted workflows or scientific reference generators.
+- Freeze final-head source ZIP/member readback and README/PROPOSAL/this plan;
+  distinguish Git blob content/raw/test copies, actual inputs/engine, local compiled
+  outputs and full raw processes. Exact-head required CI/check URLs/notices and
+  cloud artifact metadata do not imply cloud binary/archive downloads or local/cloud
+  equality. Verification records bind source, consumed binary and runtime output.
+
+This is strict record inventory, not minimal edit distance, full CAD/semantic
+equality, hidden vendor interpretation, report authenticity, causal geometry or
+future filesystem stability. No parser/writer/geometry/reverse/plan behavior,
+format/model, SDK, dependency or source-author changes are included. Namespace
+alignment changes package identity and imports while preserving public symbols
+and behavior.
+
 ## Saved two-revision comparison plans
 
 The new consumer question is whether two revisions regress under one saved named
@@ -39,8 +95,8 @@ The recipient verifies all three current inputs before displaying outcomes.
 ErrorsFound/2 precedes Incomplete/4, NewIssuesFound/3 and NoNewIssues/0. Incomplete
 coverage prevents regression acceptance even if findings exist. NoNewIssues may
 retain baseline violations; the workflow does not claim full CAD equivalence,
-report authentication, external adoption or future filesystem stability. Root
-independently accepts/counts a completed round; no self increment or next round.
+report authentication, external adoption or future filesystem stability. Current
+verification requires the saved report, current-input receipt and necessary CI.
 
 ## Reference-impact review acceptance
 
@@ -98,5 +154,5 @@ all ordered results and exact witnesses; errors take precedence, then incomplete
 coverage/empty queues, then findings, then pass. Counts are per cell report.
 These are project-authored consumers, not external adoption or physical signoff.
 No package publication, contest submission, new CAD format or geometry expansion
-capability is included. A round receipt awaits independent root acceptance;
-neither CI success nor this file increments the accepted-round counter.
+capability is included. Compile success and cloud artifact metadata alone do not
+establish physical output readback or runtime acceptance.
