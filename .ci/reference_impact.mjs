@@ -130,6 +130,19 @@ const manifest = { schema: 'gdsii-reference-impact-acceptance-v1', commit: proce
 writeFileSync(join(output, 'acceptance.json'), JSON.stringify(manifest, null, 2) + '\n', { flag: 'wx' });
 process.stdout.write(JSON.stringify(manifest) + '\n');
 if (process.env.GITHUB_ACTIONS === 'true') {
-  const notice = JSON.stringify({ ...manifest, sourceIdentities: { '_build/js/debug/build/cmd/inspect/inspect.js': manifest.sourceIdentities['_build/js/debug/build/cmd/inspect/inspect.js'] } });
+  // Checks annotations have a bounded payload. Keep the full manifest in the
+  // artifact; bind its complete cases/semantics with canonical digests here.
+  const engine = manifest.sourceIdentities['_build/js/debug/build/cmd/inspect/inspect.js'];
+  const notice = JSON.stringify({ schema: manifest.schema, status: 'PASS', commit: manifest.commit,
+    vectorsSHA256: manifest.vectorsSHA256, caseCount: cases.length, casesSHA256: sha256(JSON.stringify(cases)),
+    exitCounts: Object.fromEntries([0, 2, 3, 4].map(code => [code, cases.filter(test => test.exit === code).length])),
+    reportCount: reports.length,
+    reportSemanticsSHA256: sha256(JSON.stringify(reports.map(({ bytes, sha256, ...semantics }) => semantics))),
+    reports: reports.map(report => [report.case, report.bytes, report.sha256]),
+    engineBytes: engine.bytes, engineSHA256: engine.sha256,
+    originalInputs: manifest.originalInputs, sourcesUnchanged: true, shortestDefinitionWitnesses: true,
+    rootlessCyclesIncluded: true, unknownIsIncomplete: true, skippedFindingsCannotPass: true,
+    stalePhysicalReportRejected: true, existingFilesNotOverwritten: true, externalAdoptionClaimed: false });
+  assert.ok(Buffer.byteLength(notice) < 3900, 'Keep the complete Checks notice below the observed truncation boundary.');
   process.stdout.write('::notice title=Reference impact acceptance::' + notice.replaceAll('%', '%25').replaceAll('\r', '%0D').replaceAll('\n', '%0A') + '\n');
 }
