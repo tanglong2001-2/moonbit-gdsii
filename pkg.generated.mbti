@@ -128,6 +128,7 @@ pub struct GdsLibrary {
 } derive(@debug.Debug)
 pub fn GdsLibrary::catalog(Self) -> GdsCatalog
 pub fn GdsLibrary::cells(Self) -> Array[Cell]
+pub fn GdsLibrary::extract_cell(Self, String) -> Result[Self, GdsError]
 pub fn GdsLibrary::flatten_cell(Self, String, budget? : Int) -> Result[FlattenedCell, GdsError]
 pub fn GdsLibrary::from_records(Array[GdsRecord]) -> Result[Self, GdsError]
 pub fn GdsLibrary::hierarchy(Self, String) -> Result[HierarchyReport, GdsError]

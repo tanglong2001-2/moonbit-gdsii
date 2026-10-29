@@ -92,6 +92,12 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("extract-cell"), .. } {
+    guard request is { "hex": String(hex), "cell": String(cell), .. } else {
+      return { "error": "extract-cell requires hex and cell" }
+    }
+    return extract_hex(hex, cell)
+  }
   if request is { "mode": String("review-plan"), .. } {
     guard request is { "hex": String(hex), "plan": plan, .. } else {
       return { "error": "review-plan requires hex and plan" }

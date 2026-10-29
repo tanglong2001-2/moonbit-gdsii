@@ -35,6 +35,7 @@ node tools/inspect.mjs --compare examples/revision-before.gds examples/revision-
 node tools/inspect.mjs --preflight-tops examples/multi-top-before.gds 7 2 3 3
 node tools/inspect.mjs --compare-tops examples/multi-top-before.gds examples/multi-top-after.gds 7 2 3 3
 node tools/inspect.mjs --review-plan examples/review-plan.gds examples/review-plan.json
+node tools/extract_cell.mjs examples/cell-extract-source.gds top exported-top.gds
 ```
 
 Selected-cell modes take cell, layer, datatype, minimum width and minimum spacing;
@@ -109,6 +110,61 @@ After `moon build --target js`, `node .ci/record_rewrite.mjs` checks a complete
 property rewrite on JS and Wasm-GC against independently constructed GDS bytes.
 It materializes and reads back both files, and passes a rejected rewrite to the
 existing file materializer to verify that no output directory is created.
+
+## Export one cell and its dependencies
+
+`GdsLibrary::extract_cell(cell)` returns a newly validated library containing the
+exact selected definition and its transitive known SREF/AREF dependencies. Each
+definition appears once in original file order, including shared descendants.
+Non-cell library records and complete retained BGNSTR..ENDSTR blocks keep their
+kind, data type, payload and order: dates, properties, placements, opaque records
+and both raw UNITS words are copied rather than rebuilt from semantic elements.
+
+```moonbit nocheck
+let component = library.extract_cell("top").unwrap()
+let component_bytes = component.to_bytes()
+```
+
+The source stays unchanged. Exported offsets are recomputed and physical trailing
+zero padding is omitted, following `from_records`. Closed reference cycles are
+preserved as parseable data; extraction neither expands nor repairs them, and
+their catalogue may have no top cell. A missing selected cell or reachable target
+returns `MissingCell` (the first missing reference in inventory order). Unrelated
+missing/cyclic components do not block extraction. Original parser admission and
+the existing hierarchy/flattening error contracts are unchanged.
+
+After building JS, `node tools/extract_cell.mjs SOURCE.gds CELL OUTPUT.gds` reads
+the source once, completes extraction/validation, then exclusively creates a new
+output file. It reads back the saved bytes and returns `gdsii-cell-extraction-v1`
+JSON with the exact cell, ordered `kept_cells`, and actual source/output absolute
+paths, byte lengths and SHA-256 hashes. Success exits0; request, input, query,
+build, engine or output failures return JSON and exit2. Existing output paths,
+including the source itself, are refused without overwrite. Deterministic
+parse/query failures create no output. A late write/close/readback failure may
+leave a partial or complete **new** file; it is reported as failure and is not a
+transaction or automatic rollback. The parent directory must already exist.
+
+The original example contains unrelated `unused`/`sibling` definitions, shared
+`leaf`, selected `top`, three opaque records, properties and a 32-byte zero tail.
+It exports exactly `[leaf,top]`, 534 ->324 bytes. The existing file consumers can
+read the actual saved GDS directly:
+
+```sh
+node tools/inspect.mjs --catalog exported-top.gds
+node tools/inspect.mjs --hierarchy exported-top.gds top
+node tools/inspect.mjs --preflight exported-top.gds top 7 2 3 1
+```
+
+The last command deliberately exits3: three width2 rectangles violate width3,
+with no spacing findings or skips. `node .ci/cell_extract.mjs` checks complete
+independently hand-frozen streams, raw metadata, real physical-file receivers,
+closed/missing/outside dependencies, empty cells and no-overwrite/error outcomes.
+Its optional output directory must be new so prior evidence is retained.
+
+Closure is defined only by the currently supported reference records. Opaque
+extensions are retained without interpreting their dependencies; external
+libraries, merge/rename, layer mapping, new formats and geometry/signoff
+certification are outside this operation.
 
 ## Linux native core consumers
 
