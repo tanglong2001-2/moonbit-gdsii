@@ -66,6 +66,9 @@ jobs:
           node --check tools/review_dependents.mjs
           node --check examples/read_dependent_review.mjs
           node --check .ci/reference_impact.mjs
+          node --check tools/compare_plan.mjs
+          node --check examples/read_comparison_plan.mjs
+          node --check .ci/compare_plan.mjs
       - name: Verify authored bytes and real file consumers
         run: node .ci/smoke.mjs
       - name: Verify checked record rewrite fidelity
@@ -80,6 +83,8 @@ jobs:
         run: node .ci/cell_rename.mjs
       - name: Verify reference-impact review file receivers
         run: node .ci/reference_impact.mjs
+      - name: Verify saved two-revision comparison plan receivers
+        run: node .ci/compare_plan.mjs
       - name: Retain CI evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

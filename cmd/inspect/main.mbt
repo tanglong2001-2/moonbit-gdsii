@@ -92,6 +92,13 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("compare-plan"), .. } {
+    guard request
+      is { "hex": String(before), "after_hex": String(after), "plan": plan, .. } else {
+      return { "error": "compare-plan requires hex, after_hex and plan" }
+    }
+    return run_compare_plan(before, after, plan)
+  }
   if request is { "mode": String("review-dependents"), .. } {
     return run_dependent_review(request)
   }

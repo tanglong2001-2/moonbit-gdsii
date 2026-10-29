@@ -39,7 +39,58 @@ node tools/extract_cell.mjs examples/cell-extract-source.gds top exported-top.gd
 node tools/rename_cell.mjs examples/cell-rename-source.gds gate coreA renamed.gds
 node tools/review_dependents.mjs examples/reference-impact.gds mid 18 0 5 0 mid-review.json
 node examples/read_dependent_review.mjs mid-review.json
+node tools/compare_plan.mjs examples/comparison-plan-before.gds examples/comparison-plan-after.gds examples/comparison-plan.json comparison-review.json
+node examples/read_comparison_plan.mjs comparison-review.json
 ```
+
+## Saved plans for two-revision regression review
+
+`tools/compare_plan.mjs BEFORE.gds AFTER.gds PLAN.json OUTPUT.json` applies the
+existing `gdsii-rectangle-review-plan-v1` plan to both revisions. Saved single-source
+plans and single-profile `--compare` remain available; they can be composed by
+callers. This command supplies one complete, named-rule regression handoff using
+the same cell, selectors, thresholds and budget on both sides.
+
+The plan keeps its existing strict fields, unique nonempty IDs, explicit
+nonnegative INT32 selectors/rules and optional positive INT32 budget (100000 by
+default). UTF-8 accepts one initial BOM. Each input operand is read once; the
+engine validates the whole plan before GDS parsing, then parses each revision
+once. Each profile and revision receives a fresh budget. Both sides are evaluated
+even if one fails, preserving both errors or complete preflights under that ID.
+When both succeed, the existing finding-multiset `PreflightReport.diff` runs;
+comparison errors, including differing report DBU metadata, retain both reports.
+Later IDs are always evaluated after per-profile errors. Global plan/parse errors
+return one error without a partial review.
+
+The saved `gdsii-rectangle-comparison-result-v1` JSON contains `before`, `after`
+and `plan` absolute-path/length/SHA-256 snapshots, plus ordered profiles, both
+preflight results, comparisons, counts and coverage. Status precedence is
+ErrorsFound/2, Incomplete/4, NewIssuesFound/3, NoNewIssues/0. Counts are profiles,
+named `errors`, `incomplete`, `new_issues` and `no_new_issues`. Coverage is complete
+only when every requested comparison has checked rectangles on both sides and no
+skips/errors; `coverage.unchecked_profiles` identifies the rest. NoNewIssues may
+retain baseline violations and does not mean clear geometry or physical equivalence.
+The supplied example saves a report and exits3: one width finding disappears and
+a different one is introduced; its second profile remains clear.
+
+Output is exclusively created and read back before printing its actual byte
+length/SHA-256. Per-profile errors still save the complete review and return2;
+request/input/global plan/parse/I/O errors do not create a valid report. Existing
+files, including all three inputs, are refused. Late I/O can leave a partial new
+file; no filesystem transaction is promised. The separate recipient example reads
+the physical report, verifies all three current input snapshots and displays the
+ordered outcomes. This is a receipt-time check, not future file stability or
+report-author authentication. Both tools are project consumers, not external adoption.
+
+After building JS, `node .ci/compare_plan.mjs` checks eight independent complete
+reports, both-side failures, retained/reordered findings, incomplete coverage,
+fresh budgets, DBU mismatch, global failures, output refusal and actual stale
+before/after/plan handoffs. It retains full files and process outputs; a fresh
+output directory is its optional argument. Original CC0 data/expectations are in
+`testdata/comparison-plan-vectors.json`. The command bridge is JS-only; the portable
+public library and its geometry/diff APIs are unchanged. KLayout's documented
+[`LayoutDiff`](https://www.klayout.de/doc/code/class_LayoutDiff.html) is a broader
+layout-comparison tool; this project compares only the declared rectangle findings.
 
 ## Review definitions that depend on a symbol
 

@@ -1,4 +1,48 @@
-# Reference-impact review acceptance
+# CI acceptance
+
+## Saved two-revision comparison plans
+
+The new consumer question is whether two revisions regress under one saved named
+rule plan. Single-source saved plans and single-profile pair comparisons already
+compose; the missing workflow is one complete per-ID, three-input comparison
+handoff that retains both sides even when either fails. Arbitrary caller-forged
+report integrity auditing is not an existing promise and is not added.
+
+Reuse the strict `gdsii-rectangle-review-plan-v1` and public finding diff without
+changing any portable API or geometry model. Validate the entire plan before
+parsing either revision; parse each once, evaluate each side/profile with fresh
+budgets, preserve both errors/reports, then compare if both succeeded. Save all
+results and bind before/after/plan raw snapshots to one physical JSON report.
+The recipient verifies all three current inputs before displaying outcomes.
+
+- Independent original streams, raw plans and eight complete expected report
+  objects in `testdata/comparison-plan-vectors.json` are frozen before code/run.
+  They cover regression, retained/reordered baseline issues, mixed empty/skipped
+  coverage, both distinct side errors, per-side budgets, DBU mismatch and missing
+  selected cells. Full objects include both preflights and the existing diff.
+- Run the changed JS check/build, formatting and interface review locally. This
+  is a JS-only private command; no portable library behavior/signature changed,
+  so no duplicate local old JS/Wasm/native or scientific-generator runs.
+- `node .ci/compare_plan.mjs` executes the actual compiled producer and physical
+  recipient for every complete case, relevant existing pair receivers, global
+  before/after/plan errors, output/input refusal and stale three-input handoffs.
+  Retain full stdout/stderr/exits and actual saved bytes. Always assert the complete
+  Checks notice stays below3900bytes; keep full manifests in the uploaded artifact.
+- Keep all existing required jobs/steps; add **Verify saved two-revision
+  comparison plan receivers** to **JS, Wasm-GC and file consumers**. The existing
+  full JS/Wasm-GC/native checks and direct native consumers remain required CI.
+- Freeze final README/PROPOSAL/this plan, every source ZIP member, actual local
+  compiler/consumed engine, original input/test-copy/raw-output identities and
+  exact-head required CI. Cloud notices/metadata are distinct from downloaded
+  binary/archive readback; local/cloud engine bytes need not match.
+
+ErrorsFound/2 precedes Incomplete/4, NewIssuesFound/3 and NoNewIssues/0. Incomplete
+coverage prevents regression acceptance even if findings exist. NoNewIssues may
+retain baseline violations; the workflow does not claim full CAD equivalence,
+report authentication, external adoption or future filesystem stability. Root
+independently accepts/counts a completed round; no self increment or next round.
+
+## Reference-impact review acceptance
 
 The consumer question is which known definitions require review after editing or
 repairing a shared cell symbol. Existing catalog and hierarchy expose composable

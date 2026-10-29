@@ -1,0 +1,1433 @@
+{
+  "schema": "gdsii-comparison-plan-vectors-v1",
+  "origin": "New original CC0 streams, hand-placed world boxes and explicit independent complete pair report expectations. No product/reference-generator execution.",
+  "sources": {
+    "before": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000001402067265766973696f6e2d706f6c696379000014030541100000000000004110000000000000001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606756e69740004080000060d02001700060e020002002c100300000000000000000000000400000000000000040000000600000000000000060000000000000000000411000004080000060d02001700060e020002002c100300000014000000000000001a000000000000001a0000000600000014000000060000001400000000000411000004080000060d02001800060e020001002c100300000000000000140000000800000014000000080000001a000000000000001a0000000000000014000411000004080000060d02001900060e020003002c100300000000000000280000000200000028000000020000002e000000000000002e0000000000000028000411000004150000060d02001900062a020003000c1003000000010000002c0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606746f700000040a0000081206756e6974000c10030000000a00000005000411000004070000040400",
+    "changed": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000001402067265766973696f6e2d706f6c696379000014030541100000000000004110000000000000001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606756e69740004080000060d02001700060e020002002c100300000000000000000000000600000000000000060000000600000000000000060000000000000000000411000004080000060d02001700060e020002002c100300000014000000000000001700000000000000170000000600000014000000060000001400000000000411000004080000060d02001800060e020001002c100300000000000000140000000800000014000000080000001a000000000000001a0000000000000014000411000004080000060d02001900060e020003002c100300000001000000280000000300000028000000030000002e000000010000002e0000000100000028000411000004150000060d02001900062a020003000c1003000000010000002c0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606746f700000040a0000081206756e6974000c10030000000a00000005000411000004070000040400",
+    "reordered": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000001402067265766973696f6e2d706f6c696379000014030541100000000000004110000000000000001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606756e69740004080000060d02001700060e020002002c100300000014000000000000001a000000000000001a0000000600000014000000060000001400000000000411000004080000060d02001700060e020002002c100300000000000000000000000400000000000000040000000600000000000000060000000000000000000411000004080000060d02001800060e020001002c100300000000000000140000000800000014000000080000001a000000000000001a0000000000000014000411000004080000060d02001900060e020003002c100300000000000000280000000200000028000000020000002e000000000000002e0000000000000028000411000004150000060d02001900062a020003000c1003000000010000002c0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606746f700000040a0000081206756e6974000c10030000000a00000005000411000004070000040400",
+    "units": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000001402067265766973696f6e2d706f6c696379000014030541100000000000004120000000000000001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606756e69740004080000060d02001700060e020002002c100300000000000000000000000400000000000000040000000600000000000000060000000000000000000411000004080000060d02001700060e020002002c100300000014000000000000001a000000000000001a0000000600000014000000060000001400000000000411000004080000060d02001800060e020001002c100300000000000000140000000800000014000000080000001a000000000000001a0000000000000014000411000004080000060d02001900060e020003002c100300000000000000280000000200000028000000020000002e000000000000002e0000000000000028000411000004150000060d02001900062a020003000c1003000000010000002c0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606746f700000040a0000081206756e6974000c10030000000a00000005000411000004070000040400",
+    "missing": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000001402067265766973696f6e2d706f6c696379000014030541100000000000004110000000000000001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606756e69740004080000060d02001700060e020002002c100300000000000000000000000400000000000000040000000600000000000000060000000000000000000411000004080000060d02001700060e020002002c100300000014000000000000001a000000000000001a0000000600000014000000060000001400000000000411000004080000060d02001800060e020001002c100300000000000000140000000800000014000000080000001a000000000000001a0000000000000014000411000004080000060d02001900060e020003002c100300000000000000280000000200000028000000020000002e000000000000002e0000000000000028000411000004150000060d02001900062a020003000c1003000000010000002c0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606746f700000040a00000c12066e6f745f68657265000c10030000000a00000005000411000004070000040400",
+    "cycle": "000600020258001c010207ea000a001d000d0000000007ea000a001d000d00000000001402067265766973696f6e2d706f6c696379000014030541100000000000004110000000000000001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606756e69740004080000060d02001700060e020002002c100300000000000000000000000400000000000000040000000600000000000000060000000000000000000411000004080000060d02001700060e020002002c100300000014000000000000001a000000000000001a0000000600000014000000060000001400000000000411000004080000060d02001800060e020001002c100300000000000000140000000800000014000000080000001a000000000000001a0000000000000014000411000004080000060d02001900060e020003002c100300000000000000280000000200000028000000020000002e000000000000002e0000000000000028000411000004150000060d02001900062a020003000c1003000000010000002c0004110000040700001c050207ea000a001d000d0000000007ea000a001d000d0000000000080606746f700000040a0000081206746f7000000c10030000000a00000005000411000004070000040400"
+  },
+  "plans": {
+    "focused": "efbbbf7b0a202022736368656d61223a202267647369692d72656374616e676c652d7265766965772d706c616e2d7631222c0a20202263656c6c223a2022746f70222c0a20202270726f66696c6573223a205b0a202020207b0a202020202020226964223a20227468696e222c0a202020202020226c61796572223a2032332c0a202020202020226461746174797065223a20322c0a202020202020226d696e5f7769647468223a20352c0a202020202020226d696e5f73706163696e67223a20300a202020207d2c0a202020207b0a202020202020226964223a202277696465e8a784e58899222c0a202020202020226c61796572223a2032342c0a202020202020226461746174797065223a20312c0a202020202020226d696e5f7769647468223a20362c0a202020202020226d696e5f73706163696e67223a20300a202020207d0a20205d0a7d0a",
+    "coverage": "7b0a202022736368656d61223a202267647369692d72656374616e676c652d7265766965772d706c616e2d7631222c0a20202263656c6c223a2022746f70222c0a20202270726f66696c6573223a205b0a202020207b0a202020202020226964223a20227468696e222c0a202020202020226c61796572223a2032332c0a202020202020226461746174797065223a20322c0a202020202020226d696e5f7769647468223a20352c0a202020202020226d696e5f73706163696e67223a20300a202020207d2c0a202020207b0a202020202020226964223a202277696465e8a784e58899222c0a202020202020226c61796572223a2032342c0a202020202020226461746174797065223a20312c0a202020202020226d696e5f7769647468223a20362c0a202020202020226d696e5f73706163696e67223a20300a202020207d2c0a202020207b0a202020202020226964223a2022656d707479222c0a202020202020226c61796572223a2033312c0a202020202020226461746174797065223a20302c0a202020202020226d696e5f7769647468223a20302c0a202020202020226d696e5f73706163696e67223a20300a202020207d2c0a202020207b0a202020202020226964223a20226d69786564222c0a202020202020226c61796572223a2032352c0a202020202020226461746174797065223a20332c0a202020202020226d696e5f7769647468223a20332c0a202020202020226d696e5f73706163696e67223a20300a202020207d0a20205d0a7d0a",
+    "tiny": "7b0a202022736368656d61223a202267647369692d72656374616e676c652d7265766965772d706c616e2d7631222c0a20202263656c6c223a2022746f70222c0a20202270726f66696c6573223a205b0a202020207b0a202020202020226964223a20227468696e222c0a202020202020226c61796572223a2032332c0a202020202020226461746174797065223a20322c0a202020202020226d696e5f7769647468223a20352c0a202020202020226d696e5f73706163696e67223a20300a202020207d2c0a202020207b0a202020202020226964223a202277696465e8a784e58899222c0a202020202020226c61796572223a2032342c0a202020202020226461746174797065223a20312c0a202020202020226d696e5f7769647468223a20362c0a202020202020226d696e5f73706163696e67223a20300a202020207d0a20205d2c0a202022627564676574223a20310a7d0a",
+    "unknown": "7b0a202022736368656d61223a202267647369692d72656374616e676c652d7265766965772d706c616e2d7631222c0a20202263656c6c223a2022756e6b6e6f776e222c0a20202270726f66696c6573223a205b0a202020207b0a202020202020226964223a20227468696e222c0a202020202020226c61796572223a2032332c0a202020202020226461746174797065223a20322c0a202020202020226d696e5f7769647468223a20352c0a202020202020226d696e5f73706163696e67223a20300a202020207d2c0a202020207b0a202020202020226964223a202277696465e8a784e58899222c0a202020202020226c61796572223a2032342c0a202020202020226461746174797065223a20312c0a202020202020226d696e5f7769647468223a20362c0a202020202020226d696e5f73706163696e67223a20300a202020207d0a20205d0a7d0a"
+  },
+  "cases": [
+    {
+      "id": "regression",
+      "before": "before",
+      "after": "changed",
+      "plan": "focused",
+      "expected": {
+        "cell": "top",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "NewIssuesFound",
+        "counts": {
+          "no_new_issues": 1,
+          "new_issues": 1,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_profiles": []
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 30,
+                        "min_y": 5,
+                        "max_x": 33,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:1"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 3.0,
+                    "shortfall": 2.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 23,
+              "datatype": 2,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NewIssuesFound",
+              "before_status": "ViolationsFound",
+              "after_status": "ViolationsFound",
+              "before_checked_rectangles": 2,
+              "after_checked_rectangles": 2,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 30,
+                      "min_y": 5,
+                      "max_x": 33,
+                      "max_y": 11,
+                      "source": "/top:0[0,0]/unit:1"
+                    }
+                  ],
+                  "required": 5,
+                  "measured": 3.0,
+                  "shortfall": 2.0
+                }
+              ],
+              "removed": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 10,
+                      "min_y": 5,
+                      "max_x": 14,
+                      "max_y": 11,
+                      "source": "/top:0[0,0]/unit:0"
+                    }
+                  ],
+                  "required": 5,
+                  "measured": 4.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "retained": 0
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 24,
+              "datatype": 1,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NoNewIssues",
+              "before_status": "RectanglesClear",
+              "after_status": "RectanglesClear",
+              "before_checked_rectangles": 1,
+              "after_checked_rectangles": 1,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 0
+            }
+          }
+        ]
+      },
+      "exit": 3
+    },
+    {
+      "id": "retained-baseline",
+      "before": "before",
+      "after": "before",
+      "plan": "focused",
+      "expected": {
+        "cell": "top",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "NoNewIssues",
+        "counts": {
+          "no_new_issues": 2,
+          "new_issues": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_profiles": []
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 23,
+              "datatype": 2,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NoNewIssues",
+              "before_status": "ViolationsFound",
+              "after_status": "ViolationsFound",
+              "before_checked_rectangles": 2,
+              "after_checked_rectangles": 2,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 1
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 24,
+              "datatype": 1,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NoNewIssues",
+              "before_status": "RectanglesClear",
+              "after_status": "RectanglesClear",
+              "before_checked_rectangles": 1,
+              "after_checked_rectangles": 1,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 0
+            }
+          }
+        ]
+      },
+      "exit": 0
+    },
+    {
+      "id": "reordered-baseline",
+      "before": "before",
+      "after": "reordered",
+      "plan": "focused",
+      "expected": {
+        "cell": "top",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "NoNewIssues",
+        "counts": {
+          "no_new_issues": 2,
+          "new_issues": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_profiles": []
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:1"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 23,
+              "datatype": 2,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NoNewIssues",
+              "before_status": "ViolationsFound",
+              "after_status": "ViolationsFound",
+              "before_checked_rectangles": 2,
+              "after_checked_rectangles": 2,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 1
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 24,
+              "datatype": 1,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NoNewIssues",
+              "before_status": "RectanglesClear",
+              "after_status": "RectanglesClear",
+              "before_checked_rectangles": 1,
+              "after_checked_rectangles": 1,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 0
+            }
+          }
+        ]
+      },
+      "exit": 0
+    },
+    {
+      "id": "partial-coverage",
+      "before": "before",
+      "after": "changed",
+      "plan": "coverage",
+      "expected": {
+        "cell": "top",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          },
+          {
+            "id": "empty",
+            "layer": 31,
+            "datatype": 0,
+            "min_width": 0,
+            "min_spacing": 0
+          },
+          {
+            "id": "mixed",
+            "layer": 25,
+            "datatype": 3,
+            "min_width": 3,
+            "min_spacing": 0
+          }
+        ],
+        "status": "Incomplete",
+        "counts": {
+          "no_new_issues": 1,
+          "new_issues": 1,
+          "incomplete": 2,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_profiles": [
+            "empty",
+            "mixed"
+          ]
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 30,
+                        "min_y": 5,
+                        "max_x": 33,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:1"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 3.0,
+                    "shortfall": 2.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 23,
+              "datatype": 2,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NewIssuesFound",
+              "before_status": "ViolationsFound",
+              "after_status": "ViolationsFound",
+              "before_checked_rectangles": 2,
+              "after_checked_rectangles": 2,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 30,
+                      "min_y": 5,
+                      "max_x": 33,
+                      "max_y": 11,
+                      "source": "/top:0[0,0]/unit:1"
+                    }
+                  ],
+                  "required": 5,
+                  "measured": 3.0,
+                  "shortfall": 2.0
+                }
+              ],
+              "removed": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 10,
+                      "min_y": 5,
+                      "max_x": 14,
+                      "max_y": 11,
+                      "source": "/top:0[0,0]/unit:0"
+                    }
+                  ],
+                  "required": 5,
+                  "measured": 4.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "retained": 0
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 24,
+              "datatype": 1,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "NoNewIssues",
+              "before_status": "RectanglesClear",
+              "after_status": "RectanglesClear",
+              "before_checked_rectangles": 1,
+              "after_checked_rectangles": 1,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 0
+            }
+          },
+          {
+            "id": "empty",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 31,
+                "datatype": 0,
+                "min_width": 0,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "EmptySelection",
+                "selected_shapes": 0,
+                "checked_rectangles": 0,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 31,
+                "datatype": 0,
+                "min_width": 0,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "EmptySelection",
+                "selected_shapes": 0,
+                "checked_rectangles": 0,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 31,
+              "datatype": 0,
+              "min_width": 0,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "IncompleteComparison",
+              "before_status": "EmptySelection",
+              "after_status": "EmptySelection",
+              "before_checked_rectangles": 0,
+              "after_checked_rectangles": 0,
+              "before_skipped": [],
+              "after_skipped": [],
+              "introduced": [],
+              "removed": [],
+              "retained": 0
+            }
+          },
+          {
+            "id": "mixed",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 25,
+                "datatype": 3,
+                "min_width": 3,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 1,
+                "skipped": [
+                  {
+                    "source": "/top:0[0,0]/unit:4",
+                    "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                  }
+                ],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 45,
+                        "max_x": 12,
+                        "max_y": 51,
+                        "source": "/top:0[0,0]/unit:3"
+                      }
+                    ],
+                    "required": 3,
+                    "measured": 2.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 25,
+                "datatype": 3,
+                "min_width": 3,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 1,
+                "skipped": [
+                  {
+                    "source": "/top:0[0,0]/unit:4",
+                    "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                  }
+                ],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 11,
+                        "min_y": 45,
+                        "max_x": 13,
+                        "max_y": 51,
+                        "source": "/top:0[0,0]/unit:3"
+                      }
+                    ],
+                    "required": 3,
+                    "measured": 2.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "comparison": {
+              "cell": "top",
+              "layer": 25,
+              "datatype": 3,
+              "min_width": 3,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "IncompleteComparison",
+              "before_status": "ViolationsFound",
+              "after_status": "ViolationsFound",
+              "before_checked_rectangles": 1,
+              "after_checked_rectangles": 1,
+              "before_skipped": [
+                {
+                  "source": "/top:0[0,0]/unit:4",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                }
+              ],
+              "after_skipped": [
+                {
+                  "source": "/top:0[0,0]/unit:4",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                }
+              ],
+              "introduced": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 11,
+                      "min_y": 45,
+                      "max_x": 13,
+                      "max_y": 51,
+                      "source": "/top:0[0,0]/unit:3"
+                    }
+                  ],
+                  "required": 3,
+                  "measured": 2.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "removed": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 10,
+                      "min_y": 45,
+                      "max_x": 12,
+                      "max_y": 51,
+                      "source": "/top:0[0,0]/unit:3"
+                    }
+                  ],
+                  "required": 3,
+                  "measured": 2.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "retained": 0
+            }
+          }
+        ]
+      },
+      "exit": 4
+    },
+    {
+      "id": "both-side-errors",
+      "before": "missing",
+      "after": "cycle",
+      "plan": "focused",
+      "expected": {
+        "cell": "top",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "ErrorsFound",
+        "counts": {
+          "no_new_issues": 0,
+          "new_issues": 0,
+          "incomplete": 0,
+          "errors": 2
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_profiles": [
+            "thin",
+            "wide规则"
+          ]
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "error": [
+                "MissingCell",
+                "not_here"
+              ]
+            },
+            "after": {
+              "error": [
+                "CyclicReference",
+                [
+                  "top",
+                  "top"
+                ]
+              ]
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "error": [
+                "MissingCell",
+                "not_here"
+              ]
+            },
+            "after": {
+              "error": [
+                "CyclicReference",
+                [
+                  "top",
+                  "top"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "exit": 2
+    },
+    {
+      "id": "fresh-side-budgets",
+      "before": "before",
+      "after": "changed",
+      "plan": "tiny",
+      "expected": {
+        "cell": "top",
+        "budget": 1,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "ErrorsFound",
+        "counts": {
+          "no_new_issues": 0,
+          "new_issues": 0,
+          "incomplete": 0,
+          "errors": 2
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_profiles": [
+            "thin",
+            "wide规则"
+          ]
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "error": [
+                "ExpansionLimit",
+                1
+              ]
+            },
+            "after": {
+              "error": [
+                "ExpansionLimit",
+                1
+              ]
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "error": [
+                "ExpansionLimit",
+                1
+              ]
+            },
+            "after": {
+              "error": [
+                "ExpansionLimit",
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "exit": 2
+    },
+    {
+      "id": "dbu-mismatch",
+      "before": "before",
+      "after": "units",
+      "plan": "focused",
+      "expected": {
+        "cell": "top",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "ErrorsFound",
+        "counts": {
+          "no_new_issues": 0,
+          "new_issues": 0,
+          "incomplete": 0,
+          "errors": 2
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_profiles": [
+            "thin",
+            "wide规则"
+          ]
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 23,
+                "datatype": 2,
+                "min_width": 5,
+                "min_spacing": 0,
+                "dbu_in_meters": 2.0,
+                "status": "ViolationsFound",
+                "selected_shapes": 2,
+                "checked_rectangles": 2,
+                "skipped": [],
+                "issues": [
+                  {
+                    "rule": "Width",
+                    "rectangles": [
+                      {
+                        "min_x": 10,
+                        "min_y": 5,
+                        "max_x": 14,
+                        "max_y": 11,
+                        "source": "/top:0[0,0]/unit:0"
+                      }
+                    ],
+                    "required": 5,
+                    "measured": 4.0,
+                    "shortfall": 1.0
+                  }
+                ],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "error": {
+              "side": "comparison",
+              "detail": [
+                "InvalidGeometry",
+                "preflight report profiles differ"
+              ]
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 1.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "after": {
+              "preflight": {
+                "cell": "top",
+                "layer": 24,
+                "datatype": 1,
+                "min_width": 6,
+                "min_spacing": 0,
+                "dbu_in_meters": 2.0,
+                "status": "RectanglesClear",
+                "selected_shapes": 1,
+                "checked_rectangles": 1,
+                "skipped": [],
+                "issues": [],
+                "candidates": "0",
+                "index_visits": "0"
+              }
+            },
+            "error": {
+              "side": "comparison",
+              "detail": [
+                "InvalidGeometry",
+                "preflight report profiles differ"
+              ]
+            }
+          }
+        ]
+      },
+      "exit": 2
+    },
+    {
+      "id": "missing-selected-cell",
+      "before": "before",
+      "after": "changed",
+      "plan": "unknown",
+      "expected": {
+        "cell": "unknown",
+        "budget": 100000,
+        "profiles": [
+          {
+            "id": "thin",
+            "layer": 23,
+            "datatype": 2,
+            "min_width": 5,
+            "min_spacing": 0
+          },
+          {
+            "id": "wide规则",
+            "layer": 24,
+            "datatype": 1,
+            "min_width": 6,
+            "min_spacing": 0
+          }
+        ],
+        "status": "ErrorsFound",
+        "counts": {
+          "no_new_issues": 0,
+          "new_issues": 0,
+          "incomplete": 0,
+          "errors": 2
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_profiles": [
+            "thin",
+            "wide规则"
+          ]
+        },
+        "results": [
+          {
+            "id": "thin",
+            "before": {
+              "error": [
+                "MissingCell",
+                "unknown"
+              ]
+            },
+            "after": {
+              "error": [
+                "MissingCell",
+                "unknown"
+              ]
+            }
+          },
+          {
+            "id": "wide规则",
+            "before": {
+              "error": [
+                "MissingCell",
+                "unknown"
+              ]
+            },
+            "after": {
+              "error": [
+                "MissingCell",
+                "unknown"
+              ]
+            }
+          }
+        ]
+      },
+      "exit": 2
+    }
+  ],
+  "malformedSourceHex": "00030000",
+  "invalidPlan": {
+    "schema": "gdsii-rectangle-review-plan-v1",
+    "cell": "top",
+    "profiles": [
+      {
+        "id": "thin",
+        "layer": 23,
+        "datatype": 2,
+        "min_width": 5,
+        "min_spacing": 0
+      },
+      {
+        "id": "wide规则",
+        "layer": 24,
+        "datatype": 1,
+        "min_width": 6,
+        "min_spacing": 0
+      }
+    ],
+    "unexpected": true
+  }
+}

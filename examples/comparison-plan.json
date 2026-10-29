@@ -1,0 +1,20 @@
+﻿{
+  "schema": "gdsii-rectangle-review-plan-v1",
+  "cell": "top",
+  "profiles": [
+    {
+      "id": "thin",
+      "layer": 23,
+      "datatype": 2,
+      "min_width": 5,
+      "min_spacing": 0
+    },
+    {
+      "id": "wide规则",
+      "layer": 24,
+      "datatype": 1,
+      "min_width": 6,
+      "min_spacing": 0
+    }
+  ]
+}
