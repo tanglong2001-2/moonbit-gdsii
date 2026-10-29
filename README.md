@@ -53,6 +53,71 @@ node tools/definition_diff.mjs examples/definition-diff-before.gds examples/defi
 node examples/read_definition_diff.mjs definition-review.json
 ```
 
+## Remap layer and type tags
+
+Use `lib.remap_layers(mappings)` to retarget the original `(layer, type)` pairs
+in every BOUNDARY, PATH, BOX, NODE and TEXT definition. For TEXT the type is
+TEXTTYPE; NODE uses NODETYPE and BOX uses BOXTYPE. References keep their original
+targets and placements, including unresolved references or cycles. The operation
+does not expand the hierarchy or interpret geometry.
+
+Each public `LayerRemap` has `from_layer`, `from_type`, `to_layer`, `to_type`, all
+integers from 0 through 65535. Every rule is checked before applying any rule;
+duplicate source pairs are errors, including identical or unmatched rules.
+Mappings are simultaneous: `1/2 -> 3/4` and `3/4 -> 9/10` send original `1/2`
+elements to `3/4`. They are not subsequently sent to `9/10`. Swaps and shared
+destinations are supported without deleting or reordering elements. Empty maps,
+identity maps and unmatched source pairs are valid.
+
+Only the matched LAYER and kind-specific type payloads change. Coordinates,
+path widths/extensions, text, properties, repeated unknown records, timestamps,
+units, record headers/offsets, cell order and physical zero padding stay exact.
+The original library is unchanged, and the result owns independent parsed arrays.
+In particular, a no-op preserves the complete input byte stream.
+
+For a physical GDS handoff, use the supplied source and map:
+
+```sh
+moon build --target js
+node tools/remap_layers.mjs examples/layer-remap-source.gds examples/layer-remap.json remapped.gds > remap-receipt.json
+node examples/read_remapped_layers.mjs remap-receipt.json
+node tools/inspect.mjs --catalog remapped.gds
+```
+
+The UTF-8 map accepts one leading BOM and has exactly this schema:
+
+```json
+{
+  "schema": "gdsii-layer-remap-v1",
+  "mappings": [
+    { "from_layer": 1, "from_type": 2, "to_layer": 7, "to_type": 8 }
+  ]
+}
+```
+
+Unknown map/rule fields, missing fields, fractions, out-of-range integers and
+duplicate source pairs reject the whole map before GDS parsing. The example
+changes five definitions, one of each supported tag-bearing kind. Its references,
+opaque records, properties, geometry and seven physical trailing zero bytes are
+preserved. The unsigned 16-bit extremes are supported, as are empty libraries.
+
+The producer snapshots the plan and source once, calls the public MoonBit method,
+exclusively creates the output GDS and reads it back. Stdout is a complete JSON
+receipt binding the original source, exact plan bytes and actual output to their
+paths/lengths/SHA256, with the changed element count and complete output catalogue.
+Successful edits and no-ops exit 0; input, plan, engine or I/O errors exit 2.
+Existing files, including source and plan paths, are refused. Late I/O failure can
+leave a partial new output; the output and shell-redirected receipt are not a
+transaction.
+
+The separate recipient reads the saved receipt and all three current physical
+files. It independently scans record headers and tag payloads, verifies every
+byte against the simultaneous replacement contract, and prints the actual tag
+inventory, changed record/byte offsets and padding length. A changed source,
+plan or output is rejected. This own recipient demonstrates file consumption;
+it does not establish external adoption, receipt author authenticity, future file
+stability, fabrication readiness or geometric equivalence.
+
 ## Raw definition change inventory
 
 `before.definition_diff(after)` compares complete cell record blocks by exact

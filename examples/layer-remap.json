@@ -1,0 +1,11 @@
+{
+  "schema": "gdsii-layer-remap-v1",
+  "mappings": [
+    {
+      "from_layer": 1,
+      "from_type": 2,
+      "to_layer": 7,
+      "to_type": 8
+    }
+  ]
+}

@@ -72,6 +72,9 @@ jobs:
           node --check tools/definition_diff.mjs
           node --check examples/read_definition_diff.mjs
           node --check .ci/definition_diff.mjs
+          node --check tools/remap_layers.mjs
+          node --check examples/read_remapped_layers.mjs
+          node --check .ci/layer_remap.mjs
       - name: Verify authored bytes and real file consumers
         run: node .ci/smoke.mjs
       - name: Verify checked record rewrite fidelity
@@ -90,6 +93,8 @@ jobs:
         run: node .ci/compare_plan.mjs
       - name: Verify raw definition inventory and physical cell spans
         run: node .ci/definition_diff.mjs
+      - name: Verify simultaneous layer remap and physical GDS receivers
+        run: node .ci/layer_remap.mjs
       - name: Retain CI evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

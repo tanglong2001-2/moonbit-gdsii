@@ -92,6 +92,12 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("remap-layers"), .. } {
+    guard request is { "hex": String(hex), "mappings": mappings, .. } else {
+      return { "error": "remap-layers requires hex and mappings" }
+    }
+    return remap_layers_hex(hex, mappings)
+  }
   if request is { "mode": String("definition-diff"), .. } {
     guard request is { "hex": String(before), "after_hex": String(after), .. } else {
       return { "error": "definition-diff requires hex and after_hex" }

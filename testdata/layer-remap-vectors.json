@@ -1,0 +1,3580 @@
+{
+  "schema": "gdsii-layer-remap-vectors-v1",
+  "independence": "Hand-authored semantic element/record model and explicit named payload patch lists; constructed before API/consumer implementation, never derived from product output.",
+  "sources": {
+    "mixed": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020001000870020001000200060e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020001000870020001000200060e02000200062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020001000870020001000200062a020002000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020001000870020001000200061602000200061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020001000870020001000200062e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+    "empty": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d415000000870020001000200140305411000000000000041100000000000000004040000000000000000"
+  },
+  "model": [
+    {
+      "key": "core/boundary",
+      "cell": "core",
+      "element_index": 0,
+      "kind": "Boundary",
+      "layer": 1,
+      "type": 2,
+      "target": null
+    },
+    {
+      "key": "core/path",
+      "cell": "core",
+      "element_index": 1,
+      "kind": "Path",
+      "layer": 1,
+      "type": 2,
+      "target": null
+    },
+    {
+      "key": "core/box",
+      "cell": "core",
+      "element_index": 2,
+      "kind": "Box",
+      "layer": 3,
+      "type": 4,
+      "target": null
+    },
+    {
+      "key": "core/node",
+      "cell": "core",
+      "element_index": 3,
+      "kind": "Node",
+      "layer": 1,
+      "type": 2,
+      "target": null
+    },
+    {
+      "key": "core/text",
+      "cell": "core",
+      "element_index": 4,
+      "kind": "Text",
+      "layer": 1,
+      "type": 2,
+      "target": null
+    },
+    {
+      "key": "core/missing",
+      "cell": "core",
+      "element_index": 5,
+      "kind": "Sref",
+      "layer": null,
+      "type": null,
+      "target": "ghost"
+    },
+    {
+      "key": "core/cycle",
+      "cell": "core",
+      "element_index": 6,
+      "kind": "Aref",
+      "layer": null,
+      "type": null,
+      "target": "core"
+    },
+    {
+      "key": "edge/low",
+      "cell": "edge",
+      "element_index": 0,
+      "kind": "Boundary",
+      "layer": 0,
+      "type": 65535,
+      "target": null
+    },
+    {
+      "key": "edge/high",
+      "cell": "edge",
+      "element_index": 1,
+      "kind": "Text",
+      "layer": 65535,
+      "type": 0,
+      "target": null
+    },
+    {
+      "key": "edge/merge",
+      "cell": "edge",
+      "element_index": 2,
+      "kind": "Node",
+      "layer": 9,
+      "type": 10,
+      "target": null
+    },
+    {
+      "key": "edge/box",
+      "cell": "edge",
+      "element_index": 3,
+      "kind": "Box",
+      "layer": 1,
+      "type": 2,
+      "target": null
+    },
+    {
+      "key": "edge/reference",
+      "cell": "edge",
+      "element_index": 4,
+      "kind": "Sref",
+      "layer": null,
+      "type": null,
+      "target": "core"
+    }
+  ],
+  "record_table": [
+    {
+      "index": 0,
+      "offset": 0,
+      "length": 6,
+      "label": "header",
+      "kind": 0,
+      "data_type": 2,
+      "data_hex": "0258"
+    },
+    {
+      "index": 1,
+      "offset": 6,
+      "length": 28,
+      "label": "bgnlib",
+      "kind": 1,
+      "data_type": 2,
+      "data_hex": "07ea000a001d00120000000007ea000a001d001200000000"
+    },
+    {
+      "index": 2,
+      "offset": 34,
+      "length": 10,
+      "label": "libname",
+      "kind": 2,
+      "data_type": 6,
+      "data_hex": "52454d415000"
+    },
+    {
+      "index": 3,
+      "offset": 44,
+      "length": 8,
+      "label": "library.opaque",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 4,
+      "offset": 52,
+      "length": 20,
+      "label": "units",
+      "kind": 3,
+      "data_type": 5,
+      "data_hex": "41100000000000004110000000000000"
+    },
+    {
+      "index": 5,
+      "offset": 72,
+      "length": 28,
+      "label": "core.bgn",
+      "kind": 5,
+      "data_type": 2,
+      "data_hex": "07ea000a001d00120000000007ea000a001d001200000000"
+    },
+    {
+      "index": 6,
+      "offset": 100,
+      "length": 8,
+      "label": "core.name",
+      "kind": 6,
+      "data_type": 6,
+      "data_hex": "636f7265"
+    },
+    {
+      "index": 7,
+      "offset": 108,
+      "length": 4,
+      "label": "core/boundary.begin",
+      "kind": 8,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 8,
+      "offset": 112,
+      "length": 6,
+      "label": "core/boundary.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 9,
+      "offset": 118,
+      "length": 8,
+      "label": "core/boundary.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 10,
+      "offset": 126,
+      "length": 8,
+      "label": "core/boundary.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 11,
+      "offset": 134,
+      "length": 6,
+      "label": "core/boundary.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 12,
+      "offset": 140,
+      "length": 8,
+      "label": "core/boundary.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 13,
+      "offset": 148,
+      "length": 6,
+      "label": "core/boundary.type",
+      "kind": 14,
+      "data_type": 2,
+      "data_hex": "0002"
+    },
+    {
+      "index": 14,
+      "offset": 154,
+      "length": 44,
+      "label": "core/boundary.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000000000000000000000400000000000000040000000300000000000000030000000000000000"
+    },
+    {
+      "index": 15,
+      "offset": 198,
+      "length": 6,
+      "label": "core/boundary.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 16,
+      "offset": 204,
+      "length": 20,
+      "label": "core/boundary.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 17,
+      "offset": 224,
+      "length": 4,
+      "label": "core/boundary.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 18,
+      "offset": 228,
+      "length": 4,
+      "label": "core/path.begin",
+      "kind": 9,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 19,
+      "offset": 232,
+      "length": 6,
+      "label": "core/path.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 20,
+      "offset": 238,
+      "length": 8,
+      "label": "core/path.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 21,
+      "offset": 246,
+      "length": 8,
+      "label": "core/path.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 22,
+      "offset": 254,
+      "length": 6,
+      "label": "core/path.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 23,
+      "offset": 260,
+      "length": 8,
+      "label": "core/path.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 24,
+      "offset": 268,
+      "length": 6,
+      "label": "core/path.type",
+      "kind": 14,
+      "data_type": 2,
+      "data_hex": "0002"
+    },
+    {
+      "index": 25,
+      "offset": 274,
+      "length": 6,
+      "label": "core/path.path-type",
+      "kind": 33,
+      "data_type": 2,
+      "data_hex": "0004"
+    },
+    {
+      "index": 26,
+      "offset": 280,
+      "length": 8,
+      "label": "core/path.width",
+      "kind": 15,
+      "data_type": 3,
+      "data_hex": "fffffffe"
+    },
+    {
+      "index": 27,
+      "offset": 288,
+      "length": 8,
+      "label": "core/path.begin-ext",
+      "kind": 48,
+      "data_type": 3,
+      "data_hex": "fffffffd"
+    },
+    {
+      "index": 28,
+      "offset": 296,
+      "length": 8,
+      "label": "core/path.end-ext",
+      "kind": 49,
+      "data_type": 3,
+      "data_hex": "00000004"
+    },
+    {
+      "index": 29,
+      "offset": 304,
+      "length": 20,
+      "label": "core/path.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "fffffff6000000020000000500000002"
+    },
+    {
+      "index": 30,
+      "offset": 324,
+      "length": 6,
+      "label": "core/path.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 31,
+      "offset": 330,
+      "length": 20,
+      "label": "core/path.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 32,
+      "offset": 350,
+      "length": 4,
+      "label": "core/path.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 33,
+      "offset": 354,
+      "length": 4,
+      "label": "core/box.begin",
+      "kind": 45,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 34,
+      "offset": 358,
+      "length": 6,
+      "label": "core/box.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 35,
+      "offset": 364,
+      "length": 8,
+      "label": "core/box.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 36,
+      "offset": 372,
+      "length": 8,
+      "label": "core/box.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 37,
+      "offset": 380,
+      "length": 6,
+      "label": "core/box.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0003"
+    },
+    {
+      "index": 38,
+      "offset": 386,
+      "length": 8,
+      "label": "core/box.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 39,
+      "offset": 394,
+      "length": 6,
+      "label": "core/box.type",
+      "kind": 46,
+      "data_type": 2,
+      "data_hex": "0004"
+    },
+    {
+      "index": 40,
+      "offset": 400,
+      "length": 44,
+      "label": "core/box.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000000000000000000000400000000000000040000000300000000000000030000000000000000"
+    },
+    {
+      "index": 41,
+      "offset": 444,
+      "length": 6,
+      "label": "core/box.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 42,
+      "offset": 450,
+      "length": 20,
+      "label": "core/box.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 43,
+      "offset": 470,
+      "length": 4,
+      "label": "core/box.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 44,
+      "offset": 474,
+      "length": 4,
+      "label": "core/node.begin",
+      "kind": 21,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 45,
+      "offset": 478,
+      "length": 6,
+      "label": "core/node.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 46,
+      "offset": 484,
+      "length": 8,
+      "label": "core/node.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 47,
+      "offset": 492,
+      "length": 8,
+      "label": "core/node.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 48,
+      "offset": 500,
+      "length": 6,
+      "label": "core/node.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 49,
+      "offset": 506,
+      "length": 8,
+      "label": "core/node.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 50,
+      "offset": 514,
+      "length": 6,
+      "label": "core/node.type",
+      "kind": 42,
+      "data_type": 2,
+      "data_hex": "0002"
+    },
+    {
+      "index": 51,
+      "offset": 520,
+      "length": 12,
+      "label": "core/node.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000001fffffffe"
+    },
+    {
+      "index": 52,
+      "offset": 532,
+      "length": 6,
+      "label": "core/node.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 53,
+      "offset": 538,
+      "length": 20,
+      "label": "core/node.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 54,
+      "offset": 558,
+      "length": 4,
+      "label": "core/node.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 55,
+      "offset": 562,
+      "length": 4,
+      "label": "core/text.begin",
+      "kind": 12,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 56,
+      "offset": 566,
+      "length": 6,
+      "label": "core/text.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 57,
+      "offset": 572,
+      "length": 8,
+      "label": "core/text.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 58,
+      "offset": 580,
+      "length": 8,
+      "label": "core/text.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 59,
+      "offset": 588,
+      "length": 6,
+      "label": "core/text.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 60,
+      "offset": 594,
+      "length": 8,
+      "label": "core/text.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 61,
+      "offset": 602,
+      "length": 6,
+      "label": "core/text.type",
+      "kind": 22,
+      "data_type": 2,
+      "data_hex": "0002"
+    },
+    {
+      "index": 62,
+      "offset": 608,
+      "length": 6,
+      "label": "core/text.presentation",
+      "kind": 23,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 63,
+      "offset": 614,
+      "length": 6,
+      "label": "core/text.path-type",
+      "kind": 33,
+      "data_type": 2,
+      "data_hex": "0000"
+    },
+    {
+      "index": 64,
+      "offset": 620,
+      "length": 8,
+      "label": "core/text.width",
+      "kind": 15,
+      "data_type": 3,
+      "data_hex": "00000002"
+    },
+    {
+      "index": 65,
+      "offset": 628,
+      "length": 6,
+      "label": "core/text.strans",
+      "kind": 26,
+      "data_type": 1,
+      "data_hex": "8000"
+    },
+    {
+      "index": 66,
+      "offset": 634,
+      "length": 12,
+      "label": "core/text.mag",
+      "kind": 27,
+      "data_type": 5,
+      "data_hex": "4110000000000000"
+    },
+    {
+      "index": 67,
+      "offset": 646,
+      "length": 12,
+      "label": "core/text.angle",
+      "kind": 28,
+      "data_type": 5,
+      "data_hex": "0000000000000000"
+    },
+    {
+      "index": 68,
+      "offset": 658,
+      "length": 12,
+      "label": "core/text.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000001fffffffe"
+    },
+    {
+      "index": 69,
+      "offset": 670,
+      "length": 28,
+      "label": "core/text.string",
+      "kind": 25,
+      "data_type": 6,
+      "data_hex": "6c6179657220312074797065203220756e6368616e676564"
+    },
+    {
+      "index": 70,
+      "offset": 698,
+      "length": 6,
+      "label": "core/text.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 71,
+      "offset": 704,
+      "length": 20,
+      "label": "core/text.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 72,
+      "offset": 724,
+      "length": 4,
+      "label": "core/text.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 73,
+      "offset": 728,
+      "length": 4,
+      "label": "core/missing.begin",
+      "kind": 10,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 74,
+      "offset": 732,
+      "length": 6,
+      "label": "core/missing.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 75,
+      "offset": 738,
+      "length": 8,
+      "label": "core/missing.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 76,
+      "offset": 746,
+      "length": 8,
+      "label": "core/missing.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 77,
+      "offset": 754,
+      "length": 10,
+      "label": "core/missing.sname",
+      "kind": 18,
+      "data_type": 6,
+      "data_hex": "67686f737400"
+    },
+    {
+      "index": 78,
+      "offset": 764,
+      "length": 12,
+      "label": "core/missing.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "800000007fffffff"
+    },
+    {
+      "index": 79,
+      "offset": 776,
+      "length": 6,
+      "label": "core/missing.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 80,
+      "offset": 782,
+      "length": 20,
+      "label": "core/missing.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 81,
+      "offset": 802,
+      "length": 4,
+      "label": "core/missing.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 82,
+      "offset": 806,
+      "length": 4,
+      "label": "core/cycle.begin",
+      "kind": 11,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 83,
+      "offset": 810,
+      "length": 6,
+      "label": "core/cycle.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 84,
+      "offset": 816,
+      "length": 8,
+      "label": "core/cycle.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 85,
+      "offset": 824,
+      "length": 8,
+      "label": "core/cycle.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 86,
+      "offset": 832,
+      "length": 8,
+      "label": "core/cycle.sname",
+      "kind": 18,
+      "data_type": 6,
+      "data_hex": "636f7265"
+    },
+    {
+      "index": 87,
+      "offset": 840,
+      "length": 8,
+      "label": "core/cycle.colrow",
+      "kind": 19,
+      "data_type": 2,
+      "data_hex": "00020003"
+    },
+    {
+      "index": 88,
+      "offset": 848,
+      "length": 28,
+      "label": "core/cycle.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000000000000000000001400000000000000000000001e"
+    },
+    {
+      "index": 89,
+      "offset": 876,
+      "length": 6,
+      "label": "core/cycle.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 90,
+      "offset": 882,
+      "length": 20,
+      "label": "core/cycle.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 91,
+      "offset": 902,
+      "length": 4,
+      "label": "core/cycle.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 92,
+      "offset": 906,
+      "length": 4,
+      "label": "core.end",
+      "kind": 7,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 93,
+      "offset": 910,
+      "length": 28,
+      "label": "edge.bgn",
+      "kind": 5,
+      "data_type": 2,
+      "data_hex": "07ea000a001d00120000000007ea000a001d001200000000"
+    },
+    {
+      "index": 94,
+      "offset": 938,
+      "length": 8,
+      "label": "edge.name",
+      "kind": 6,
+      "data_type": 6,
+      "data_hex": "65646765"
+    },
+    {
+      "index": 95,
+      "offset": 946,
+      "length": 4,
+      "label": "edge/low.begin",
+      "kind": 8,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 96,
+      "offset": 950,
+      "length": 6,
+      "label": "edge/low.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 97,
+      "offset": 956,
+      "length": 8,
+      "label": "edge/low.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 98,
+      "offset": 964,
+      "length": 8,
+      "label": "edge/low.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 99,
+      "offset": 972,
+      "length": 6,
+      "label": "edge/low.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0000"
+    },
+    {
+      "index": 100,
+      "offset": 978,
+      "length": 8,
+      "label": "edge/low.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 101,
+      "offset": 986,
+      "length": 6,
+      "label": "edge/low.type",
+      "kind": 14,
+      "data_type": 2,
+      "data_hex": "ffff"
+    },
+    {
+      "index": 102,
+      "offset": 992,
+      "length": 44,
+      "label": "edge/low.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000000000000000000000400000000000000040000000300000000000000030000000000000000"
+    },
+    {
+      "index": 103,
+      "offset": 1036,
+      "length": 6,
+      "label": "edge/low.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 104,
+      "offset": 1042,
+      "length": 20,
+      "label": "edge/low.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 105,
+      "offset": 1062,
+      "length": 4,
+      "label": "edge/low.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 106,
+      "offset": 1066,
+      "length": 4,
+      "label": "edge/high.begin",
+      "kind": 12,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 107,
+      "offset": 1070,
+      "length": 6,
+      "label": "edge/high.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 108,
+      "offset": 1076,
+      "length": 8,
+      "label": "edge/high.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 109,
+      "offset": 1084,
+      "length": 8,
+      "label": "edge/high.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 110,
+      "offset": 1092,
+      "length": 6,
+      "label": "edge/high.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "ffff"
+    },
+    {
+      "index": 111,
+      "offset": 1098,
+      "length": 8,
+      "label": "edge/high.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 112,
+      "offset": 1106,
+      "length": 6,
+      "label": "edge/high.type",
+      "kind": 22,
+      "data_type": 2,
+      "data_hex": "0000"
+    },
+    {
+      "index": 113,
+      "offset": 1112,
+      "length": 6,
+      "label": "edge/high.presentation",
+      "kind": 23,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 114,
+      "offset": 1118,
+      "length": 6,
+      "label": "edge/high.path-type",
+      "kind": 33,
+      "data_type": 2,
+      "data_hex": "0000"
+    },
+    {
+      "index": 115,
+      "offset": 1124,
+      "length": 8,
+      "label": "edge/high.width",
+      "kind": 15,
+      "data_type": 3,
+      "data_hex": "00000002"
+    },
+    {
+      "index": 116,
+      "offset": 1132,
+      "length": 6,
+      "label": "edge/high.strans",
+      "kind": 26,
+      "data_type": 1,
+      "data_hex": "8000"
+    },
+    {
+      "index": 117,
+      "offset": 1138,
+      "length": 12,
+      "label": "edge/high.mag",
+      "kind": 27,
+      "data_type": 5,
+      "data_hex": "4110000000000000"
+    },
+    {
+      "index": 118,
+      "offset": 1150,
+      "length": 12,
+      "label": "edge/high.angle",
+      "kind": 28,
+      "data_type": 5,
+      "data_hex": "0000000000000000"
+    },
+    {
+      "index": 119,
+      "offset": 1162,
+      "length": 12,
+      "label": "edge/high.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000001fffffffe"
+    },
+    {
+      "index": 120,
+      "offset": 1174,
+      "length": 28,
+      "label": "edge/high.string",
+      "kind": 25,
+      "data_type": 6,
+      "data_hex": "6c6179657220312074797065203220756e6368616e676564"
+    },
+    {
+      "index": 121,
+      "offset": 1202,
+      "length": 6,
+      "label": "edge/high.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 122,
+      "offset": 1208,
+      "length": 20,
+      "label": "edge/high.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 123,
+      "offset": 1228,
+      "length": 4,
+      "label": "edge/high.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 124,
+      "offset": 1232,
+      "length": 4,
+      "label": "edge/merge.begin",
+      "kind": 21,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 125,
+      "offset": 1236,
+      "length": 6,
+      "label": "edge/merge.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 126,
+      "offset": 1242,
+      "length": 8,
+      "label": "edge/merge.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 127,
+      "offset": 1250,
+      "length": 8,
+      "label": "edge/merge.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 128,
+      "offset": 1258,
+      "length": 6,
+      "label": "edge/merge.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0009"
+    },
+    {
+      "index": 129,
+      "offset": 1264,
+      "length": 8,
+      "label": "edge/merge.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 130,
+      "offset": 1272,
+      "length": 6,
+      "label": "edge/merge.type",
+      "kind": 42,
+      "data_type": 2,
+      "data_hex": "000a"
+    },
+    {
+      "index": 131,
+      "offset": 1278,
+      "length": 12,
+      "label": "edge/merge.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000001fffffffe"
+    },
+    {
+      "index": 132,
+      "offset": 1290,
+      "length": 6,
+      "label": "edge/merge.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 133,
+      "offset": 1296,
+      "length": 20,
+      "label": "edge/merge.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 134,
+      "offset": 1316,
+      "length": 4,
+      "label": "edge/merge.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 135,
+      "offset": 1320,
+      "length": 4,
+      "label": "edge/box.begin",
+      "kind": 45,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 136,
+      "offset": 1324,
+      "length": 6,
+      "label": "edge/box.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 137,
+      "offset": 1330,
+      "length": 8,
+      "label": "edge/box.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 138,
+      "offset": 1338,
+      "length": 8,
+      "label": "edge/box.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 139,
+      "offset": 1346,
+      "length": 6,
+      "label": "edge/box.layer",
+      "kind": 13,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 140,
+      "offset": 1352,
+      "length": 8,
+      "label": "edge/box.opaque.b",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 141,
+      "offset": 1360,
+      "length": 6,
+      "label": "edge/box.type",
+      "kind": 46,
+      "data_type": 2,
+      "data_hex": "0002"
+    },
+    {
+      "index": 142,
+      "offset": 1366,
+      "length": 44,
+      "label": "edge/box.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "00000000000000000000000400000000000000040000000300000000000000030000000000000000"
+    },
+    {
+      "index": 143,
+      "offset": 1410,
+      "length": 6,
+      "label": "edge/box.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 144,
+      "offset": 1416,
+      "length": 20,
+      "label": "edge/box.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 145,
+      "offset": 1436,
+      "length": 4,
+      "label": "edge/box.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 146,
+      "offset": 1440,
+      "length": 4,
+      "label": "edge/reference.begin",
+      "kind": 10,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 147,
+      "offset": 1444,
+      "length": 6,
+      "label": "edge/reference.flags",
+      "kind": 38,
+      "data_type": 1,
+      "data_hex": "0000"
+    },
+    {
+      "index": 148,
+      "offset": 1450,
+      "length": 8,
+      "label": "edge/reference.plex",
+      "kind": 47,
+      "data_type": 3,
+      "data_hex": "0000002a"
+    },
+    {
+      "index": 149,
+      "offset": 1458,
+      "length": 8,
+      "label": "edge/reference.opaque.a",
+      "kind": 112,
+      "data_type": 2,
+      "data_hex": "00010002"
+    },
+    {
+      "index": 150,
+      "offset": 1466,
+      "length": 8,
+      "label": "edge/reference.sname",
+      "kind": 18,
+      "data_type": 6,
+      "data_hex": "636f7265"
+    },
+    {
+      "index": 151,
+      "offset": 1474,
+      "length": 12,
+      "label": "edge/reference.xy",
+      "kind": 16,
+      "data_type": 3,
+      "data_hex": "800000007fffffff"
+    },
+    {
+      "index": 152,
+      "offset": 1486,
+      "length": 6,
+      "label": "edge/reference.property-attr",
+      "kind": 43,
+      "data_type": 2,
+      "data_hex": "0001"
+    },
+    {
+      "index": 153,
+      "offset": 1492,
+      "length": 20,
+      "label": "edge/reference.property-value",
+      "kind": 44,
+      "data_type": 6,
+      "data_hex": "312f322072656d61696e732072617700"
+    },
+    {
+      "index": 154,
+      "offset": 1512,
+      "length": 4,
+      "label": "edge/reference.end",
+      "kind": 17,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 155,
+      "offset": 1516,
+      "length": 4,
+      "label": "edge.end",
+      "kind": 7,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 156,
+      "offset": 1520,
+      "length": 28,
+      "label": "empty.bgn",
+      "kind": 5,
+      "data_type": 2,
+      "data_hex": "07ea000a001d00120000000007ea000a001d001200000000"
+    },
+    {
+      "index": 157,
+      "offset": 1548,
+      "length": 10,
+      "label": "empty.name",
+      "kind": 6,
+      "data_type": 6,
+      "data_hex": "656d70747900"
+    },
+    {
+      "index": 158,
+      "offset": 1558,
+      "length": 4,
+      "label": "empty.end",
+      "kind": 7,
+      "data_type": 0,
+      "data_hex": ""
+    },
+    {
+      "index": 159,
+      "offset": 1562,
+      "length": 4,
+      "label": "endlib",
+      "kind": 4,
+      "data_type": 0,
+      "data_hex": ""
+    }
+  ],
+  "source_catalog": {
+    "name": "REMAP",
+    "version": 600,
+    "dbu_in_user_units": 1.0,
+    "dbu_in_meters": 1.0,
+    "cells": [
+      {
+        "name": "core",
+        "elements": 7,
+        "layers": [
+          {
+            "kind": "Boundary",
+            "layer": 1,
+            "datatype": 2,
+            "elements": 1
+          },
+          {
+            "kind": "Path",
+            "layer": 1,
+            "datatype": 2,
+            "elements": 1
+          },
+          {
+            "kind": "Box",
+            "layer": 3,
+            "datatype": 4,
+            "elements": 1
+          },
+          {
+            "kind": "Node",
+            "layer": 1,
+            "datatype": 2,
+            "elements": 1
+          },
+          {
+            "kind": "Text",
+            "layer": 1,
+            "datatype": 2,
+            "elements": 1
+          }
+        ],
+        "references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          },
+          {
+            "cell": "core",
+            "element_index": 6,
+            "kind": "Aref",
+            "target": "core",
+            "columns": 2,
+            "rows": 3,
+            "instances": 6,
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "edge",
+        "elements": 5,
+        "layers": [
+          {
+            "kind": "Boundary",
+            "layer": 0,
+            "datatype": 65535,
+            "elements": 1
+          },
+          {
+            "kind": "Text",
+            "layer": 65535,
+            "datatype": 0,
+            "elements": 1
+          },
+          {
+            "kind": "Node",
+            "layer": 9,
+            "datatype": 10,
+            "elements": 1
+          },
+          {
+            "kind": "Box",
+            "layer": 1,
+            "datatype": 2,
+            "elements": 1
+          }
+        ],
+        "references": [
+          {
+            "cell": "edge",
+            "element_index": 4,
+            "kind": "Sref",
+            "target": "core",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "empty",
+        "elements": 0,
+        "layers": [],
+        "references": []
+      }
+    ],
+    "top_cells": [
+      "edge",
+      "empty"
+    ],
+    "missing_references": [
+      {
+        "cell": "core",
+        "element_index": 5,
+        "kind": "Sref",
+        "target": "ghost",
+        "columns": 1,
+        "rows": 1,
+        "instances": 1,
+        "resolved": false
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "all-five-kinds",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 1,
+            "from_type": 2,
+            "to_layer": 7,
+            "to_type": 8
+          }
+        ]
+      },
+      "explicit_expected_patches": [
+        {
+          "label": "core/boundary.layer",
+          "payload_offset": 138,
+          "value": 7
+        },
+        {
+          "label": "core/boundary.type",
+          "payload_offset": 152,
+          "value": 8
+        },
+        {
+          "label": "core/path.layer",
+          "payload_offset": 258,
+          "value": 7
+        },
+        {
+          "label": "core/path.type",
+          "payload_offset": 272,
+          "value": 8
+        },
+        {
+          "label": "core/node.layer",
+          "payload_offset": 504,
+          "value": 7
+        },
+        {
+          "label": "core/node.type",
+          "payload_offset": 518,
+          "value": 8
+        },
+        {
+          "label": "core/text.layer",
+          "payload_offset": 592,
+          "value": 7
+        },
+        {
+          "label": "core/text.type",
+          "payload_offset": 606,
+          "value": 8
+        },
+        {
+          "label": "edge/box.layer",
+          "payload_offset": 1350,
+          "value": 7
+        },
+        {
+          "label": "edge/box.type",
+          "payload_offset": 1364,
+          "value": 8
+        }
+      ],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020007000870020001000200060e020008002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020007000870020001000200060e02000800062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020007000870020001000200062a020008000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020007000870020001000200061602000800061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020007000870020001000200062e020008002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 5,
+      "expected_changed_records": 10,
+      "expected_changed_payload_offsets": [
+        139,
+        153,
+        259,
+        273,
+        505,
+        519,
+        593,
+        607,
+        1351,
+        1365
+      ],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 7,
+          "type": 8
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 7,
+          "type": 8
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 7,
+          "type": 8
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 7,
+          "type": 8
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 7,
+          "type": 8
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 7,
+                "datatype": 8,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 7,
+                "datatype": 8,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 7,
+                "datatype": 8,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 7,
+                "datatype": 8,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 7,
+                "datatype": 8,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "swap",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 1,
+            "from_type": 2,
+            "to_layer": 3,
+            "to_type": 4
+          },
+          {
+            "from_layer": 3,
+            "from_type": 4,
+            "to_layer": 1,
+            "to_type": 2
+          }
+        ]
+      },
+      "explicit_expected_patches": [
+        {
+          "label": "core/boundary.layer",
+          "payload_offset": 138,
+          "value": 3
+        },
+        {
+          "label": "core/boundary.type",
+          "payload_offset": 152,
+          "value": 4
+        },
+        {
+          "label": "core/path.layer",
+          "payload_offset": 258,
+          "value": 3
+        },
+        {
+          "label": "core/path.type",
+          "payload_offset": 272,
+          "value": 4
+        },
+        {
+          "label": "core/node.layer",
+          "payload_offset": 504,
+          "value": 3
+        },
+        {
+          "label": "core/node.type",
+          "payload_offset": 518,
+          "value": 4
+        },
+        {
+          "label": "core/text.layer",
+          "payload_offset": 592,
+          "value": 3
+        },
+        {
+          "label": "core/text.type",
+          "payload_offset": 606,
+          "value": 4
+        },
+        {
+          "label": "edge/box.layer",
+          "payload_offset": 1350,
+          "value": 3
+        },
+        {
+          "label": "edge/box.type",
+          "payload_offset": 1364,
+          "value": 4
+        },
+        {
+          "label": "core/box.layer",
+          "payload_offset": 384,
+          "value": 1
+        },
+        {
+          "label": "core/box.type",
+          "payload_offset": 398,
+          "value": 2
+        }
+      ],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020003000870020001000200060e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020003000870020001000200060e02000400062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020001000870020001000200062e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020003000870020001000200062a020004000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020003000870020001000200061602000400061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 6,
+      "expected_changed_records": 12,
+      "expected_changed_payload_offsets": [
+        139,
+        153,
+        259,
+        273,
+        385,
+        399,
+        505,
+        519,
+        593,
+        607,
+        1351,
+        1365
+      ],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "chain",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 1,
+            "from_type": 2,
+            "to_layer": 3,
+            "to_type": 4
+          },
+          {
+            "from_layer": 3,
+            "from_type": 4,
+            "to_layer": 9,
+            "to_type": 10
+          }
+        ]
+      },
+      "explicit_expected_patches": [
+        {
+          "label": "core/boundary.layer",
+          "payload_offset": 138,
+          "value": 3
+        },
+        {
+          "label": "core/boundary.type",
+          "payload_offset": 152,
+          "value": 4
+        },
+        {
+          "label": "core/path.layer",
+          "payload_offset": 258,
+          "value": 3
+        },
+        {
+          "label": "core/path.type",
+          "payload_offset": 272,
+          "value": 4
+        },
+        {
+          "label": "core/node.layer",
+          "payload_offset": 504,
+          "value": 3
+        },
+        {
+          "label": "core/node.type",
+          "payload_offset": 518,
+          "value": 4
+        },
+        {
+          "label": "core/text.layer",
+          "payload_offset": 592,
+          "value": 3
+        },
+        {
+          "label": "core/text.type",
+          "payload_offset": 606,
+          "value": 4
+        },
+        {
+          "label": "edge/box.layer",
+          "payload_offset": 1350,
+          "value": 3
+        },
+        {
+          "label": "edge/box.type",
+          "payload_offset": 1364,
+          "value": 4
+        },
+        {
+          "label": "core/box.layer",
+          "payload_offset": 384,
+          "value": 9
+        },
+        {
+          "label": "core/box.type",
+          "payload_offset": 398,
+          "value": 10
+        }
+      ],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020003000870020001000200060e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020003000870020001000200060e02000400062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020009000870020001000200062e02000a002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020003000870020001000200062a020004000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020003000870020001000200061602000400061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 6,
+      "expected_changed_records": 12,
+      "expected_changed_payload_offsets": [
+        139,
+        153,
+        259,
+        273,
+        385,
+        399,
+        505,
+        519,
+        593,
+        607,
+        1351,
+        1365
+      ],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "merge",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 1,
+            "from_type": 2,
+            "to_layer": 3,
+            "to_type": 4
+          },
+          {
+            "from_layer": 9,
+            "from_type": 10,
+            "to_layer": 3,
+            "to_type": 4
+          }
+        ]
+      },
+      "explicit_expected_patches": [
+        {
+          "label": "core/boundary.layer",
+          "payload_offset": 138,
+          "value": 3
+        },
+        {
+          "label": "core/boundary.type",
+          "payload_offset": 152,
+          "value": 4
+        },
+        {
+          "label": "core/path.layer",
+          "payload_offset": 258,
+          "value": 3
+        },
+        {
+          "label": "core/path.type",
+          "payload_offset": 272,
+          "value": 4
+        },
+        {
+          "label": "core/node.layer",
+          "payload_offset": 504,
+          "value": 3
+        },
+        {
+          "label": "core/node.type",
+          "payload_offset": 518,
+          "value": 4
+        },
+        {
+          "label": "core/text.layer",
+          "payload_offset": 592,
+          "value": 3
+        },
+        {
+          "label": "core/text.type",
+          "payload_offset": 606,
+          "value": 4
+        },
+        {
+          "label": "edge/box.layer",
+          "payload_offset": 1350,
+          "value": 3
+        },
+        {
+          "label": "edge/box.type",
+          "payload_offset": 1364,
+          "value": 4
+        },
+        {
+          "label": "edge/merge.layer",
+          "payload_offset": 1262,
+          "value": 3
+        },
+        {
+          "label": "edge/merge.type",
+          "payload_offset": 1276,
+          "value": 4
+        }
+      ],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020003000870020001000200060e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020003000870020001000200060e02000400062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020003000870020001000200062a020004000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020003000870020001000200061602000400061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020003000870020001000200062a020004000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 6,
+      "expected_changed_records": 12,
+      "expected_changed_payload_offsets": [
+        139,
+        153,
+        259,
+        273,
+        505,
+        519,
+        593,
+        607,
+        1263,
+        1277,
+        1351,
+        1365
+      ],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "uint16-extremes",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 0,
+            "from_type": 65535,
+            "to_layer": 65535,
+            "to_type": 0
+          },
+          {
+            "from_layer": 65535,
+            "from_type": 0,
+            "to_layer": 0,
+            "to_type": 65535
+          }
+        ]
+      },
+      "explicit_expected_patches": [
+        {
+          "label": "edge/low.layer",
+          "payload_offset": 976,
+          "value": 65535
+        },
+        {
+          "label": "edge/low.type",
+          "payload_offset": 990,
+          "value": 0
+        },
+        {
+          "label": "edge/high.layer",
+          "payload_offset": 1096,
+          "value": 0
+        },
+        {
+          "label": "edge/high.type",
+          "payload_offset": 1110,
+          "value": 65535
+        }
+      ],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020001000870020001000200060e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020001000870020001000200060e02000200062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020001000870020001000200062a020002000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020001000870020001000200061602000200061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d02ffff000870020001000200060e020000002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020000000870020001000200061602ffff00061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020001000870020001000200062e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 2,
+      "expected_changed_records": 4,
+      "expected_changed_payload_offsets": [
+        976,
+        977,
+        990,
+        991,
+        1096,
+        1097,
+        1110,
+        1111
+      ],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 1,
+          "type": 2
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "identity-and-unmatched",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 1,
+            "from_type": 2,
+            "to_layer": 1,
+            "to_type": 2
+          },
+          {
+            "from_layer": 60000,
+            "from_type": 65535,
+            "to_layer": 8,
+            "to_type": 9
+          }
+        ]
+      },
+      "explicit_expected_patches": [],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020001000870020001000200060e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020001000870020001000200060e02000200062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020001000870020001000200062a020002000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020001000870020001000200061602000200061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020001000870020001000200062e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 0,
+      "expected_changed_records": 0,
+      "expected_changed_payload_offsets": [],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 1,
+          "type": 2
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "empty-map",
+      "source": "mixed",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": []
+      },
+      "explicit_expected_patches": [],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d41500000087002000100020014030541100000000000004110000000000000001c050207ea000a001d00120000000007ea000a001d00120000000000080606636f72650004080000062601000000082f030000002a000870020001000200060d020001000870020001000200060e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004090000062601000000082f030000002a000870020001000200060d020001000870020001000200060e02000200062102000400080f03fffffffe00083003fffffffd000831030000000400141003fffffff600000002000000050000000200062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020003000870020001000200062e020004002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020001000870020001000200062a020002000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d020001000870020001000200061602000200061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a0008700200010002000a120667686f737400000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040b0000062601000000082f030000002a000870020001000200081206636f72650008130200020003001c100300000000000000000000001400000000000000000000001e00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d00120000000000080606656467650004080000062601000000082f030000002a000870020001000200060d020000000870020001000200060e02ffff002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040c0000062601000000082f030000002a000870020001000200060d02ffff000870020001000200061602000000061701000000062102000000080f030000000200061a018000000c1b054110000000000000000c1c050000000000000000000c100300000001fffffffe001c19066c6179657220312074797065203220756e6368616e67656400062b02000100142c06312f322072656d61696e732072617700000411000004150000062601000000082f030000002a000870020001000200060d020009000870020001000200062a02000a000c100300000001fffffffe00062b02000100142c06312f322072656d61696e7320726177000004110000042d0000062601000000082f030000002a000870020001000200060d020001000870020001000200062e020002002c10030000000000000000000000040000000000000004000000030000000000000003000000000000000000062b02000100142c06312f322072656d61696e7320726177000004110000040a0000062601000000082f030000002a000870020001000200081206636f7265000c1003800000007fffffff00062b02000100142c06312f322072656d61696e7320726177000004110000040700001c050207ea000a001d00120000000007ea000a001d001200000000000a0606656d70747900000407000004040000000000000000",
+      "expected_changed_elements": 0,
+      "expected_changed_records": 0,
+      "expected_changed_payload_offsets": [],
+      "expected_record_count": 160,
+      "expected_padding_bytes": 7,
+      "expected_elements": [
+        {
+          "cell": "core",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 1,
+          "kind": "Path",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 2,
+          "kind": "Box",
+          "layer": 3,
+          "type": 4
+        },
+        {
+          "cell": "core",
+          "element_index": 3,
+          "kind": "Node",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "core",
+          "element_index": 4,
+          "kind": "Text",
+          "layer": 1,
+          "type": 2
+        },
+        {
+          "cell": "edge",
+          "element_index": 0,
+          "kind": "Boundary",
+          "layer": 0,
+          "type": 65535
+        },
+        {
+          "cell": "edge",
+          "element_index": 1,
+          "kind": "Text",
+          "layer": 65535,
+          "type": 0
+        },
+        {
+          "cell": "edge",
+          "element_index": 2,
+          "kind": "Node",
+          "layer": 9,
+          "type": 10
+        },
+        {
+          "cell": "edge",
+          "element_index": 3,
+          "kind": "Box",
+          "layer": 1,
+          "type": 2
+        }
+      ],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [
+          {
+            "name": "core",
+            "elements": 7,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Path",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 3,
+                "datatype": 4,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "core",
+                "element_index": 5,
+                "kind": "Sref",
+                "target": "ghost",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": false
+              },
+              {
+                "cell": "core",
+                "element_index": 6,
+                "kind": "Aref",
+                "target": "core",
+                "columns": 2,
+                "rows": 3,
+                "instances": 6,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "edge",
+            "elements": 5,
+            "layers": [
+              {
+                "kind": "Boundary",
+                "layer": 0,
+                "datatype": 65535,
+                "elements": 1
+              },
+              {
+                "kind": "Text",
+                "layer": 65535,
+                "datatype": 0,
+                "elements": 1
+              },
+              {
+                "kind": "Node",
+                "layer": 9,
+                "datatype": 10,
+                "elements": 1
+              },
+              {
+                "kind": "Box",
+                "layer": 1,
+                "datatype": 2,
+                "elements": 1
+              }
+            ],
+            "references": [
+              {
+                "cell": "edge",
+                "element_index": 4,
+                "kind": "Sref",
+                "target": "core",
+                "columns": 1,
+                "rows": 1,
+                "instances": 1,
+                "resolved": true
+              }
+            ]
+          },
+          {
+            "name": "empty",
+            "elements": 0,
+            "layers": [],
+            "references": []
+          }
+        ],
+        "top_cells": [
+          "edge",
+          "empty"
+        ],
+        "missing_references": [
+          {
+            "cell": "core",
+            "element_index": 5,
+            "kind": "Sref",
+            "target": "ghost",
+            "columns": 1,
+            "rows": 1,
+            "instances": 1,
+            "resolved": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "empty-library",
+      "source": "empty",
+      "plan": {
+        "schema": "gdsii-layer-remap-v1",
+        "mappings": [
+          {
+            "from_layer": 1,
+            "from_type": 2,
+            "to_layer": 7,
+            "to_type": 8
+          }
+        ]
+      },
+      "explicit_expected_patches": [],
+      "expected_hex": "000600020258001c010207ea000a001d00120000000007ea000a001d001200000000000a020652454d415000000870020001000200140305411000000000000041100000000000000004040000000000000000",
+      "expected_changed_elements": 0,
+      "expected_changed_records": 0,
+      "expected_changed_payload_offsets": [],
+      "expected_record_count": 6,
+      "expected_padding_bytes": 7,
+      "expected_elements": [],
+      "expected_catalog": {
+        "name": "REMAP",
+        "version": 600,
+        "dbu_in_user_units": 1.0,
+        "dbu_in_meters": 1.0,
+        "cells": [],
+        "top_cells": [],
+        "missing_references": []
+      }
+    }
+  ]
+}

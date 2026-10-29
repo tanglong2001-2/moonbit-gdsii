@@ -6,6 +6,41 @@ generated interfaces come from the pinned SDK. Source provenance, licenses and
 Git authorship remain intact. Verification binds actual fresh namespace builds,
 public consumers and file inputs/outputs, rather than a string-replacement test.
 
+## Simultaneous layer/type remapping
+
+The public pure operation and file workflow retarget original layer/type pairs
+without geometry expansion. Existing raw-record APIs could be composed by a
+caller, but did not provide this complete five-kind mapping/handoff. This is a
+bounded capability, with no claim that existing parser/geometry behavior is a bug.
+The comparison, extraction and rename workflows retain their existing contracts.
+
+Before implementation, hand-authored records, semantic element tables and named
+payload patch lists freeze eight complete output streams. A 160-record library
+contains all five tag-bearing kinds, unsigned 16-bit extremes, repeated opaque
+records whose bytes resemble tag values, properties/text, path metadata, TEXT
+placement, missing/cyclic references, multiple/empty cells and seven trailing
+zeros. The old public catalogue validates the full input model. Black-box API
+groups check the complete byte streams, simultaneous swaps/chains/merges, no-ops,
+invalid whole-map rejection and independent result arrays on JS/Wasm-GC.
+
+The necessary `Verify simultaneous layer remap and physical GDS receivers` step
+runs actual file producers, independent physical record recipients and the public
+catalogue on every output. Eight vectors plus one BOM-encoded plan compare full
+GDS bytes and full catalogues to the frozen expectations. Additional real process
+cases cover malformed/unknown/duplicate/range-invalid plans, invalid source,
+exclusive-write refusals and each stale physical operand. Isolated exact copies
+of the wrapper exercise nonzero/truncated child responses; a transparent bridge
+forwards the original snapshot request to the real current engine after replacing
+the disk operands. Original source/engine/fixture bytes remain unchanged.
+
+Complete stdout/stderr/exit records, physical outputs/receipts and source/engine
+identities are retained before assertions. The Checks notice binds case counts,
+full binary output SHA256, canonical catalogue/recipient results, frozen vectors
+and actual engine identity to the Actions head. Cloud/local GDS output bytes are
+expected to match; receipt paths and compiled engine hashes are recorded separately.
+The existing required Linux native job also checks/tests the new public API.
+Own physical recipients are not external adoption or receipt author authentication.
+
 ## Raw definition inventory and physical spans
 
 The new consumer question is which exact named cell record blocks changed when

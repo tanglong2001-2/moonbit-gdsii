@@ -172,6 +172,7 @@ pub fn GdsLibrary::parse(Bytes) -> Result[Self, GdsError]
 pub fn GdsLibrary::preflight_cell(Self, String, Int, Int, Int, Int, budget? : Int) -> Result[PreflightReport, GdsError]
 pub fn GdsLibrary::records(Self) -> Array[GdsRecord]
 pub fn GdsLibrary::reference_impact(Self, String) -> ReferenceImpact
+pub fn GdsLibrary::remap_layers(Self, Array[LayerRemap]) -> Result[Self, GdsError]
 pub fn GdsLibrary::rename_cell(Self, String, String) -> Result[Self, GdsError]
 pub fn GdsLibrary::to_bytes(Self) -> Bytes
 pub fn GdsLibrary::units(Self) -> (Real8Raw, Real8Raw)
@@ -196,6 +197,13 @@ pub(all) struct HierarchyReport {
   references : Array[CatalogReference]
   missing_references : Array[CatalogReference]
   cycle : Array[String]
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct LayerRemap {
+  from_layer : Int
+  from_type : Int
+  to_layer : Int
+  to_type : Int
 } derive(ToJson, @debug.Debug)
 
 pub(all) struct LayerUsage {
