@@ -92,6 +92,9 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("review-dependents"), .. } {
+    return run_dependent_review(request)
+  }
   if request is { "mode": String("rename-cell"), .. } {
     guard request
       is {

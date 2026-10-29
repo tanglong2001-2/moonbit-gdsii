@@ -136,6 +136,7 @@ pub fn GdsLibrary::name(Self) -> String
 pub fn GdsLibrary::parse(Bytes) -> Result[Self, GdsError]
 pub fn GdsLibrary::preflight_cell(Self, String, Int, Int, Int, Int, budget? : Int) -> Result[PreflightReport, GdsError]
 pub fn GdsLibrary::records(Self) -> Array[GdsRecord]
+pub fn GdsLibrary::reference_impact(Self, String) -> ReferenceImpact
 pub fn GdsLibrary::rename_cell(Self, String, String) -> Result[Self, GdsError]
 pub fn GdsLibrary::to_bytes(Self) -> Bytes
 pub fn GdsLibrary::units(Self) -> (Real8Raw, Real8Raw)
@@ -265,6 +266,18 @@ pub(all) struct Rectangles {
   warnings : Array[GeometryWarning]
   layer : Int
   datatype : Int
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct ReferenceImpact {
+  target : String
+  target_defined : Bool
+  cells : Array[ReferenceImpactCell]
+} derive(ToJson, @debug.Debug)
+
+pub(all) struct ReferenceImpactCell {
+  name : String
+  is_top : Bool
+  witness : Array[CatalogReference]
 } derive(ToJson, @debug.Debug)
 
 // Type aliases

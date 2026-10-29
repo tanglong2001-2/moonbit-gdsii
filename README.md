@@ -37,7 +37,69 @@ node tools/inspect.mjs --compare-tops examples/multi-top-before.gds examples/mul
 node tools/inspect.mjs --review-plan examples/review-plan.gds examples/review-plan.json
 node tools/extract_cell.mjs examples/cell-extract-source.gds top exported-top.gds
 node tools/rename_cell.mjs examples/cell-rename-source.gds gate coreA renamed.gds
+node tools/review_dependents.mjs examples/reference-impact.gds mid 18 0 5 0 mid-review.json
+node examples/read_dependent_review.mjs mid-review.json
 ```
+
+## Review definitions that depend on a symbol
+
+When a shared cell changes, `lib.reference_impact("leaf")` inventories every known
+definition that can reach that exact symbol through supported SREF/AREF references.
+It includes a defined target itself with an empty witness. Cells follow source
+definition order; each carries `is_top` and one shortest reference-edge `witness`.
+The witness uses existing catalog metadata, including element index and AREF
+columns/rows/instances. AREF is one graph edge, without expanding its instances.
+Reverse breadth-first discovery visits incoming edges in source-cell/element order
+and retains the first shortest tie. Returned arrays cannot mutate the library.
+
+An undefined symbol can still have known callers: querying `ghost` in the supplied
+sample returns `waiting` with an unresolved witness. An unknown, unreferenced exact
+name returns an empty inventory. Names are not trimmed. Cyclic components are
+included even when they have no top cell. This is potential definition dependency,
+not a list of changed instance locations or a geometry validity claim. Catalog
+and forward hierarchy remain useful composable primitives; the new API and file
+workflow package the reverse query and its review handoff.
+
+```sh
+node tools/review_dependents.mjs SOURCE.gds TARGET LAYER DATATYPE WIDTH SPACING OUTPUT.json [BUDGET]
+node examples/read_dependent_review.mjs OUTPUT.json
+```
+
+The producer reads one source snapshot, parses it once and preflights each impacted
+known definition once with a fresh expansion budget (default 100000). Rules use
+input DBU; all selectors/thresholds are explicit nonnegative INT32 integers and
+budget is a positive INT32 integer. Each result reviews the **whole cell**; issues
+are not attributed specifically to the changed symbol. The complete saved JSON
+contains the source path/byte length/SHA-256, exact dependency witnesses, profile,
+ordered results, report counts and unchecked coverage. The producer exclusively
+creates the output, reads it back and prints its actual byte length/SHA-256.
+Existing files, including the source, are refused. A late filesystem failure may
+leave a partial newly created file; there is no atomic filesystem transaction.
+
+Exit/status precedence is ErrorsFound/2, then Incomplete/4 for an empty queue or
+any unchecked cell, then IssuesFound/3 for findings, otherwise Passed/0. Counts
+count cell reports, not individual issues. Coverage requires a nonempty queue,
+checked rectangles and no skipped/error cells. Per-cell errors still produce a
+complete report and later cells are reviewed; global parse/profile/I/O errors do
+not produce a valid report. Thus `leaf` in the sample saves a report and exits2
+because two dependent definitions form a rootless cycle; `mid` reviews only
+`mid` and `top` and exits0. Unrelated `waiting` does not enter that queue.
+
+The separate recipient example reads the physical report and verifies the current
+source bytes against its snapshot before presenting the ordered outcomes and
+witnesses. A changed or unavailable source prevents receipt. This check is made
+at receipt time; it does not guarantee future file stability or authenticate a
+report author. Both producer and recipient are project examples, not evidence of
+third-party adoption. Existing rectangle/unsupported-geometry/signoff limits apply.
+
+After building JS, `node .ci/reference_impact.mjs` checks independently frozen
+complete reports, actual saved files and recipients, existing file preflight,
+rootless cycles, missing symbols, shortest ties, skips, budget errors, stale
+handoffs and output refusal. Original CC0 inputs/expectations are in
+`testdata/reference-impact-vectors.json`; the gate accepts a fresh output directory.
+The reverse-caller use case also appears in KLayout's documented
+[`Cell.caller_cells`](https://www.klayout.de/doc/code/class_Cell.html#caller_cells)
+API. No KLayout code or runtime is included.
 
 Selected-cell modes take cell, layer, datatype, minimum width and minimum spacing;
 the top-candidate modes omit cell. All geometry/rule values are in input database

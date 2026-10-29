@@ -1,0 +1,1991 @@
+{
+  "schema": "gdsii-reference-impact-vectors-v1",
+  "origin": "Original CC0 streams and hand-positioned independent expected graph paths/whole-cell reports. No product execution or reference-library implementation used.",
+  "sources": {
+    "main": "000600020258001c010207ea000a001d00030000000007ea000a001d00030000000000100206696d706163742d64656d6f000014030541100000000000004110000000000000001c050207ea000a001d00030000000007ea000a001d000300000000000a06067370617265000004080000060d02001300060e020001002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066c6561660004080000060d02001200060e020000002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066d69640000040a00000812066c656166000c100300000008fffffffe0004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000a060672696768740000040b00000812066c6561660008130200010002001c1003fffffffc000000140000000200000014fffffffc000000280004110000040700001c050207ea000a001d00030000000007ea000a001d00030000000000080606746f700000040a00000812066d696400000c100300000028000000000004110000040a00000a1206726967687400000c100300000000ffffffec0004110000040a00000812066c656166000c100300000064000000640004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000a06066379636c654100040a00000a12066379636c6542000c100300000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000a06066379636c654200040a00000a12066379636c6541000c100300000000000000000004110000040a00000812066c656166000c1003ffffffe2ffffffe20004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000c060677616974696e670000040a00000a120667686f737400000c1003000003e8fffffc18000411000004070000040400",
+    "acyclic": "000600020258001c010207ea000a001d00030000000007ea000a001d00030000000000100206696d706163742d64656d6f000014030541100000000000004110000000000000001c050207ea000a001d00030000000007ea000a001d000300000000000a06067370617265000004080000060d02001300060e020001002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066c6561660004080000060d02001200060e020000002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066d69640000040a00000812066c656166000c100300000008fffffffe0004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000a060672696768740000040b00000812066c6561660008130200010002001c1003fffffffc000000140000000200000014fffffffc000000280004110000040700001c050207ea000a001d00030000000007ea000a001d00030000000000080606746f700000040a00000812066d696400000c100300000028000000000004110000040a00000a1206726967687400000c100300000000ffffffec0004110000040a00000812066c656166000c100300000064000000640004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000c060677616974696e670000040a00000a120667686f737400000c1003000003e8fffffc18000411000004070000040400",
+    "tie": "000600020258001c010207ea000a001d00030000000007ea000a001d00030000000000100206696d706163742d64656d6f000014030541100000000000004110000000000000001c050207ea000a001d00030000000007ea000a001d000300000000000a06067370617265000004080000060d02001300060e020001002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066c6561660004080000060d02001200060e020000002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066d69640000040a00000812066c656166000c100300000008fffffffe0004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000a060672696768740000040b00000812066c6561660008130200010002001c1003fffffffc000000140000000200000014fffffffc000000280004110000040700001c050207ea000a001d00030000000007ea000a001d00030000000000080606746f700000040a00000812066d696400000c100300000028000000000004110000040a00000a1206726967687400000c100300000000ffffffec0004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000c060677616974696e670000040a00000a120667686f737400000c1003000003e8fffffc18000411000004070000040400",
+    "mixed": "000600020258001c010207ea000a001d00030000000007ea000a001d00030000000000100206696d706163742d64656d6f000014030541100000000000004110000000000000001c050207ea000a001d00030000000007ea000a001d000300000000000a06067370617265000004080000060d02001300060e020001002c1003000000000000000000000005000000000000000500000007000000000000000700000000000000000004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066c6561660004080000060d02001200060e020000002c100300000000000000000000000500000000000000050000000700000000000000070000000000000000000411000004150000060d02001200062a020000000c100300000001000000020004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000806066d69640000040a00000812066c656166000c100300000008fffffffe0004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000a060672696768740000040b00000812066c6561660008130200010002001c1003fffffffc000000140000000200000014fffffffc000000280004110000040700001c050207ea000a001d00030000000007ea000a001d00030000000000080606746f700000040a00000812066d696400000c100300000028000000000004110000040a00000a1206726967687400000c100300000000ffffffec0004110000040a00000812066c656166000c100300000064000000640004110000040700001c050207ea000a001d00030000000007ea000a001d000300000000000c060677616974696e670000040a00000a120667686f737400000c1003000003e8fffffc18000411000004070000040400"
+  },
+  "impacts": {
+    "main-leaf": {
+      "target": "leaf",
+      "target_defined": true,
+      "cells": [
+        {
+          "name": "leaf",
+          "is_top": false,
+          "witness": []
+        },
+        {
+          "name": "mid",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "mid",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "right",
+              "element_index": 0,
+              "kind": "Aref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 2,
+              "instances": 2,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "top",
+          "is_top": true,
+          "witness": [
+            {
+              "cell": "top",
+              "element_index": 2,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "cycleA",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "cycleA",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "cycleB",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            },
+            {
+              "cell": "cycleB",
+              "element_index": 1,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "cycleB",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "cycleB",
+              "element_index": 1,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        }
+      ]
+    },
+    "acyclic-leaf": {
+      "target": "leaf",
+      "target_defined": true,
+      "cells": [
+        {
+          "name": "leaf",
+          "is_top": false,
+          "witness": []
+        },
+        {
+          "name": "mid",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "mid",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "right",
+              "element_index": 0,
+              "kind": "Aref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 2,
+              "instances": 2,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "top",
+          "is_top": true,
+          "witness": [
+            {
+              "cell": "top",
+              "element_index": 2,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        }
+      ]
+    },
+    "tie-leaf": {
+      "target": "leaf",
+      "target_defined": true,
+      "cells": [
+        {
+          "name": "leaf",
+          "is_top": false,
+          "witness": []
+        },
+        {
+          "name": "mid",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "mid",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "right",
+              "element_index": 0,
+              "kind": "Aref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 2,
+              "instances": 2,
+              "resolved": true
+            }
+          ]
+        },
+        {
+          "name": "top",
+          "is_top": true,
+          "witness": [
+            {
+              "cell": "top",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "mid",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            },
+            {
+              "cell": "mid",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "leaf",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        }
+      ]
+    },
+    "main-mid": {
+      "target": "mid",
+      "target_defined": true,
+      "cells": [
+        {
+          "name": "mid",
+          "is_top": false,
+          "witness": []
+        },
+        {
+          "name": "top",
+          "is_top": true,
+          "witness": [
+            {
+              "cell": "top",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "mid",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        }
+      ]
+    },
+    "main-ghost": {
+      "target": "ghost",
+      "target_defined": false,
+      "cells": [
+        {
+          "name": "waiting",
+          "is_top": true,
+          "witness": [
+            {
+              "cell": "waiting",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "ghost",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": false
+            }
+          ]
+        }
+      ]
+    },
+    "main-nobody": {
+      "target": "nobody",
+      "target_defined": false,
+      "cells": []
+    },
+    "main-spaced": {
+      "target": "leaf ",
+      "target_defined": false,
+      "cells": []
+    },
+    "main-spare": {
+      "target": "spare",
+      "target_defined": true,
+      "cells": [
+        {
+          "name": "spare",
+          "is_top": true,
+          "witness": []
+        }
+      ]
+    },
+    "main-cycleA": {
+      "target": "cycleA",
+      "target_defined": true,
+      "cells": [
+        {
+          "name": "cycleA",
+          "is_top": false,
+          "witness": []
+        },
+        {
+          "name": "cycleB",
+          "is_top": false,
+          "witness": [
+            {
+              "cell": "cycleB",
+              "element_index": 0,
+              "kind": "Sref",
+              "target": "cycleA",
+              "columns": 1,
+              "rows": 1,
+              "instances": 1,
+              "resolved": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "cycle-and-shared-callers",
+      "source": "main",
+      "target": "leaf",
+      "impact": "main-leaf",
+      "expected": {
+        "dependency": {
+          "target": "leaf",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "leaf",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "right",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "right",
+                  "element_index": 0,
+                  "kind": "Aref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 2,
+                  "instances": 2,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 2,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "cycleA",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "cycleA",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "cycleB",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                },
+                {
+                  "cell": "cycleB",
+                  "element_index": 1,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "cycleB",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "cycleB",
+                  "element_index": 1,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "ErrorsFound",
+        "counts": {
+          "passed": 4,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 2
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": [
+            "cycleA",
+            "cycleB"
+          ]
+        },
+        "results": [
+          {
+            "cell": "leaf",
+            "preflight": {
+              "cell": "leaf",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "mid",
+            "preflight": {
+              "cell": "mid",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "right",
+            "preflight": {
+              "cell": "right",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 2,
+              "checked_rectangles": 2,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "top",
+            "preflight": {
+              "cell": "top",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 4,
+              "checked_rectangles": 4,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "cycleA",
+            "error": [
+              "CyclicReference",
+              [
+                "cycleA",
+                "cycleB",
+                "cycleA"
+              ]
+            ]
+          },
+          {
+            "cell": "cycleB",
+            "error": [
+              "CyclicReference",
+              [
+                "cycleB",
+                "cycleA",
+                "cycleB"
+              ]
+            ]
+          }
+        ]
+      },
+      "exit": 2
+    },
+    {
+      "id": "clear-callers",
+      "source": "acyclic",
+      "target": "leaf",
+      "impact": "acyclic-leaf",
+      "expected": {
+        "dependency": {
+          "target": "leaf",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "leaf",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "right",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "right",
+                  "element_index": 0,
+                  "kind": "Aref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 2,
+                  "instances": 2,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 2,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Passed",
+        "counts": {
+          "passed": 4,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_cells": []
+        },
+        "results": [
+          {
+            "cell": "leaf",
+            "preflight": {
+              "cell": "leaf",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "mid",
+            "preflight": {
+              "cell": "mid",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "right",
+            "preflight": {
+              "cell": "right",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 2,
+              "checked_rectangles": 2,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "top",
+            "preflight": {
+              "cell": "top",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 4,
+              "checked_rectangles": 4,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          }
+        ]
+      },
+      "exit": 0
+    },
+    {
+      "id": "width-findings",
+      "source": "acyclic",
+      "target": "leaf",
+      "impact": "acyclic-leaf",
+      "width": 6,
+      "expected": {
+        "dependency": {
+          "target": "leaf",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "leaf",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "right",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "right",
+                  "element_index": 0,
+                  "kind": "Aref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 2,
+                  "instances": 2,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 2,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 6,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "IssuesFound",
+        "counts": {
+          "passed": 0,
+          "failed": 4,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_cells": []
+        },
+        "results": [
+          {
+            "cell": "leaf",
+            "preflight": {
+              "cell": "leaf",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 0,
+                      "min_y": 0,
+                      "max_x": 5,
+                      "max_y": 7,
+                      "source": "/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "mid",
+            "preflight": {
+              "cell": "mid",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 8,
+                      "min_y": -2,
+                      "max_x": 13,
+                      "max_y": 5,
+                      "source": "/mid:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "right",
+            "preflight": {
+              "cell": "right",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 2,
+              "checked_rectangles": 2,
+              "skipped": [],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 20,
+                      "max_x": 1,
+                      "max_y": 27,
+                      "source": "/right:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 30,
+                      "max_x": 1,
+                      "max_y": 37,
+                      "source": "/right:0[0,1]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "top",
+            "preflight": {
+              "cell": "top",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 4,
+              "checked_rectangles": 4,
+              "skipped": [],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 48,
+                      "min_y": -2,
+                      "max_x": 53,
+                      "max_y": 5,
+                      "source": "/top:0[0,0]/mid:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 0,
+                      "max_x": 1,
+                      "max_y": 7,
+                      "source": "/top:1[0,0]/right:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 10,
+                      "max_x": 1,
+                      "max_y": 17,
+                      "source": "/top:1[0,0]/right:0[0,1]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 100,
+                      "min_y": 100,
+                      "max_x": 105,
+                      "max_y": 107,
+                      "source": "/top:2[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          }
+        ]
+      },
+      "exit": 3
+    },
+    {
+      "id": "ancestors-not-descendants",
+      "source": "main",
+      "target": "mid",
+      "impact": "main-mid",
+      "expected": {
+        "dependency": {
+          "target": "mid",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "mid",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Passed",
+        "counts": {
+          "passed": 2,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_cells": []
+        },
+        "results": [
+          {
+            "cell": "mid",
+            "preflight": {
+              "cell": "mid",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "top",
+            "preflight": {
+              "cell": "top",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 4,
+              "checked_rectangles": 4,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          }
+        ]
+      },
+      "exit": 0
+    },
+    {
+      "id": "shortest-tie",
+      "source": "tie",
+      "target": "leaf",
+      "impact": "tie-leaf",
+      "tie": true,
+      "expected": {
+        "dependency": {
+          "target": "leaf",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "leaf",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "right",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "right",
+                  "element_index": 0,
+                  "kind": "Aref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 2,
+                  "instances": 2,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "mid",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                },
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Passed",
+        "counts": {
+          "passed": 4,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": true,
+          "unchecked_cells": []
+        },
+        "results": [
+          {
+            "cell": "leaf",
+            "preflight": {
+              "cell": "leaf",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "mid",
+            "preflight": {
+              "cell": "mid",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 1,
+              "checked_rectangles": 1,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "right",
+            "preflight": {
+              "cell": "right",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 2,
+              "checked_rectangles": 2,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "top",
+            "preflight": {
+              "cell": "top",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "RectanglesClear",
+              "selected_shapes": 3,
+              "checked_rectangles": 3,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          }
+        ]
+      },
+      "exit": 0
+    },
+    {
+      "id": "dangling-target",
+      "source": "main",
+      "target": "ghost",
+      "impact": "main-ghost",
+      "expected": {
+        "dependency": {
+          "target": "ghost",
+          "target_defined": false,
+          "cells": [
+            {
+              "name": "waiting",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "waiting",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "ghost",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": false
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "ErrorsFound",
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 1
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": [
+            "waiting"
+          ]
+        },
+        "results": [
+          {
+            "cell": "waiting",
+            "error": [
+              "MissingCell",
+              "ghost"
+            ]
+          }
+        ]
+      },
+      "exit": 2
+    },
+    {
+      "id": "unknown-target",
+      "source": "main",
+      "target": "nobody",
+      "impact": "main-nobody",
+      "expected": {
+        "dependency": {
+          "target": "nobody",
+          "target_defined": false,
+          "cells": []
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Incomplete",
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": []
+        },
+        "results": []
+      },
+      "exit": 4
+    },
+    {
+      "id": "exact-spaced-query",
+      "source": "main",
+      "target": "leaf ",
+      "impact": "main-spaced",
+      "expected": {
+        "dependency": {
+          "target": "leaf ",
+          "target_defined": false,
+          "cells": []
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Incomplete",
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": []
+        },
+        "results": []
+      },
+      "exit": 4
+    },
+    {
+      "id": "unselected-own-definition",
+      "source": "main",
+      "target": "spare",
+      "impact": "main-spare",
+      "expected": {
+        "dependency": {
+          "target": "spare",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "spare",
+              "is_top": true,
+              "witness": []
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Incomplete",
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "incomplete": 1,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": [
+            "spare"
+          ]
+        },
+        "results": [
+          {
+            "cell": "spare",
+            "preflight": {
+              "cell": "spare",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 5,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "EmptySelection",
+              "selected_shapes": 0,
+              "checked_rectangles": 0,
+              "skipped": [],
+              "issues": [],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          }
+        ]
+      },
+      "exit": 4
+    },
+    {
+      "id": "rootless-cycle",
+      "source": "main",
+      "target": "cycleA",
+      "impact": "main-cycleA",
+      "expected": {
+        "dependency": {
+          "target": "cycleA",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "cycleA",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "cycleB",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "cycleB",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "cycleA",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "ErrorsFound",
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 2
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": [
+            "cycleA",
+            "cycleB"
+          ]
+        },
+        "results": [
+          {
+            "cell": "cycleA",
+            "error": [
+              "CyclicReference",
+              [
+                "cycleA",
+                "cycleB",
+                "cycleA"
+              ]
+            ]
+          },
+          {
+            "cell": "cycleB",
+            "error": [
+              "CyclicReference",
+              [
+                "cycleB",
+                "cycleA",
+                "cycleB"
+              ]
+            ]
+          }
+        ]
+      },
+      "exit": 2
+    },
+    {
+      "id": "findings-with-skips",
+      "source": "mixed",
+      "target": "leaf",
+      "impact": "acyclic-leaf",
+      "width": 6,
+      "mixed": true,
+      "expected": {
+        "dependency": {
+          "target": "leaf",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "leaf",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "right",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "right",
+                  "element_index": 0,
+                  "kind": "Aref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 2,
+                  "instances": 2,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 2,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 6,
+          "min_spacing": 0,
+          "budget": 100000
+        },
+        "status": "Incomplete",
+        "counts": {
+          "passed": 0,
+          "failed": 4,
+          "incomplete": 0,
+          "errors": 0
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": [
+            "leaf",
+            "mid",
+            "right",
+            "top"
+          ]
+        },
+        "results": [
+          {
+            "cell": "leaf",
+            "preflight": {
+              "cell": "leaf",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 2,
+              "checked_rectangles": 1,
+              "skipped": [
+                {
+                  "source": "/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                }
+              ],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 0,
+                      "min_y": 0,
+                      "max_x": 5,
+                      "max_y": 7,
+                      "source": "/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "mid",
+            "preflight": {
+              "cell": "mid",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 2,
+              "checked_rectangles": 1,
+              "skipped": [
+                {
+                  "source": "/mid:0[0,0]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                }
+              ],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 8,
+                      "min_y": -2,
+                      "max_x": 13,
+                      "max_y": 5,
+                      "source": "/mid:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "right",
+            "preflight": {
+              "cell": "right",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 4,
+              "checked_rectangles": 2,
+              "skipped": [
+                {
+                  "source": "/right:0[0,0]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                },
+                {
+                  "source": "/right:0[0,1]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                }
+              ],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 20,
+                      "max_x": 1,
+                      "max_y": 27,
+                      "source": "/right:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 30,
+                      "max_x": 1,
+                      "max_y": 37,
+                      "source": "/right:0[0,1]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          },
+          {
+            "cell": "top",
+            "preflight": {
+              "cell": "top",
+              "layer": 18,
+              "datatype": 0,
+              "min_width": 6,
+              "min_spacing": 0,
+              "dbu_in_meters": 1.0,
+              "status": "ViolationsFound",
+              "selected_shapes": 8,
+              "checked_rectangles": 4,
+              "skipped": [
+                {
+                  "source": "/top:0[0,0]/mid:0[0,0]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                },
+                {
+                  "source": "/top:1[0,0]/right:0[0,0]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                },
+                {
+                  "source": "/top:1[0,0]/right:0[0,1]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                },
+                {
+                  "source": "/top:2[0,0]/leaf:1",
+                  "reason": "GeometrySkipped: not a nondegenerate simple axis-aligned box (PATH/TEXT/NODE also retained but not stroked)"
+                }
+              ],
+              "issues": [
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 48,
+                      "min_y": -2,
+                      "max_x": 53,
+                      "max_y": 5,
+                      "source": "/top:0[0,0]/mid:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 0,
+                      "max_x": 1,
+                      "max_y": 7,
+                      "source": "/top:1[0,0]/right:0[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": -4,
+                      "min_y": 10,
+                      "max_x": 1,
+                      "max_y": 17,
+                      "source": "/top:1[0,0]/right:0[0,1]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                },
+                {
+                  "rule": "Width",
+                  "rectangles": [
+                    {
+                      "min_x": 100,
+                      "min_y": 100,
+                      "max_x": 105,
+                      "max_y": 107,
+                      "source": "/top:2[0,0]/leaf:0"
+                    }
+                  ],
+                  "required": 6,
+                  "measured": 5.0,
+                  "shortfall": 1.0
+                }
+              ],
+              "candidates": "0",
+              "index_visits": "0"
+            }
+          }
+        ]
+      },
+      "exit": 4
+    },
+    {
+      "id": "per-cell-budget",
+      "source": "acyclic",
+      "target": "leaf",
+      "impact": "acyclic-leaf",
+      "budget": 1,
+      "expected": {
+        "dependency": {
+          "target": "leaf",
+          "target_defined": true,
+          "cells": [
+            {
+              "name": "leaf",
+              "is_top": false,
+              "witness": []
+            },
+            {
+              "name": "mid",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "mid",
+                  "element_index": 0,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "right",
+              "is_top": false,
+              "witness": [
+                {
+                  "cell": "right",
+                  "element_index": 0,
+                  "kind": "Aref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 2,
+                  "instances": 2,
+                  "resolved": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "is_top": true,
+              "witness": [
+                {
+                  "cell": "top",
+                  "element_index": 2,
+                  "kind": "Sref",
+                  "target": "leaf",
+                  "columns": 1,
+                  "rows": 1,
+                  "instances": 1,
+                  "resolved": true
+                }
+              ]
+            }
+          ]
+        },
+        "profile": {
+          "layer": 18,
+          "datatype": 0,
+          "min_width": 5,
+          "min_spacing": 0,
+          "budget": 1
+        },
+        "status": "ErrorsFound",
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "incomplete": 0,
+          "errors": 4
+        },
+        "coverage": {
+          "complete": false,
+          "unchecked_cells": [
+            "leaf",
+            "mid",
+            "right",
+            "top"
+          ]
+        },
+        "results": [
+          {
+            "cell": "leaf",
+            "error": [
+              "ExpansionLimit",
+              1
+            ]
+          },
+          {
+            "cell": "mid",
+            "error": [
+              "ExpansionLimit",
+              1
+            ]
+          },
+          {
+            "cell": "right",
+            "error": [
+              "ExpansionLimit",
+              1
+            ]
+          },
+          {
+            "cell": "top",
+            "error": [
+              "ExpansionLimit",
+              1
+            ]
+          }
+        ]
+      },
+      "exit": 2
+    }
+  ]
+}
