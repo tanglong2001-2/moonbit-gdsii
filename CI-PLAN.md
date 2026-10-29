@@ -6,6 +6,38 @@ generated interfaces come from the pinned SDK. Source provenance, licenses and
 Git authorship remain intact. Verification binds actual fresh namespace builds,
 public consumers and file inputs/outputs, rather than a string-replacement test.
 
+## Exact rectangle union-area measurement
+
+The additive scalar API measures union coverage of positive INT32 rectangles in
+exact UInt64, without editing or merging output geometry and without changing raw
+per-instance DRC rules. The standalone file measurement retains every checked box
+and selected skipped-shape warning; incomplete/empty scopes exit4, never complete.
+Area is a decimal string on the wire, including full-domain18446744065119617025.
+
+Before implementation, freeze76 complete API vectors: nine hand geometry cases,
+64 small unit-square occupancy oracles and three large exact integer cases.
+A10000-rectangle disjoint-stripe arithmetic oracle exercises varied compressed-y
+endpoints. Full original97-record/1107-byte GDS and eight complete independently
+written flattened rectangle/warning/area reports cover SREF/AREF overlap, partial
+and entirely skipped selections, empty scopes and values beyond signed64/JS-safe
+integer range. The old public selection consumer confirms all input geometry.
+
+The necessary `Verify exact rectangle union area and physical report consumers`
+step compares every field of actual saved reports/receipts and actual physical
+source-bound recipient outputs. It retains stdout/stderr/exit before assertions,
+and covers graph/budget/input/argument errors, exclusive writes, stale physical
+source and exact decimal/scope rejection. Isolated copies exercise failed,
+truncated or numeric-area child responses; a transparent bridge forwards the
+original snapshot request to the real engine after modifying the disk source.
+Public black-box groups run on JS/Wasm-GC and the existing full native test step.
+
+The Checks notice binds full measurement geometry/skip/decimal semantics, original
+input/vector hashes and actual engine identity to the current head. Cloud/local
+report path bytes may differ; complete canonical measurement identities must agree.
+The physical recipient validates binding/precision/scope, and does not independently
+reflatten GDS/recompute area or authenticate report authors. No such broader claim
+is inferred from this acceptance. Existing workflows and their gates remain required.
+
 ## Simultaneous layer/type remapping
 
 The public pure operation and file workflow retarget original layer/type pairs

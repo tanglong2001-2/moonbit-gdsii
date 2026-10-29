@@ -53,6 +53,57 @@ node tools/definition_diff.mjs examples/definition-diff-before.gds examples/defi
 node examples/read_definition_diff.mjs definition-review.json
 ```
 
+## Exact rectangle union area
+
+`rectangle_union_area(rectangles)` measures the union of positive axis-aligned
+integer `Rect` values in squared database units. Overlap, nesting and duplicate
+instances count once; touching boundaries do not add area. Empty input has area
+zero. Nonpositive dimensions are rejected, including an invalid last rectangle.
+Labels and input order do not change the answer, and caller arrays are untouched.
+This scalar measurement leaves the existing raw-instance DRC rules unchanged.
+
+The implementation sweeps x events with a compressed-y covered-length tree:
+O(N log N) time and O(N) additional memory. It widens differences before subtracting
+INT32 endpoints and uses exact UInt64 lengths/products. Even the full coordinate
+domain has area `(2^32-1)^2 = 18446744065119617025`, which fits UInt64. No floating
+area accumulation, polygon output, coordinate edit or unit rescaling is involved.
+
+For a selected cell/layer/type and a persistent full report:
+
+```sh
+moon build --target js
+node tools/measure_area.mjs examples/rectangle-area-source.gds top 7 2 area.json
+node examples/read_rectangle_area.mjs area.json
+```
+
+Arguments are `SOURCE.gds CELL LAYER DATATYPE OUTPUT.json [BUDGET]`, with the
+existing positive expansion budget default 100000 and nonnegative INT32 selectors.
+The source is snapshotted once. Existing flattening/DBU rounding and rectangle
+selection supply the checked boxes and every selected skipped-shape warning.
+The example contains repeated and overlapping SREF/AREF geometry: 15 checked
+rectangle instances cover exactly 108 DBU squared. The `huge` cell in the same
+input demonstrates the exact full-coordinate-domain area.
+
+Reports store `area_dbu2` as a **decimal string**, preserving values beyond signed
+64-bit or JavaScript's safe integer range. They include the exact query/budget,
+all checked rectangle coordinates/source paths, every skipped warning, counts
+and a physical source path/length/SHA256 binding. `Complete` exits 0 and requires
+a nonempty checked selection with no skips. `IncompleteGeometry` and
+`EmptySelection` exit 4 and still save the complete scoped report. The reported
+area covers only checked rectangles; skipped geometry has unknown area. Parse,
+graph, numeric, budget or I/O errors exit 2 without a valid measurement report.
+
+The producer exclusively creates the report, reads the complete bytes back and
+prints their actual file identity. Existing files, including the input path, are
+refused. Late I/O failure may leave a partial new file. The separate recipient
+reads the saved report and current physical source, verifies the fingerprint and
+exact UINT64 decimal/scope/count/skip fields, and returns the full measurement
+without a Number conversion. It does not independently reflatten GDS or recompute
+area, authenticate arbitrary report authors, or establish external adoption.
+The full report values are tested against independent geometry/area expectations.
+`Complete` describes this selected rectangle measurement; it does not certify a
+whole mask, general polygon geometry, physical equivalence or fabrication signoff.
+
 ## Remap layer and type tags
 
 Use `lib.remap_layers(mappings)` to retarget the original `(layer, type)` pairs
@@ -863,7 +914,7 @@ claim: Euclidean corner rejection can make C larger than K.
 Collinear monotone redundant vertices are allowed on otherwise simple boxes.
 Concave, diagonal, degenerate, retraced and self-crossing shapes, PATH/TEXT/NODE
 and other selected non-box geometry produce individual skip findings. General
-polygon/holes/union, path stroking, cross-layer rules and foundry signoff are outside
+general polygon/holes/boolean output, path stroking, cross-layer rules and foundry signoff are outside
 this first release.
 
 ## Independent validation and sources

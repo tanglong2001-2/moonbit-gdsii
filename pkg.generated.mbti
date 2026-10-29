@@ -10,6 +10,8 @@ pub fn check_manhattan_drc(Array[Rect], Int, Int) -> Result[DrcReport, GdsError]
 
 pub fn quantize_dbu(Double) -> Result[Int, GdsError]
 
+pub fn rectangle_union_area(Array[Rect]) -> Result[UInt64, GdsError]
+
 // Errors
 pub(all) suberror GdsError {
   InvalidRecord(Int, String)

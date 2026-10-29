@@ -92,6 +92,9 @@ fn compare_hex(
 
 ///|
 fn run(request : Json) -> Json {
+  if request is { "mode": String("rectangle-area"), .. } {
+    return run_rectangle_area(request)
+  }
   if request is { "mode": String("remap-layers"), .. } {
     guard request is { "hex": String(hex), "mappings": mappings, .. } else {
       return { "error": "remap-layers requires hex and mappings" }
